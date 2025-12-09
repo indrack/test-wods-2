@@ -92,7 +92,7 @@ h3 {
   /* --- ASEGURAR CENTRADO --- */
   display: inline-block; /* Importante */
   text-align: center;    /* Importante */
-  align-self: center;    /* Fuerza al flexbox a centrarlo aunque el resto sea left */
+  align-self: center;    /* Forzar al flexbox a centrarlo aunque el resto sea left */
   
   text-shadow: 0px 0px 15px rgba(255, 0, 0, 0.5);
   white-space: nowrap; 
@@ -100,10 +100,10 @@ h3 {
 
 p {
   font-size: 3.3em;
-  line-height: 1.3;      /* Un poco más de aire entre líneas */
+  line-height: 1.3;      /*  aire entre líneas */
   color: #f0f0f0;
   white-space: normal;
-  margin-bottom: 0.2em;  /* Más separación entre bloques de texto */
+  margin-bottom: 0.2em;  /* separación entre bloques de texto */
   font-weight: 400;
   
   width: 100%;           /* Ocupa todo el ancho disponible */
@@ -112,9 +112,9 @@ p {
   text-align: left;      /* Alineado a la izquierda para aprovechar espacio */
   padding: 0 40px;       /* Margen lateral para que no toque el borde de la TV */
   
-  /* Opcional: Un borde suave a la izquierda para darle estilo de "lista" */
+  /* Opcional:  borde suave a la izquierda para darle estilo de "lista" */
   border-left: 5px solid #333; 
-  margin-left: 20px;     /* Separación del borde si usas la línea de arriba */
+  margin-left: 20px;     /* Separación del borde si usamos la línea de arriba */
 }
 
 /* --- MÓVIL (DEBUG) --- */
@@ -135,6 +135,7 @@ p {
   p { font-size: 16px; }
 
 }
+
 
 
 
