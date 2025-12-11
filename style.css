@@ -51,6 +51,8 @@ body, html {
   justify-content: center; align-items: center;
   text-align: center;
   transform-origin: center center;
+  /* Marge inferior opcional  de seguridad */
+  margin-bottom: 20px; 
 }
 
 /* Tipografía Maximizada */
@@ -119,4 +121,5 @@ button:active {
   .nav-buttons { bottom: 80px; }
 
 }
+
 
