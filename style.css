@@ -46,7 +46,7 @@ body, html {
 /* --- CONTENIDO WOD (GIGANTE) --- */
 .content-wrapper {
   width: 99vh; 
-  height: 75%; /* Dejamos espacio para header y footer */
+  height: 65%; /* Dejamos espacio para header y footer */
   display: flex; flex-direction: column;
   justify-content: center; align-items: center;
   text-align: center;
@@ -81,27 +81,36 @@ p {
 /* --- BOTONES DE NAVEGACIÓN --- */
 .nav-buttons {
   position: absolute;
-  bottom: 20px;
+  bottom: 10px; /* CAMBIO: Más pegado al borde inferior */
   width: 100%;
   display: flex;
-  justify-content: space-between;
-  padding: 0 40px;
+  justify-content: space-between; /* Uno a cada esquina */
+  padding: 0 20px; /* Menos margen lateral */
   z-index: 100;
+  pointer-events: none; /* permite tocar a través del área vacía */
 }
 
 button {
-  background: rgba(255,255,255,0.1);
-  border: 2px solid #333;
+  pointer-events: auto; /* Reactivar clicks en los botones */
+  background: rgba(255,255,255,0.15); /* Un poco más visible */
+  border: 1px solid #555; /* Borde más fino */
   color: #fff;
-  font-size: 4em;
-  padding: 10px 40px;
-  border-radius: 15px;
+  
+  /* --- CAMBIOS DE TAMAÑO --- */
+  font-size: 2em;      /* Antes era 4em  */
+  padding: 10px 25px;  
+  border-radius: 50px; /* Más redondeados */
+  
   cursor: pointer;
   transition: all 0.2s;
+  backdrop-filter: blur(5px); /* Efecto vidrio elegante */
 }
 
-button:active { background: #ff0000; color: #000; }
-button:disabled { opacity: 0; pointer-events: none; }
+button:active { 
+  background: #ff0000; 
+  color: #fff; 
+  transform: scale(0.95);
+}
 
 /* --- MÓVIL (DEBUG) --- */
 @media (orientation: portrait) {
@@ -110,3 +119,4 @@ button:disabled { opacity: 0; pointer-events: none; }
   .nav-buttons { bottom: 80px; }
 
 }
+
