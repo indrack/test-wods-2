@@ -23,7 +23,7 @@ body, html {
 /* LOGO Y RELOJ (Misma posición, ajustado tamaño) */
 .bg-logo {
   position: absolute; top: 30px; right: 40px;  
-  width: 180px; opacity: 0.3; pointer-events: none;
+  width: 210px; opacity: 0.3; pointer-events: none;
 }
 .datetime-container {
   position: absolute; left: 30px; top: 30px;  
@@ -45,14 +45,15 @@ body, html {
 
 /* --- CONTENIDO WOD (GIGANTE) --- */
 .content-wrapper {
-  width: 99vh; 
-  height: 65%; /* Dejamos espacio para header y footer */
-  display: flex; flex-direction: column;
-  justify-content: center; align-items: center;
+  width: 96vh; /* Un poco menos para asegurar márgenes laterales */
+  height: 85%; /* CAMBIO: Aumentado de 65% a 85% para usar más pantalla */
+  display: flex; 
+  flex-direction: column;
+  justify-content: center; /* Mantiene centrado si es corto */
+  align-items: center;
   text-align: center;
   transform-origin: center center;
-  /* Marge inferior opcional  de seguridad */
-  margin-bottom: 20px; 
+  margin-bottom: 10px; /* Quitamos margen innecesario */
 }
 
 /* Tipografía Maximizada */
@@ -67,17 +68,14 @@ h3 {
 }
 
 p {
-  font-size: 4.5em; /* Texto enorme */
-  line-height: 1.2;
+  font-size: 4.0em; /* CAMBIO: Reducido de 4.5em a 3.5em */
+  line-height: 1.4;
   color: #fff;
-  white-space: pre-wrap; /* Respeta saltos de línea del JS */
+  white-space: pre-wrap;
   font-weight: 400;
-  
-  width: 100%;           /* Ocupa todo el ancho disponible */
-  
-  /* --- CAMBIO CLAVE --- */
-  text-align: left;      /* Alineado a la izquierda para aprovechar espacio */
-  padding: 0 2px;   
+  width: 100%;
+  text-align: left;
+  padding: 0 5px; 
 }
 
 /* --- BOTONES DE NAVEGACIÓN --- */
@@ -86,7 +84,8 @@ p {
   bottom: 10px; /* CAMBIO: Más pegado al borde inferior */
   width: 100%;
   display: flex;
-  justify-content: space-between; /* Uno a cada esquina */
+  justify-content: center; /* centro */
+  gap: 40px;
   padding: 0 20px; /* Menos margen lateral */
   z-index: 100;
   pointer-events: none; /* permite tocar a través del área vacía */
@@ -121,5 +120,15 @@ button:active {
   .nav-buttons { bottom: 80px; }
 
 }
+
+
+
+
+
+
+
+
+
+
 
 
