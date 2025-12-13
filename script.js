@@ -58,32 +58,44 @@ function renderSlide() {
   const wrapper = document.getElementById('wod-display');
   if (!wrapper || currentWodParts.length === 0) return;
 
-  const part = currentWodParts[currentSlideIndex];
-  
-  wrapper.innerHTML = `
-    <h3>${part.titulo}</h3>
-    <p>${part.contenido}</p>
-  `;
+  // 1. INICIAR SALIDA (Fade Out)
+  wrapper.classList.add('fading');
 
-  // Actualizar indicador (Ej: 1/3)
-  const indicator = document.getElementById('slide-indicator');
-  if(indicator) indicator.innerText = `${currentSlideIndex + 1} / ${currentWodParts.length}`;
+  // 2. ESPERAR 300ms 
+  setTimeout(() => {
+    
+    // --- CAMBIO DE CONTENIDO ---
+    const part = currentWodParts[currentSlideIndex];
+    
+    wrapper.innerHTML = `
+      <h3>${part.titulo}</h3>
+      <p>${part.contenido}</p>
+    `;
 
-  // Actualizar botones visuales
-  const btnPrev = document.getElementById('btn-prev');
-  const btnNext = document.getElementById('btn-next');
-  
-  if (btnPrev) {
-    btnPrev.disabled = (currentSlideIndex === 0);
-    btnPrev.style.opacity = (currentSlideIndex === 0) ? "0" : "1";
-  }
-  if (btnNext) {
-    btnNext.disabled = (currentSlideIndex === currentWodParts.length - 1);
-    btnNext.style.opacity = (currentSlideIndex === currentWodParts.length - 1) ? "0" : "1";
-  }
+    // Actualizar indicador
+    const indicator = document.getElementById('slide-indicator');
+    if(indicator) indicator.innerText = `${currentSlideIndex + 1} / ${currentWodParts.length}`;
 
-  // Escalar texto
-  setTimeout(ajustarEscala, 50);
+    // Actualizar botones
+    const btnPrev = document.getElementById('btn-prev');
+    const btnNext = document.getElementById('btn-next');
+    
+    if (btnPrev) {
+      btnPrev.disabled = (currentSlideIndex === 0);
+      btnPrev.style.opacity = (currentSlideIndex === 0) ? "0" : "1";
+    }
+    if (btnNext) {
+      btnNext.disabled = (currentSlideIndex === currentWodParts.length - 1);
+      btnNext.style.opacity = (currentSlideIndex === currentWodParts.length - 1) ? "0" : "1";
+    }
+
+    // Recalcular tamaño de letra ANTES de mostrarlo
+    ajustarEscala();
+
+    // 3. INICIAR ENTRADA (Fade In)
+    wrapper.classList.remove('fading');
+
+  }, 300); // Este número debe coincidir con el '0.3s' del CSS
 }
 
 function cambiarSlide(direccion) {
@@ -163,3 +175,4 @@ window.addEventListener('resize', function() {
     setTimeout(ajustarEscala, 100);
 });
 setInterval(cargarWOD, 60000);
+
