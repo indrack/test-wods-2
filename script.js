@@ -95,7 +95,7 @@ function renderSlide() {
     // 3. INICIAR ENTRADA (Fade In)
     wrapper.classList.remove('fading');
 
-  }, 300); // Este número debe coincidir con el '0.3s' del CSS
+  }, 300); // Mismo número del CSS '0.3s' 
 }
 
 function cambiarSlide(direccion) {
@@ -175,4 +175,5 @@ window.addEventListener('resize', function() {
     setTimeout(ajustarEscala, 100);
 });
 setInterval(cargarWOD, 60000);
+
 
