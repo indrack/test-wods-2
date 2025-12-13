@@ -13,13 +13,13 @@ const wods = {
     },
     {
       titulo: "METCON (Teams of 2)",
-      contenido: `5 rounds
-Partner 1:
-500/450m Row
-Partner 2:
-50ft Handstand Walk or 4 Wall Walks
-25 V-Ups
-Switch when both stations are completed`
+      contenido: `5 rounds 
+Partner 1: 
+500/450m Row 
+Partner 2: 
+50ft Handstand Walk or 4 Wall Walks  
+25 V-Ups 
+Switch when both stations are completed (Score is Time) `
     }
   ],
 
@@ -149,12 +149,15 @@ A Completar
     {
       titulo: "WARM-UP",
       contenido: `10:00 AMRAP
-10 PVC Pass Throughs
-5 Dynamic Squat Stretches
-5 Empty Bar Complex
+10 PVC Pass Throughs 
+5 Dynamic Squat Stretches 
+5 Empty Bar Muscle Cleans 
+5 Empty Bar Front Squats 
+5 Empty Bar Push press
 20 Single-Unders
 — into —
-3 sets: 2 Clean and Jerks (build)`
+3 sets:
+2 Clean and Jerks (build)`
     },
     {
       titulo: "WEIGHTLIFTING",
@@ -191,11 +194,16 @@ Power Cleans (85/57.5)
     },
     {
       titulo: "ACCESORIO",
-      contenido: `3 SETS (Rest 30s/1m)
-15 V-Ups
-10 Rotational Medball Throw
-10 Single-Arm DB Overhead Ext
-20 Alternating Zottman Curl`
+      contenido: `3 SETS 
+15 V-Ups 
+-rest 30 secs
+10 Rotational Medball Throw (each side) 
+-rest 30 secs
+10 Single-Arm Dumbbell Overhead Extensions (both arms same time) @ RPE 7/10
+-rest 30 secs
+20 alternating Zottman Curl @ RPE 7/10 (10 each side) 
+-rest 1 minute between sets `
     }
   ]
+
 };
