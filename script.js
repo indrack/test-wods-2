@@ -1,47 +1,54 @@
-// --- RELOJ DIGITAL ---
+// 1. RELOJ DIGITAL
 function updateClock() {
-  const now = new Date();
-  const dia = String(now.getDate()).padStart(2, '0');
-  const mes = String(now.getMonth() + 1).padStart(2, '0');
-  const anio = now.getFullYear();
-  document.getElementById('date-display').innerText = `${dia}/${mes}/${anio}`;
+  try {
+    const now = new Date();
+    const dia = String(now.getDate()).padStart(2, '0');
+    const mes = String(now.getMonth() + 1).padStart(2, '0');
+    const anio = now.getFullYear();
+    const elDate = document.getElementById('date-display');
+    if(elDate) elDate.innerText = `${dia}/${mes}/${anio}`;
 
-  const horas = String(now.getHours()).padStart(2, '0');
-  const min = String(now.getMinutes()).padStart(2, '0');
-  const seg = String(now.getSeconds()).padStart(2, '0');
-  document.getElementById('time-display').innerText = `${horas}:${min}:${seg}`;
+    const horas = String(now.getHours()).padStart(2, '0');
+    const min = String(now.getMinutes()).padStart(2, '0');
+    const seg = String(now.getSeconds()).padStart(2, '0');
+    const elTime = document.getElementById('time-display');
+    if(elTime) elTime.innerText = `${horas}:${min}:${seg}`;
+  } catch (e) {
+    console.log("Error reloj");
+  }
 }
 setInterval(updateClock, 1000);
 updateClock();
 
-// --- LÓGICA DE SLIDES ---
+// 2. LÓGICA DE SLIDES
 const dias = ['domingo','lunes','martes','miercoles','jueves','viernes','sabado'];
 let currentSlideIndex = 0;
 let currentWodParts = [];
 
 function cargarWOD() {
-  if (typeof wods === 'undefined') return;
+  // Protección contra fallo de carga de wods.js
+  if (typeof wods === 'undefined') {
+    document.getElementById('wod-display').innerHTML = "<h3>CARGANDO...</h3><p>Si esto no cambia, revisa wods.js</p>";
+    return;
+  }
 
   const hoyIndex = new Date().getDay();
   const diaNombre = dias[hoyIndex];
   
-  // Si cambia el día o es la primera carga
   const contenedor = document.getElementById('wod-display');
   
-  if (contenedor.dataset.dia !== diaNombre) {
+  // Si cambia el día o no hay nada cargado
+  if (contenedor.dataset.dia !== diaNombre || currentWodParts.length === 0) {
     contenedor.dataset.dia = diaNombre;
     
-    // Obtenemos las partes del día o mensaje de descanso
     const datosDia = wods[diaNombre];
     
     if (Array.isArray(datosDia)) {
       currentWodParts = datosDia;
     } else {
-      // Si no hay array (ej: descanso no definido o error), creamos uno genérico
       currentWodParts = [{ titulo: "DESCANSO", contenido: "Box Cerrado / Open Box" }];
     }
     
-    // Resetear al primer slide
     currentSlideIndex = 0;
     renderSlide();
   }
@@ -49,9 +56,10 @@ function cargarWOD() {
 
 function renderSlide() {
   const wrapper = document.getElementById('wod-display');
+  if (!wrapper || currentWodParts.length === 0) return;
+
   const part = currentWodParts[currentSlideIndex];
   
-  // Inyectar HTML
   wrapper.innerHTML = `
     <h3>${part.titulo}</h3>
     <p>${part.contenido}</p>
@@ -59,22 +67,23 @@ function renderSlide() {
 
   // Actualizar indicador (Ej: 1/3)
   const indicator = document.getElementById('slide-indicator');
-  indicator.innerText = `${currentSlideIndex + 1} / ${currentWodParts.length}`;
+  if(indicator) indicator.innerText = `${currentSlideIndex + 1} / ${currentWodParts.length}`;
 
-  // Actualizar estado de botones
+  // Actualizar botones visuales
   const btnPrev = document.getElementById('btn-prev');
   const btnNext = document.getElementById('btn-next');
+  
+  if (btnPrev) {
+    btnPrev.disabled = (currentSlideIndex === 0);
+    btnPrev.style.opacity = (currentSlideIndex === 0) ? "0" : "1";
+  }
+  if (btnNext) {
+    btnNext.disabled = (currentSlideIndex === currentWodParts.length - 1);
+    btnNext.style.opacity = (currentSlideIndex === currentWodParts.length - 1) ? "0" : "1";
+  }
 
-  // Si estamos en el primero, deshabilitar prev
-  btnPrev.disabled = (currentSlideIndex === 0);
-  btnPrev.style.opacity = (currentSlideIndex === 0) ? "0" : "1";
-
-  // Si estamos en el último, deshabilita next
-  btnNext.disabled = (currentSlideIndex === currentWodParts.length - 1);
-  btnNext.style.opacity = (currentSlideIndex === currentWodParts.length - 1) ? "0" : "1";
-
-  // Re-calcular escala para aprovechar pantalla
-  setTimeout(ajustarEscala, 10);
+  // Escalar texto
+  setTimeout(ajustarEscala, 50);
 }
 
 function cambiarSlide(direccion) {
@@ -85,26 +94,72 @@ function cambiarSlide(direccion) {
   }
 }
 
-// Escalar contenido para llenar la TV sin desbordar
+// 3. ESCALAR TEXTO (Ajustado para pantallas pequeñas/rotadas)
 function ajustarEscala() {
+  // En móvil vertical no escalamos igual
   if (window.matchMedia("(orientation: portrait)").matches) return; 
 
   const wrapper = document.getElementById('wod-display');
-  wrapper.style.transform = 'scale(1)'; // Reset
+  if (!wrapper) return;
+
+  wrapper.style.transform = 'scale(1)'; // Resetear para medir
   
-  const alturaDisponible = window.innerWidth * 0.8; // 80% del ancho real (altura en rotación)
+  // Usamos el 80% del ancho de la ventana (que es la altura física en rotación)
+  const alturaDisponible = window.innerWidth * 0.82; 
   const alturaContenido = wrapper.scrollHeight;
   
   let escala = alturaDisponible / alturaContenido;
   
-  // Límites de escala
-  if (escala > 1.8) escala = 1.8; // No hacer la letra absurdamente grande si hay poco texto
-  if (escala < 0.6) escala = 0.6; // No hacerla ilegible
+  // Límites de seguridad
+  if (escala > 1.8) escala = 1.8; 
+  if (escala < 0.35) escala = 0.35; // Permite reducir mucho si el texto es largo
 
   wrapper.style.transform = `scale(${escala})`;
 }
 
-// Inicializar
-window.addEventListener('load', cargarWOD);
-window.addEventListener('resize', () => setTimeout(ajustarEscala, 100));
-setInterval(cargarWOD, 60000); // Chequear cambio de día cada minuto
+// 4. CONTROL REMOTO (TV FLUX / ANDROID / TV BRO)
+document.addEventListener('keydown', function(event) {
+  const key = event.key; 
+  const code = event.keyCode; 
+
+  // -- Teclas Numéricas (1 al 9) --
+  if (key >= '1' && key <= '9') {
+    const targetIndex = parseInt(key) - 1; // '1' es índice 0
+    if (targetIndex >= 0 && targetIndex < currentWodParts.length) {
+      currentSlideIndex = targetIndex;
+      renderSlide();
+    }
+  }
+
+  // -- Flechas del Control --
+  // Izquierda
+  if (key === 'ArrowLeft' || code === 37) {
+    cambiarSlide(-1);
+  }
+  // Derecha
+  if (key === 'ArrowRight' || code === 39) {
+    cambiarSlide(1);
+  }
+  
+  // -- Enter / OK --
+  if (key === 'Enter' || code === 13) {
+    cambiarSlide(1); 
+  }
+
+  // -- Botón Atrás (Evitar salir de la app) --
+  if (key === 'Backspace' || code === 8 || key === 'Escape' || code === 27) {
+     // Opcional
+     event.preventDefault(); // Evita que el navegador cierre la página
+     cambiarSlide(-1);
+  }
+});
+
+// Inicialización
+window.addEventListener('load', function() {
+    cargarWOD();
+    setTimeout(ajustarEscala, 500); // Doble chequeo de escala
+});
+window.addEventListener('resize', function() {
+    setTimeout(ajustarEscala, 100);
+});
+setInterval(cargarWOD, 60000);
