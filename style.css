@@ -4,9 +4,13 @@
 body, html { 
   width: 100vw; height: 100vh;
   background: #000; color: #fff; 
-  overflow: hidden; 
+  overflow: hidden; /* En TV no queremos barras de scroll */
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; 
 }
+
+/* =========================================
+   DISEÑO PARA TV (HORIZONTAL / ROTADO)
+   ========================================= */
 
 /* --- CONTENEDOR PRINCIPAL ROTADO --- */
 .tv-container {
@@ -20,11 +24,13 @@ body, html {
   position: relative; 
 }
 
-/* LOGO Y RELOJ (Misma posición, ajustado tamaño) */
+/* LOGO */
 .bg-logo {
   position: absolute; top: 30px; right: 40px;  
   width: 210px; opacity: 0.3; pointer-events: none;
 }
+
+/* RELOJ */
 .datetime-container {
   position: absolute; left: 30px; top: 30px;  
   text-align: left; opacity: 0.8;
@@ -32,44 +38,34 @@ body, html {
 #date-display { font-size: 1.5em; color: #ccc; margin-bottom: 5px; }
 #time-display { font-size: 2.5em; color: #39ff14; font-weight: bold; text-shadow: 0 0 15px rgba(57,255,20,0.5); }
 
-/* --- INDICADOR DE PÁGINA --- */
+/* INDICADOR DE PÁGINA */
 .slide-indicator {
   position: absolute;
-  top: 30px;
-  left: 50%;
+  top: 30px; left: 50%;
   transform: translateX(-50%);
-  font-size: 2em;
-  color: #555;
-  font-weight: bold;
+  font-size: 2em; color: #555; font-weight: bold;
 }
 
-/* --- CONTENIDO WOD (GIGANTE) --- */
+/* CONTENIDO WOD (GIGANTE) */
 .content-wrapper {
   width: 96vh; 
   height: 85%; 
-  display: flex; 
-  flex-direction: column;
-  justify-content: center; 
-  align-items: center;
+  display: flex; flex-direction: column;
+  justify-content: center; align-items: center;
   text-align: center;
   transform-origin: center center;
   margin-bottom: 10px; 
-  
-  /* --- TRANSICIONES SUAVES --- */
   transition: opacity 0.3s ease, filter 0.3s ease;
-  opacity: 1;       /* Visible por defecto */
-  filter: blur(0);  /* Nítido por defecto */
+  opacity: 1; filter: blur(0);
 }
-
 
 .content-wrapper.fading {
-  opacity: 0;       /* Invisible */
-  filter: blur(10px); /* Borroso */
+  opacity: 0; filter: blur(10px);
 }
 
-/* Tipografía Maximizada */
+/* TIPOGRAFÍA TV */
 h3 {
-  font-size: 6em; /* Títulos enormes */
+  font-size: 6em; 
   color: #ff0000; 
   margin-bottom: 0.3em;
   text-transform: uppercase;
@@ -79,7 +75,7 @@ h3 {
 }
 
 p {
-  font-size: 4.0em; /* CAMBIO: Reducido de 4.5em a 3.5em */
+  font-size: 4.0em; 
   line-height: 1.4;
   color: #fff;
   white-space: pre-wrap;
@@ -89,58 +85,130 @@ p {
   padding: 0 5px; 
 }
 
-/* --- BOTONES DE NAVEGACIÓN --- */
+/* BOTONES TV */
 .nav-buttons {
   position: absolute;
-  bottom: 10px; /* CAMBIO: Más pegado al borde inferior */
+  bottom: 10px; 
   width: 100%;
-  display: flex;
-  justify-content: center; /* centro */
-  gap: 40px;
-  padding: 0 20px; /* Menos margen lateral */
+  display: flex; justify-content: center; gap: 40px;
+  padding: 0 20px; 
   z-index: 100;
-  pointer-events: none; /* permite tocar a través del área vacía */
+  pointer-events: none;
 }
 
 button {
-  pointer-events: auto; /* Reactivar clicks en los botones */
-  background: rgba(255,255,255,0.15); /* Un poco más visible */
-  border: 1px solid #555; /* Borde más fino */
+  pointer-events: auto;
+  background: rgba(255,255,255,0.15);
+  border: 1px solid #555;
   color: #fff;
-  
-  /* --- CAMBIOS DE TAMAÑO --- */
-  font-size: 2em;      /* Antes era 4em  */
+  font-size: 2em;      
   padding: 10px 25px;  
-  border-radius: 50px; /* Más redondeados */
-  
+  border-radius: 50px;
   cursor: pointer;
   transition: all 0.2s;
-  backdrop-filter: blur(5px); /* Efecto vidrio elegante */
+  backdrop-filter: blur(5px);
 }
 
-button:active { 
-  background: #ff0000; 
-  color: #fff; 
-  transform: scale(0.95);
-}
+button:active { background: #ff0000; transform: scale(0.95); }
 
-/* --- MÓVIL (DEBUG) --- */
+
+/* =========================================
+   DISEÑO PARA MÓVIL (VERTICAL / PORTRAIT)
+   Esto sobrescribe todo lo anterior solo si es cel
+   ========================================= */
+
 @media (orientation: portrait) {
-  .tv-container { transform: none; width: 100%; height: 100vh; position: static; display: flex; }
-  h3 { font-size: 3em; } p { font-size: 1.5em; }
-  .nav-buttons { bottom: 80px; }
+  
+  body, html {
+    overflow-y: auto; /* Permitir scroll vertical */
+    height: auto;     /* Altura flexible */
+    overflow-x: hidden;
+  }
 
+  /* 1. Quitamos la rotación y ajustamos contenedor */
+  .tv-container {
+    position: relative;
+    transform: none; /* ANULA LA ROTACIÓN -90DEG */
+    width: 100%;
+    height: auto;
+    min-height: 100vh;
+    top: 0; left: 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Contenido empieza arriba */
+  }
+
+  /* 2. Cabecera más pequeña y ordenada */
+  .datetime-container {
+    position: relative;
+    top: auto; left: auto;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  #time-display { font-size: 2rem; }
+  #date-display { font-size: 1rem; }
+
+  .bg-logo {
+    position: relative;
+    top: auto; right: auto;
+    width: 120px;
+    display: block;
+    margin: 0 auto 10px auto; /* Centrado */
+    opacity: 0.5;
+  }
+
+  .slide-indicator {
+    position: relative;
+    top: auto; left: auto;
+    transform: none;
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    margin-top: -10px;
+  }
+
+  /* 3. Contenido legible y scrolleable */
+  .content-wrapper {
+    width: 100%;
+    height: auto; /* Altura automática según el texto */
+    transform: none !important; /* JS no tocará esto */
+    margin-bottom: 100px; /* Espacio para botones flotantes */
+    display: block; /* Bloque normal */
+  }
+
+  h3 {
+    font-size: 2.5rem; /* ~40px, legible en cel */
+    white-space: normal;
+    display: block;
+    text-align: center;
+    width: 100%;
+  }
+
+  p {
+    font-size: 1.2rem; /* ~19px, tamaño estándar web */
+    line-height: 1.6;
+    margin-top: 20px;
+    white-space: pre-wrap;
+    text-align: left;
+  }
+
+  /* 4. Botones flotantes abajo fijos */
+  .nav-buttons {
+    position: fixed; /* Siempre visibles al hacer scroll */
+    bottom: 20px;
+    left: 0;
+    width: 100%;
+    background: rgba(0,0,0,0.8); /* Fondo oscuro para que se lean sobre el texto */
+    padding: 15px;
+    backdrop-filter: blur(10px);
+    border-top: 1px solid #333;
+  }
+
+  button {
+    font-size: 1.5rem;
+    padding: 15px 40px;
+    flex: 1; /* Ocupan ancho disponible */
+    max-width: 150px;
+  }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
