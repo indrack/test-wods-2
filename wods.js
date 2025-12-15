@@ -25,34 +25,32 @@ Scoring: Reps `
   ],
 
 // ------------------------------------ LUNES -----------------------------------------------------
-  lunes: [
+   lunes: [
     {
       titulo: "WARM-UP",
-      contenido: `8:00 AMRAP 
-30-second Row (moderate) 
-10 Beat Swings 
-6 Hanging Knee Raises 
-6 Low Box Step-Overs 
-8 Samson Lunges`
+      contenido: `8:00 AMRAP
+30-second Cardio
+10 Empty Bar Strict Press
+10 Handstand Shoulder Taps or 8 Box Pike Shoulder Taps
+5 Controlled Push Us
+10 Band Pull Aparts`
     },
     {
-      titulo: "METCON- Teams of 3",
-      contenido: `9 rounds, 3 round each
-6/5 Calorie Row 
-5 Toes to Bar 
-4 Box Jump Overs (30/24) 
-then:
-For Time a completar: 
-100/80 Calorie Row 
-60 Toes to Bar 
-50 Box Jump Overs (30/24)`
+      titulo: "WEIGHTLIFTING (Bench Press)",
+      contenido: `BENCH PRESS
+4 sets
+8 Bench Press
+-build across sets by feel-
+-rest 1:00-2:00 between sets-`
     },
     {
-      titulo: "Gymnastics (Toes-to-Bar)",
-      contenido: `AMRAP + 1 minute rest + 3 minute AMRAP - start where you left off
-•Level 1: 8 Hanging Knee Raises 100-foot farmers carry [35/25] 8 Plank Shoulder Taps [right/left = 2 reps] (KG: 15/10)
-•Level 2: 8 Alternating Leg Toes to Bar 100-foot farmers carry [50/35] 1 wall walk INTO 6 Wall Facing Handstand Shoulder Taps [right/left = 2 reps] (KG: 22.5/15)
-•Level 3: 10 Alternating Leg Toes to Bar 100-foot farmers carry [70/50] 1 wall walk INTO 10 Wall Facing Handstand Shoulder Taps [right/left = 2 reps (KG: 32.5/22.5)`
+      titulo: "METCON (Tiempo)",
+      contenido: `3 sets
+10 Handstand Push Ups
+400m Run
+15 Wall Walks
+-rest 3:00 between sets-
+(Scored by time each set)`
     }
   ],
 
@@ -82,8 +80,7 @@ For Time a completar:
     },
     {
       titulo: "Gymnastics (Toes-to-Bar)",
-      contenido: `HANDSTAND/GRIP (WEEK 8)
-AMRAP + 1 minute rest + 3 minute AMRAP - start where you left off
+      contenido: `AMRAP + 1 minute rest + 3 minute AMRAP - start where you left off
 •Level 1: 8 Hanging Knee Raises 100-foot farmers carry [35/25] 8 Plank Shoulder Taps [right/left = 2 reps] (KG: 15/10)
 •Level 2: 8 Alternating Leg Toes to Bar 100-foot farmers carry [50/35] 1 wall walk INTO 6 Wall Facing Handstand Shoulder Taps [right/left = 2 reps] (KG: 22.5/15)
 •Level 3: 10 Alternating Leg Toes to Bar 100-foot farmers carry [70/50] 1 wall walk INTO 10 Wall Facing Handstand Shoulder Taps [right/left = 2 reps (KG: 32.5/22.5)`
@@ -217,6 +214,7 @@ Optional: 1–2 practice rounds of 50ft lunges + 5 V-Ups`
   ]
 
 };
+
 
 
 
