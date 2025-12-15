@@ -49,8 +49,7 @@ For Time a completar:
     },
     {
       titulo: "Gymnastics (Toes-to-Bar)",
-      contenido: `HANDSTAND/GRIP (WEEK 8)
-AMRAP + 1 minute rest + 3 minute AMRAP - start where you left off
+      contenido: `AMRAP + 1 minute rest + 3 minute AMRAP - start where you left off
 •Level 1: 8 Hanging Knee Raises 100-foot farmers carry [35/25] 8 Plank Shoulder Taps [right/left = 2 reps] (KG: 15/10)
 •Level 2: 8 Alternating Leg Toes to Bar 100-foot farmers carry [50/35] 1 wall walk INTO 6 Wall Facing Handstand Shoulder Taps [right/left = 2 reps] (KG: 22.5/15)
 •Level 3: 10 Alternating Leg Toes to Bar 100-foot farmers carry [70/50] 1 wall walk INTO 10 Wall Facing Handstand Shoulder Taps [right/left = 2 reps (KG: 32.5/22.5)`
@@ -218,6 +217,7 @@ Optional: 1–2 practice rounds of 50ft lunges + 5 V-Ups`
   ]
 
 };
+
 
 
 
