@@ -1,81 +1,115 @@
 /* --- RESET BÁSICO --- */
-* { margin:0; padding:0; box-sizing:border-box; }
+* { margin:0;
+   padding:0;
+   box-sizing:border-box; }
 
 body, html { 
   width: 100vw; height: 100vh;
   background: #000; color: #fff; 
-  overflow: hidden; /* En TV no queremos barras de scroll */
+  overflow: hidden; 
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; 
 }
 
-/* =========================================
-   DISEÑO PARA TV (HORIZONTAL / ROTADO)
-   ========================================= */
-
-/* --- CONTENEDOR PRINCIPAL ROTADO --- */
+/* --- TV CONTAINER --- */
 .tv-container {
   position: absolute;
   top: 50%; left: 50%;
-  width: 100vh; height: 100vw; 
+  width: 100vh;
+  height: 100vw; 
   transform: translate(-50%, -50%) rotate(-90deg);
-  display: flex; flex-direction: column;
-  justify-content: center; align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   background: #000;
   position: relative; 
 }
 
 /* LOGO */
 .bg-logo {
-  position: absolute; top: 30px; right: 40px;  
-  width: 210px; opacity: 0.3; pointer-events: none;
+  position: absolute;
+  top: 30px;
+  right: 40px;  
+  width: 210px;
+  opacity: 0.3;
+  pointer-events: none;
+  z-index: 0;
 }
-
-/* RELOJ */
+/* FECHA Y RELOJ */
 .datetime-container {
-  position: absolute; left: 30px; top: 30px;  
-  text-align: left; opacity: 0.8;
+  position: absolute;
+  left: 30px;
+  top: 30px;  
+  text-align: left;
+  opacity: 0.8;
+  z-index: 10;
 }
-#date-display { font-size: 1.5em; color: #ccc; margin-bottom: 5px; }
-#time-display { font-size: 2.5em; color: #39ff14; font-weight: bold; text-shadow: 0 0 15px rgba(57,255,20,0.5); }
+#date-display { 
+  font-size: 1.5em;
+  color: #ccc;
+  margin-bottom: 5px;
+}
+#time-display { 
+  font-size: 2.5em;
+  color: #39ff14;
+  font-weight: bold;
+  text-shadow: 0 0 15px rgba(57,255,20,0.5);
+}
 
-/* INDICADOR DE PÁGINA */
+/* INDICADOR Y BOTONES */
 .slide-indicator {
   position: absolute;
   top: 30px; left: 50%;
   transform: translateX(-50%);
-  font-size: 2em; color: #555; font-weight: bold;
+  font-size: 2em; color: #555;
+  font-weight: bold;
+  z-index: 10;
+}
+.nav-buttons {
+  position: absolute;
+  bottom: 10px; width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  padding: 0 20px; 
+  z-index: 100;
+  pointer-events: none;
+}
+button {
+  pointer-events: auto; background: rgba(255,255,255,0.15); border: 1px solid #555; color: #fff;
+  font-size: 2em; padding: 10px 25px; border-radius: 50px; cursor: pointer; backdrop-filter: blur(5px);
 }
 
-/* CONTENIDO WOD (GIGANTE) */
+/* --- VISTA DE SLIDES (La normal) --- */
 .content-wrapper {
-  width: 96vh; 
+  width: 96vh;
   height: 85%; 
-  display: flex; flex-direction: column;
-  justify-content: center; align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   text-align: center;
   transform-origin: center center;
   margin-bottom: 10px; 
-  transition: opacity 0.3s ease, filter 0.3s ease;
-  opacity: 1; filter: blur(0);
+  transition: opacity 0.3s ease;
+}
+.content-wrapper.fading { 
+  opacity: 0;
+  filter: blur(10px);
 }
 
-.content-wrapper.fading {
-  opacity: 0; filter: blur(10px);
-}
-
-/* TIPOGRAFÍA TV */
-h3 {
-  font-size: 6em; 
-  color: #ff0000; 
+/* Estilos Slides */
+.content-wrapper h3 {
+  font-size: 6em;
+  color: #ff0000;
   margin-bottom: 0.3em;
   text-transform: uppercase;
   border-bottom: 4px solid #333;
   display: inline-block;
   text-shadow: 0px 0px 20px rgba(255, 0, 0, 0.6);
 }
-
-p {
-  font-size: 4.0em; 
+.content-wrapper p {
+  font-size: 4.0em;
   line-height: 1.4;
   color: #fff;
   white-space: pre-wrap;
@@ -85,130 +119,69 @@ p {
   padding: 0 5px; 
 }
 
-/* BOTONES TV */
-.nav-buttons {
-  position: absolute;
-  bottom: 10px; 
-  width: 100%;
-  display: flex; justify-content: center; gap: 40px;
-  padding: 0 20px; 
-  z-index: 100;
-  pointer-events: none;
+/* --- NUEVO: VISTA COMPLETA (RESUMEN) --- */
+.hidden { 
+  display: none !important;
 }
 
-button {
-  pointer-events: auto;
-  background: rgba(255,255,255,0.15);
-  border: 1px solid #555;
-  color: #fff;
-  font-size: 2em;      
-  padding: 10px 25px;  
-  border-radius: 50px;
-  cursor: pointer;
-  transition: all 0.2s;
-  backdrop-filter: blur(5px);
-}
-
-button:active { background: #ff0000; transform: scale(0.95); }
-
-
-/* =========================================
-   DISEÑO PARA MÓVIL (VERTICAL / PORTRAIT)
-   Esto sobrescribe todo lo anterior solo si es cel
-   ========================================= */
-
-@media (orientation: portrait) {
+#full-view-container {
+  width: 96vh; 
+  height: 88vw; /* Ocupa casi toda la pantalla */
+  overflow-y: auto; /* Permite bajar si es muy largo */
+  padding: 20px 40px;
+  background: #000; /* Tapa lo de atrás */
+  z-index: 50; /* Encima de los slides */
+  text-align: left;
   
-  body, html {
-    overflow-y: auto; /* Permitir scroll vertical */
-    height: auto;     /* Altura flexible */
-    overflow-x: hidden;
-  }
+  /* Flex para organizar */
+  display: flex;
+  flex-direction: column;
+  gap: 30px; /* Espacio entre secciones */
+}
 
-  /* 1. Quitamos la rotación y ajustamos contenedor */
-  .tv-container {
-    position: relative;
-    transform: none; /* ANULA LA ROTACIÓN -90DEG */
-    width: 100%;
-    height: auto;
-    min-height: 100vh;
-    top: 0; left: 0;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start; /* Contenido empieza arriba */
-  }
+/* Estilos específicos para el modo resumen (Letra más pequeña) */
+.full-section {
+  border-bottom: 1px solid #333;
+  padding-bottom: 15px;
+}
+.full-section h3 {
+  font-size: 3em; /* Mitad de tamaño que slide */
+  color: #ff4444;
+  margin-bottom: 10px;
+  border-bottom: none;
+  text-shadow: none;
+  display: block;
+  text-align: left;
+}
+.full-section p {
+  font-size: 2em; /* Mitad de tamaño que slide */
+  line-height: 1.3;
+  color: #ddd;
+  white-space: pre-wrap;
+}
 
-  /* 2. Cabecera más pequeña y ordenada */
-  .datetime-container {
-    position: relative;
-    top: auto; left: auto;
-    width: 100%;
-    text-align: center;
-    margin-bottom: 20px;
-  }
-  #time-display { font-size: 2rem; }
-  #date-display { font-size: 1rem; }
+/* Scrollbar personalizada invisible pero funcional */
+#full-view-container::-webkit-scrollbar { width: 8px; }
+#full-view-container::-webkit-scrollbar-thumb { background: #333; border-radius: 4px; }
 
-  .bg-logo {
-    position: relative;
-    top: auto; right: auto;
-    width: 120px;
-    display: block;
-    margin: 0 auto 10px auto; /* Centrado */
-    opacity: 0.5;
-  }
 
-  .slide-indicator {
-    position: relative;
-    top: auto; left: auto;
-    transform: none;
-    font-size: 1.2rem;
-    margin-bottom: 20px;
-    margin-top: -10px;
-  }
-
-  /* 3. Contenido legible y scrolleable */
-  .content-wrapper {
-    width: 100%;
-    height: auto; /* Altura automática según el texto */
-    transform: none !important; /* JS no tocará esto */
-    margin-bottom: 100px; /* Espacio para botones flotantes */
-    display: block; /* Bloque normal */
-  }
-
-  h3 {
-    font-size: 2.5rem; /* ~40px, legible en cel */
-    white-space: normal;
-    display: block;
-    text-align: center;
-    width: 100%;
-  }
-
-  p {
-    font-size: 1.2rem; /* ~19px, tamaño estándar web */
-    line-height: 1.6;
-    margin-top: 20px;
-    white-space: pre-wrap;
-    text-align: left;
-  }
-
-  /* 4. Botones flotantes abajo fijos */
-  .nav-buttons {
-    position: fixed; /* Siempre visibles al hacer scroll */
-    bottom: 20px;
-    left: 0;
-    width: 100%;
-    background: rgba(0,0,0,0.8); /* Fondo oscuro para que se lean sobre el texto */
-    padding: 15px;
-    backdrop-filter: blur(10px);
-    border-top: 1px solid #333;
-  }
-
-  button {
-    font-size: 1.5rem;
-    padding: 15px 40px;
-    flex: 1; /* Ocupan ancho disponible */
-    max-width: 150px;
-  }
+/* --- MEDIA QUERY MÓVIL (Sin cambios funcionales, solo visuales) --- */
+@media (orientation: portrait) {
+  body, html { overflow-y: auto; height: auto; overflow-x: hidden; }
+  .tv-container { transform: none; width: 100%; height: auto; min-height: 100vh; position: relative; display: block; padding: 20px; }
+  
+  .bg-logo { position: relative; width: 120px; display: block; margin: 0 auto 20px; top:auto; right:auto;}
+  .datetime-container { position: relative; top: auto; left: auto; text-align: center; margin-bottom: 20px; }
+  .slide-indicator { position: relative; top: auto; left: auto; transform: none; text-align: center; margin: 10px 0; }
+  
+  /* Normalizar vista slide móvil */
+  .content-wrapper { width: 100%; height: auto; transform: none !important; display: block; margin-bottom: 100px; }
+  .content-wrapper h3 { font-size: 2.5rem; white-space: normal; display: block; text-align: center; width: 100%; }
+  .content-wrapper p { font-size: 1.2rem; margin-top: 20px; }
+  
+  .nav-buttons { position: fixed; bottom: 0; left: 0; background: rgba(0,0,0,0.9); padding: 20px; border-top: 1px solid #333; }
+  button { font-size: 1.5rem; }
+  
+  /* El modo vista completa no está optimizado para móvil, pero lo ocultamos por si acaso */
+  #full-view-container { display: none; } 
 }
