@@ -28,31 +28,31 @@ Switch when both stations are completed (Score is Time) `
     {
       titulo: "WARM-UP",
       contenido: `8:00 AMRAP
-30 sec Cardio
-10 PVC Pass-Throughs
-5 Empty Bar Hang Muscle Cleans
-5 Empty Bar Front Squats
-8 Ring Rows
-5 Scap Pull Ups
-— into —
-3 sets: 3 Front Squats (build up)`
+30-second Cardio
+10 Empty Bar Strict Press
+10 Handstand Shoulder Taps or 8 Box Pike Shoulder Taps
+5 Controlled Push Us
+10 Band Pull Aparts`
     },
     {
-      titulo: "WEIGHTLIFTING",
-      contenido: `Front Squat
-4 sets x 8 reps
-Build in sets based on feel`
+      titulo: "WEIGHTLIFTING (Bench Press)",
+      contenido: `BENCH PRESS
+4 sets
+8 Bench Press
+-build across sets by feel-
+-rest 1:00-2:00 between sets-`
     },
     {
-      titulo: "METCON",
-      contenido: `2 sets:
+      titulo: "METCON (Tiempo)",
+      contenido: `3 sets
+10 Handstand Push Ups
 400m Run
-25 Hang Power Cleans (42.5/30 kg)
-400m Run
-25 Chest to Bar Pull-ups
-— Rest until 10:00, then repeat —`
+15 Wall Walks
+-rest 3:00 between sets-
+(Scored by time each set)`
     }
   ],
+
 
 // ----------------------------------- MARTES ------------------------------------------------
   martes: [
@@ -207,3 +207,4 @@ Power Cleans (85/57.5)
   ]
 
 };
+
