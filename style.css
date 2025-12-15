@@ -146,11 +146,12 @@ button {
 }
 .full-section h3 {
   font-size: 3em; /* Mitad de tamaño que slide */
-  color: #ff4444;
+  color: #ff0000;
   margin-bottom: 10px;
   border-bottom: none;
   text-shadow: none;
   display: block;
+   text-shadow: 0px 0px 20px rgba(255, 0, 0, 0.6);
   text-align: left;
 }
 .full-section p {
@@ -185,3 +186,4 @@ button {
   /* El modo vista completa no está optimizado para móvil, pero lo ocultamos por si acaso */
   #full-view-container { display: none; } 
 }
+
