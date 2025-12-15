@@ -119,7 +119,7 @@ button {
   padding: 0 5px; 
 }
 
-/* --- NUEVO: VISTA COMPLETA (RESUMEN) --- */
+/* --- VISTA COMPLETA (RESUMEN) --- */
 .hidden { 
   display: none !important;
 }
@@ -186,4 +186,5 @@ button {
   /* El modo vista completa no está optimizado para móvil, pero lo ocultamos por si acaso */
   #full-view-container { display: none; } 
 }
+
 
