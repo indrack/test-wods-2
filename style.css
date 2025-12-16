@@ -82,15 +82,26 @@ button {
 
 /* --- VISTA DE SLIDES (La normal) --- */
 .content-wrapper {
-  width: 96vh;
-  height: 85%; 
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  transform-origin: center center;
-  margin-bottom: 10px; 
+  width: 96vh; /* Un poco menos de ancho para asegurar márgenes laterales */
+  height: 85%; /* Altura disponible para contenido */
+  /*margin-top: 100px;*/ /* Espacio de seguridad con el reloj */
+  
+  /* --- CAMBIO CLAVE: ALINEACIÓN --- */
+  display: flex; 
+  flex-direction: column; 
+  
+  /* "Flex-start" en vertical (que es horizontal en la TV) pega el contenido a la izquierda de la pantalla */
+  justify-content: flex-start; 
+  
+  /* "Flex-start" en horizontal (que es vertical en la TV) asegura que no se centre forzadamente */
+  align-items: flex-start; 
+  
+  text-align: left;
+  
+  /* IMPORTANTE: El origen del escalado ahora es ARRIBA CENTRO (Izquierda Centro en TV) */
+  /* Esto evita que al hacerse pequeño se vaya al medio de la nada */
+  transform-origin: top center; 
+  
   transition: opacity 0.3s ease;
 }
 .content-wrapper.fading { 
@@ -186,5 +197,6 @@ button {
   /* El modo vista completa no está optimizado para móvil, pero lo ocultamos por si acaso */
   #full-view-container { display: none; } 
 }
+
 
 
