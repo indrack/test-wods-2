@@ -135,44 +135,54 @@ function ajustarEscala() {
   const wrapper = document.getElementById('wod-display');
   if (!wrapper) return;
 
-  // 1. DEFINIR EL ANCHO BASE (Lo que tienes en CSS: 96vh)
-  // En JS, window.innerHeight es el ancho visual en tu TV rotada
-  const anchoBase = window.innerHeight * 0.96; 
+  // 1. OBTENER DIMENSIONES REALES DISPONIBLES
+  // En tu TV rotada (-90deg):
+  // window.innerHeight = Es el ANCHO visual (eje vertical CSS) -> aprox 1920px
+  // window.innerWidth  = Es el ALTO visual (eje horizontal CSS) -> aprox 1080px
   
-  // Reseteamos valores para poder medir
-  wrapper.style.width = `${anchoBase}px`; 
+  // Definimos los límites físicos donde debe caber el texto
+  const maxAltoFisico = window.innerHeight * 0.96; // 96% de la altura física de la TV
+  const maxAnchoFisico = window.innerWidth * 0.85; // 85% del ancho físico de la TV
+
+  // Reseteamos para medir limpio
+  wrapper.style.width = `${maxAltoFisico}px`; 
   wrapper.style.transform = 'scale(1)';
-  
-  // 2. MEDIR ALTURA
-  // window.innerWidth es la altura visual disponible
-  const alturaDisponible = window.innerWidth * 0.82; 
-  let alturaContenido = wrapper.scrollHeight;
-  
-  let escala = alturaDisponible / alturaContenido;
-  
-  // --- AQUÍ ESTÁ EL TRUCO PARA EL TEXTO LARGO ---
-  // Si la escala es muy pequeña (menor a 0.65), significa que el texto es larguísimo.
-  // En lugar de hacerlo minúsculo y estrecho, ensanchamos el contenedor.
+
+  // 2. PRIMERA MEDICIÓN
+  let cssHeight = wrapper.scrollHeight; // Cuánto espacio ocupa el texto
+  let escala = maxAnchoFisico / cssHeight;
+
+  // 3. OPTIMIZACIÓN "SMART FIT" (DOBLE VERIFICACIÓN)
+  // Si el texto es muy largo (escala < 0.65), intentamos ensanchar el contenedor
   if (escala < 0.65) {
-      // Calculamos cuánto más ancho debe ser para compensar
-      // Ejemplo: Si la escala era 0.5, duplicamos el ancho del contenedor.
-      // Al ser más ancho, las líneas de texto se rompen menos y la altura baja.
-      let nuevoAncho = anchoBase * (1 / escala);
+      // Calculamos un factor para ensanchar, pero sin pasarnos de locura
+      // El 1.8 significa "intentar hacerlo casi el doble de ancho" si es necesario
+      const factorExpansion = Math.min(0.65 / escala, 1.8); 
       
-      // Ponemos un límite para que no se pase de rosca (máximo 2.2 veces el ancho)
-      if (nuevoAncho > anchoBase * 2.2) nuevoAncho = anchoBase * 2.2;
+      let nuevoCssWidth = maxAltoFisico * factorExpansion;
       
-      // Aplicamos el nuevo ancho
-      wrapper.style.width = `${nuevoAncho}px`;
+      // Aplicamos el nuevo ancho al contenedor
+      wrapper.style.width = `${nuevoCssWidth}px`;
       
-      // Volvemos a medir la altura con el nuevo ancho (será menor)
-      alturaContenido = wrapper.scrollHeight;
-      escala = alturaDisponible / alturaContenido;
+      // Medimos de nuevo cómo quedó el texto de alto
+      cssHeight = wrapper.scrollHeight;
+
+      // AQUI ESTA LA CORRECCIÓN CLAVE:
+      // Calculamos dos escalas posibles:
+      // A) Para que quepa a lo ANCHO (evitar scroll)
+      let escalaPorAncho = maxAnchoFisico / cssHeight;
+      
+      // B) Para que quepa a lo ALTO (evitar que se corte arriba/abajo como en tu foto)
+      let escalaPorAlto = maxAltoFisico / nuevoCssWidth;
+
+      // Elegimos la MENOR de las dos. 
+      // Esto garantiza que el texto sea lo más grande posible SIN salirse de la pantalla.
+      escala = Math.min(escalaPorAncho, escalaPorAlto);
   }
 
-  // 3. LÍMITES DE ESCALA
+  // 4. LÍMITES DE SEGURIDAD
   if (escala > 1.8) escala = 1.8; 
-  if (escala < 0.25) escala = 0.25; 
+  if (escala < 0.35) escala = 0.35; 
 
   wrapper.style.transform = `scale(${escala})`;
 }
@@ -213,3 +223,4 @@ document.addEventListener('keydown', function(event) {
 window.addEventListener('load', () => { cargarWOD(); setTimeout(ajustarEscala, 500); });
 window.addEventListener('resize', () => setTimeout(ajustarEscala, 100));
 setInterval(cargarWOD, 60000);
+
