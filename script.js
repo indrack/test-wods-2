@@ -129,18 +129,50 @@ function cambiarSlide(direccion) {
 }
 
 function ajustarEscala() {
-  if (isFullViewMode) return; // No escalamos el modo resumen
+  if (isFullViewMode) return; 
   if (window.matchMedia("(orientation: portrait)").matches) return; 
 
   const wrapper = document.getElementById('wod-display');
+  if (!wrapper) return;
+
+  // 1. DEFINIR EL ANCHO BASE (Lo que tienes en CSS: 96vh)
+  // En JS, window.innerHeight es el ancho visual en tu TV rotada
+  const anchoBase = window.innerHeight * 0.96; 
+  
+  // Reseteamos valores para poder medir
+  wrapper.style.width = `${anchoBase}px`; 
   wrapper.style.transform = 'scale(1)';
   
+  // 2. MEDIR ALTURA
+  // window.innerWidth es la altura visual disponible
   const alturaDisponible = window.innerWidth * 0.82; 
-  const alturaContenido = wrapper.scrollHeight;
+  let alturaContenido = wrapper.scrollHeight;
+  
   let escala = alturaDisponible / alturaContenido;
   
+  // --- AQUÍ ESTÁ EL TRUCO PARA EL TEXTO LARGO ---
+  // Si la escala es muy pequeña (menor a 0.65), significa que el texto es larguísimo.
+  // En lugar de hacerlo minúsculo y estrecho, ensanchamos el contenedor.
+  if (escala < 0.65) {
+      // Calculamos cuánto más ancho debe ser para compensar
+      // Ejemplo: Si la escala era 0.5, duplicamos el ancho del contenedor.
+      // Al ser más ancho, las líneas de texto se rompen menos y la altura baja.
+      let nuevoAncho = anchoBase * (1 / escala);
+      
+      // Ponemos un límite para que no se pase de rosca (máximo 2.2 veces el ancho)
+      if (nuevoAncho > anchoBase * 2.2) nuevoAncho = anchoBase * 2.2;
+      
+      // Aplicamos el nuevo ancho
+      wrapper.style.width = `${nuevoAncho}px`;
+      
+      // Volvemos a medir la altura con el nuevo ancho (será menor)
+      alturaContenido = wrapper.scrollHeight;
+      escala = alturaDisponible / alturaContenido;
+  }
+
+  // 3. LÍMITES DE ESCALA
   if (escala > 1.8) escala = 1.8; 
-  if (escala < 0.35) escala = 0.35; 
+  if (escala < 0.25) escala = 0.25; 
 
   wrapper.style.transform = `scale(${escala})`;
 }
