@@ -82,7 +82,7 @@ button {
 
 /* --- VISTA DE SLIDES (La normal) --- */
 .content-wrapper {
-  width: 96vh;
+  width: 100vh;
   height: 100%; 
   display: flex;
   flex-direction: column;
@@ -100,7 +100,7 @@ button {
 
 /* Estilos Slides */
 .content-wrapper h3 {
-  font-size: 6em;
+  font-size: 5.1em;
   color: #ff0000;
   margin-bottom: 0.3em;
   text-transform: uppercase;
@@ -186,4 +186,5 @@ button {
   /* El modo vista completa no está optimizado para móvil, pero lo ocultamos por si acaso */
   #full-view-container { display: none; } 
 }
+
 
