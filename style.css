@@ -82,20 +82,17 @@ button {
 
 /* --- VISTA DE SLIDES (La normal) --- */
 .content-wrapper {
-  /* Quitamos tamaños fijos aquí, los controlará JS */
+  /* ... tus otras cosas ... */
   display: flex;
   flex-direction: column;
-  justify-content: center; /* Centrar verticalmente */
-  align-items: center;     /* Centrar horizontalmente */
-  text-align: center;
-  transform-origin: center center;
+  justify-content: center;
+  align-items: center;
   
-  /* IMPORTANTE: Evita que el padding sume al tamaño total */
-  box-sizing: border-box; 
-  padding: 0; 
-  margin: 0;
+  /* ESTO ES IMPORTANTE PARA LA VERSIÓN V7: */
+  width: auto;       /* Dejar que JS controle el ancho */
+  max-width: 100%;   /* Seguridad extra */
+  margin: 0 auto;    /* Centrado horizontal automático */
   
-  /* Transiciones */
   transition: opacity 0.3s ease, transform 0.3s ease;
   opacity: 1;
 }
@@ -198,6 +195,7 @@ button {
   /* El modo vista completa no está optimizado para móvil, pero lo ocultamos por si acaso */
   #full-view-container { display: none; } 
 }
+
 
 
 
