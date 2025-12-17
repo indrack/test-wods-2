@@ -128,6 +128,8 @@ function cambiarSlide(direccion) {
   }
 }
 
+/* script.js - Reemplaza ajustarEscala() por esta versión V5 (Strict Fit) */
+
 function ajustarEscala() {
   if (isFullViewMode) return; 
   if (window.matchMedia("(orientation: portrait)").matches) return; 
@@ -135,59 +137,41 @@ function ajustarEscala() {
   const wrapper = document.getElementById('wod-display');
   if (!wrapper) return;
 
-  // --- 1. DEFINIR EL "LIENZO" DE LA TV (Rotada -90deg) ---
-  // window.innerHeight = Es el LARGO físico de la TV (Vertical)
-  // window.innerWidth  = Es el ANCHO físico de la TV (Horizontal)
+  // --- 1. DIMENSIONES FÍSICAS DE LA TV ---
+  // Al estar rotada -90deg:
+  // window.innerHeight = Es el LARGO físico de la TV (Vertical) -> eje X del CSS
+  // window.innerWidth  = Es el ANCHO físico de la TV (Horizontal) -> eje Y del CSS
   
-  // Usamos el 92% del alto y el 85% del ancho para dejar márgenes de seguridad
-  // y que NO se corte nada.
-  const maxLargoDisponible = window.innerHeight * 0.92; 
-  const maxAnchoDisponible = window.innerWidth * 0.85;
+  // Definimos un margen de seguridad del 5% (0.95)
+  // Esto asegura que NUNCA toquemos los bordes físicos (ni arriba ni abajo)
+  const maxLargoSeguro = window.innerHeight * 0.95; 
+  const maxAnchoSeguro = window.innerWidth * 0.90;
 
-  // --- 2. CONFIGURACIÓN INICIAL ---
-  // Empezamos asumiendo el ancho estándar (casi todo el largo de la TV)
-  let cssWidth = maxLargoDisponible;
+  // --- 2. RESETEAR PARA MEDIR ---
+  // Forzamos que el contenedor tenga el ancho de la pantalla (menos margen)
+  // NO lo hacemos más grande que esto. Así evitamos que se salga por arriba/abajo.
+  wrapper.style.width = `${maxLargoSeguro}px`;
+  wrapper.style.height = "auto"; // Dejar que crezca lo que necesite
+  wrapper.style.transform = 'scale(1)';
   
-  wrapper.style.width = `${cssWidth}px`;
-  wrapper.style.transform = 'scale(1)'; // Reset para medir
+  // --- 3. MEDIR EL CONTENIDO ---
+  // ¿Cuánto ocupa realmente el texto ahora mismo?
+  const anchoRealContenido = wrapper.scrollWidth;
+  const altoRealContenido = wrapper.scrollHeight;
+
+  // --- 4. CALCULAR ESCALA (ZOOM) ---
+  // Calculamos cuánto tenemos que reducir para que entre en el ANCHO físico (visual)
+  // (En CSS esto corresponde a la altura del div)
+  let escala = maxAnchoSeguro / altoRealContenido;
+
+  // --- 5. LÍMITES Y APLICACIÓN ---
   
-  let cssHeight = wrapper.scrollHeight; // Cuánto espacio ocupa el texto realmente
-
-  // --- 3. DETECCIÓN DE TEXTO GIGANTE ---
-  // Calculamos la escala necesaria para que quepa en el ancho de la TV
-  let escala = maxAnchoDisponible / cssHeight;
-
-  // Si la escala es muy pequeña (< 0.55), el texto es enorme y quedará ilegible.
-  // ESTRATEGIA: Hacemos el contenedor más ancho (físicamente más alto) 
-  // para que las líneas de texto se acomoden mejor.
-  if (escala < 0.55) {
-      // Aumentamos el ancho del contenedor un 60%
-      cssWidth = maxLargoDisponible * 1.6; 
-      
-      // Aplicamos el nuevo ancho
-      wrapper.style.width = `${cssWidth}px`;
-      
-      // Volvemos a medir la altura con este nuevo ancho
-      cssHeight = wrapper.scrollHeight;
-  }
-
-  // --- 4. CÁLCULO FINAL DE AJUSTE (LA CAJA FUERTE) ---
-  // Aquí está la corrección: Calculamos dos límites estrictos.
+  // Si la escala es mayor a 1, significa que sobra espacio. 
+  // Limitamos a 1.6 para que no sea gigante en WODs cortos.
+  if (escala > 1.6) escala = 1.6; 
   
-  // A: Límite Horizontal (Que no se corte arriba/abajo en la foto)
-  const escalaParaAnchoFisico = maxAnchoDisponible / cssHeight;
-  
-  // B: Límite Vertical (Que no se corte a los lados en la foto)
-  // Nota: Usamos window.innerHeight completo aquí para dar un poco de aire
-  const escalaParaLargoFisico = (window.innerHeight * 0.95) / cssWidth;
-
-  // ELEGIMOS LA MENOR. Esto garantiza que entre SÍ o SÍ en ambos sentidos.
-  escala = Math.min(escalaParaAnchoFisico, escalaParaLargoFisico);
-
-  // --- 5. LÍMITES DE SEGURIDAD Y APLICACIÓN ---
-  if (escala > 1.8) escala = 1.8; 
-  // Bajamos el límite mínimo para permitir que entre texto MUY largo si es necesario
-  if (escala < 0.20) escala = 0.20; 
+  // Si la escala es muy pequeña, permitimos que baje hasta 0.25 para que entre todo.
+  if (escala < 0.25) escala = 0.25;
 
   wrapper.style.transform = `scale(${escala})`;
 }
@@ -228,5 +212,6 @@ document.addEventListener('keydown', function(event) {
 window.addEventListener('load', () => { cargarWOD(); setTimeout(ajustarEscala, 500); });
 window.addEventListener('resize', () => setTimeout(ajustarEscala, 100));
 setInterval(cargarWOD, 60000);
+
 
 
