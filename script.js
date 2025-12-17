@@ -137,42 +137,52 @@ function ajustarEscala() {
   const wrapper = document.getElementById('wod-display');
   if (!wrapper) return;
 
-  // --- 1. DIMENSIONES FÍSICAS DE LA TV ---
-  // Al estar rotada -90deg:
-  // window.innerHeight = Es el LARGO físico de la TV (Vertical) -> eje X del CSS
-  // window.innerWidth  = Es el ANCHO físico de la TV (Horizontal) -> eje Y del CSS
+  // 1. DEFINIR EL ÁREA SEGURA (SAFE ZONE)
+  // Al estar rotado -90deg:
+  // innerHeight es tu ANCHO visual (lado a lado en la pared)
+  // innerWidth es tu ALTO visual (arriba a abajo en la pared)
   
-  // Definimos un margen de seguridad del 5% (0.95)
-  // Esto asegura que NUNCA toquemos los bordes físicos (ni arriba ni abajo)
-  const maxLargoSeguro = window.innerHeight * 0.95; 
-  const maxAnchoSeguro = window.innerWidth * 0.90;
+  // Dejamos un margen del 10% a los lados (ancho visual) para que no toque bordes
+  const anchoVisualSeguro = window.innerHeight * 0.90; 
+  
+  // Dejamos un margen del 10% arriba y abajo (alto visual)
+  const altoVisualSeguro = window.innerWidth * 0.90;
 
-  // --- 2. RESETEAR PARA MEDIR ---
-  // Forzamos que el contenedor tenga el ancho de la pantalla (menos margen)
-  // NO lo hacemos más grande que esto. Así evitamos que se salga por arriba/abajo.
-  wrapper.style.width = `${maxLargoSeguro}px`;
-  wrapper.style.height = "auto"; // Dejar que crezca lo que necesite
-  wrapper.style.transform = 'scale(1)';
-  
-  // --- 3. MEDIR EL CONTENIDO ---
-  // ¿Cuánto ocupa realmente el texto ahora mismo?
-  const anchoRealContenido = wrapper.scrollWidth;
-  const altoRealContenido = wrapper.scrollHeight;
+  // 2. CONFIGURAR LA CAJA
+  // Forzamos al contenedor a tener EXACTAMENTE el ancho disponible seguro.
+  // Esto obliga al texto (Warm up o Accesorio) a hacer saltos de línea aquí.
+  wrapper.style.width = `${anchoVisualSeguro}px`;
+  wrapper.style.height = "auto"; // La altura es libre por ahora
+  wrapper.style.transform = 'scale(1)'; // Reset
 
-  // --- 4. CALCULAR ESCALA (ZOOM) ---
-  // Calculamos cuánto tenemos que reducir para que entre en el ANCHO físico (visual)
-  // (En CSS esto corresponde a la altura del div)
-  let escala = maxAnchoSeguro / altoRealContenido;
+  // 3. MEDIR EL DESBORDAMIENTO VERTICAL
+  // Como ya fijamos el ancho, el texto solo puede crecer hacia "abajo" (CSS height)
+  const alturaRealDelTexto = wrapper.scrollHeight;
 
-  // --- 5. LÍMITES Y APLICACIÓN ---
+  // 4. CALCULAR EL ZOOM NECESARIO
+  // ¿Cabe la altura del texto en la altura disponible de la TV?
+  let escala = 1;
   
-  // Si la escala es mayor a 1, significa que sobra espacio. 
-  // Limitamos a 1.6 para que no sea gigante en WODs cortos.
-  if (escala > 1.6) escala = 1.6; 
+  if (alturaRealDelTexto > altoVisualSeguro) {
+    // Si es más alto que la pantalla, reducimos la escala
+    escala = altoVisualSeguro / alturaRealDelTexto;
+  }
+
+  // 5. AJUSTES FINALES
+  // Si el texto es muy corto (Warmup), la escala será 1.
+  // Pero si quieres que el Warmup se vea GIGANTE, podemos permitir crecer un poco.
+  // Si alturaReal es muy chica comparada con la pantalla, aumentamos escala.
   
-  // Si la escala es muy pequeña, permitimos que baje hasta 0.25 para que entre todo.
+  // Opcional: Si sobra mucho espacio vertical, agrandar hasta un máximo de 1.5
+  const espacioSobrante = altoVisualSeguro / alturaRealDelTexto;
+  if (espacioSobrante > 1) {
+      escala = Math.min(espacioSobrante, 1.5); // Tope de 1.5x
+  }
+
+  // Límite inferior de seguridad (para que no sea ilegible)
   if (escala < 0.25) escala = 0.25;
 
+  // 6. APLICAR
   wrapper.style.transform = `scale(${escala})`;
 }
 
@@ -212,6 +222,7 @@ document.addEventListener('keydown', function(event) {
 window.addEventListener('load', () => { cargarWOD(); setTimeout(ajustarEscala, 500); });
 window.addEventListener('resize', () => setTimeout(ajustarEscala, 100));
 setInterval(cargarWOD, 60000);
+
 
 
 
