@@ -1,4 +1,4 @@
-// 1. RELOJ DIGITAL
+// --- RELOJ DIGITAL ---
 function updateClock() {
   const now = new Date();
   const dia = String(now.getDate()).padStart(2, '0');
@@ -16,12 +16,13 @@ function updateClock() {
 setInterval(updateClock, 1000);
 updateClock();
 
-// 2. VARIABLES GLOBALES
+// --- VARIABLES GLOBALES ---
 const dias = ['domingo','lunes','martes','miercoles','jueves','viernes','sabado'];
 let currentSlideIndex = 0;
 let currentWodParts = [];
-let isFullViewMode = false; // Nueva variable de estado
+let isFullViewMode = false;
 
+// --- CARGAR WOD ---
 function cargarWOD() {
   if (typeof wods === 'undefined') return;
 
@@ -43,12 +44,17 @@ function cargarWOD() {
     currentSlideIndex = 0;
     renderSlide();
     
-    // Si estábamos en modo full, regenerarlo por si cambió el día
-    if(isFullViewMode) renderFullView();
+    // Si estábamos en modo full, refrescar contenido
+    if(isFullViewMode) {
+        toggleFullView(); 
+        // Pequeño hack para que no se cierre y vuelva a abrir, sino que renderice
+        isFullViewMode = !isFullViewMode; 
+        toggleFullView();
+    }
   }
 }
 
-// Renderiza un solo slide (Modo normal)
+// --- RENDERIZAR SLIDE (CON NEGRITA) ---
 function renderSlide() {
   if(isFullViewMode) return; 
 
@@ -57,7 +63,12 @@ function renderSlide() {
 
   setTimeout(() => {
     const part = currentWodParts[currentSlideIndex];
-    wrapper.innerHTML = `<h3>${part.titulo}</h3><p>${part.contenido}</p>`;
+    
+    // 1. APLICAR FORMATO NEGRITA
+    const contenidoFormateado = formatearTexto(part.contenido);
+
+    // 2. INYECTAR HTML
+    wrapper.innerHTML = `<h3>${part.titulo}</h3><p>${contenidoFormateado}</p>`;
 
     document.getElementById('slide-indicator').innerText = `${currentSlideIndex + 1} / ${currentWodParts.length}`;
     
@@ -72,14 +83,21 @@ function renderSlide() {
         btnNext.style.opacity = (currentSlideIndex === currentWodParts.length - 1) ? "0" : "1";
     }
 
-    ajustarEscala();
+    ajustarEscala(); // Llama a la versión "Fit"
     wrapper.classList.remove('fading');
   }, 300);
 }
 
-// 3. NUEVA FUNCIÓN: MODO VISTA COMPLETA
+// --- HELPER NEGRITA ---
+function formatearTexto(texto) {
+  if (!texto) return "";
+  // Convierte *texto* en <strong>texto</strong>
+  return texto.replace(/\*(.*?)\*/g, '<strong>$1</strong>');
+}
+
+// --- MODO VISTA COMPLETA ---
 function toggleFullView() {
-  isFullViewMode = !isFullViewMode; // Alternar estado
+  isFullViewMode = !isFullViewMode; 
   
   const fullContainer = document.getElementById('full-view-container');
   const slideWrapper = document.getElementById('wod-display');
@@ -87,40 +105,36 @@ function toggleFullView() {
   const buttons = document.getElementById('nav-buttons');
 
   if (isFullViewMode) {
-    // ACTIVAR MODO RESUMEN
-    
-    // 1. Generar contenido HTML concatenando todo
+    // Generar HTML con negrita
     let fullHTML = "";
     currentWodParts.forEach(part => {
+      const contenidoFormateado = formatearTexto(part.contenido);
       fullHTML += `
         <div class="full-section">
           <h3>${part.titulo}</h3>
-          <p>${part.contenido}</p>
+          <p>${contenidoFormateado}</p>
         </div>
       `;
     });
     fullContainer.innerHTML = fullHTML;
 
-    // 2. Mostrar/Ocultar elementos
     fullContainer.classList.remove('hidden');
     slideWrapper.classList.add('hidden');
     indicator.classList.add('hidden');
     buttons.classList.add('hidden');
 
   } else {
-    // VOLVER A MODO SLIDES
     fullContainer.classList.add('hidden');
     slideWrapper.classList.remove('hidden');
     indicator.classList.remove('hidden');
     buttons.classList.remove('hidden');
     
-    // Re-ajustar escala por si acaso
     setTimeout(ajustarEscala, 100);
   }
 }
 
 function cambiarSlide(direccion) {
-  if(isFullViewMode) return; // Bloquear cambios si estamos en resumen
+  if(isFullViewMode) return; 
   const nuevoIndex = currentSlideIndex + direccion;
   if (nuevoIndex >= 0 && nuevoIndex < currentWodParts.length) {
     currentSlideIndex = nuevoIndex;
@@ -128,79 +142,66 @@ function cambiarSlide(direccion) {
   }
 }
 
-/* script.js - Reemplaza ajustarEscala() por esta versión V5 (Strict Fit) */
-
+// --- AJUSTAR ESCALA (VERSIÓN "STRICT FIT" DE LA PANTALLA AJUSTADA) ---
 function ajustarEscala() {
   if (isFullViewMode) return; 
+  // Respetamos la vista móvil original (no escala igual)
   if (window.matchMedia("(orientation: portrait)").matches) return; 
 
   const wrapper = document.getElementById('wod-display');
   if (!wrapper) return;
 
-  // --- 1. DEFINIR LÍMITES VISUALES ---
-  // window.innerHeight = Es el ANCHO visual en tu pared (aprox 1920px)
-  // window.innerWidth  = Es el ALTO visual en tu pared (aprox 1080px)
+  // 1. DEFINIR LÍMITES VISUALES
+  // window.innerHeight = ANCHO visual en tu pared (aprox 1920px)
+  // window.innerWidth  = ALTO visual en tu pared (aprox 1080px)
   
-  // Usamos márgenes de seguridad para no tocar los bordes negros
   const anchoVisualMaximo = window.innerHeight * 0.94; // 94% del ancho físico
   const altoVisualMaximo = window.innerWidth * 0.90;   // 90% del alto físico
 
-  // --- 2. PREPARAR EL CONTENEDOR (La clave está aquí) ---
-  // No forzamos un ancho fijo. Decimos: "Sé tan ancho como necesites, 
-  // pero NUNCA más ancho que la pantalla".
+  // 2. PREPARAR EL CONTENEDOR
+  // Usamos width: auto para que el div tome su tamaño natural
   wrapper.style.width = 'auto'; 
   wrapper.style.maxWidth = `${anchoVisualMaximo}px`;
   wrapper.style.height = 'auto';
   
-  // Reseteamos escala para medir el tamaño "natural"
   wrapper.style.transform = 'scale(1)';
 
-  // --- 3. MEDIR TAMAÑO REAL ---
+  // 3. MEDIR TAMAÑO REAL
   const anchoActual = wrapper.scrollWidth;
   const altoActual = wrapper.scrollHeight;
 
-  // --- 4. CALCULAR ESCALA PERFECTA ---
-  
-  // A) ¿Cuánto puedo crecer/encoger para encajar en el ANCHO?
+  // 4. CALCULAR ESCALA PERFECTA
+  // A) Escala para encajar ANCHO
   const escalaAncho = anchoVisualMaximo / anchoActual;
   
-  // B) ¿Cuánto puedo crecer/encoger para encajar en el ALTO?
+  // B) Escala para encajar ALTO
   const escalaAlto = altoVisualMaximo / altoActual;
 
-  // Elegimos la MENOR de las dos.
-  // Esto asegura que si el texto es muy ancho, se limita por el ancho.
-  // Si es muy alto, se limita por el alto. NUNCA se saldrá.
+  // Elegimos la MENOR de las dos para asegurar que entre completo
   let escala = Math.min(escalaAncho, escalaAlto);
 
-  // --- 5. LÍMITES FINALES ---
-  // Tope máximo (1.6x) para que el Warm-up se vea grande y potente
+  // 5. LÍMITES
   if (escala > 1.6) escala = 1.6; 
-  
-  // Tope mínimo (0.25x) para que entre cualquier biblia de texto
   if (escala < 0.25) escala = 0.25;
 
   wrapper.style.transform = `scale(${escala})`;
 }
 
-// 4. CONTROL DE TECLADO
+// --- CONTROL DE TECLADO ---
 document.addEventListener('keydown', function(event) {
   const key = event.key; 
   const code = event.keyCode; 
 
-  // --- TECLA 0: TOGGLE VISTA COMPLETA ---
   if (key === '0' || code === 48 || code === 96) {
     toggleFullView();
     return;
   }
 
-  // Si estamos en modo Full View, ignorar navegación normal
   if (isFullViewMode) {
-     // Opcional: Permitir salir con Escape o Enter
      if(key === 'Escape' || key === 'Backspace') toggleFullView();
      return; 
   }
 
-  // --- NAVEGACIÓN NORMAL (Slides) ---
   if (key >= '1' && key <= '9') {
     const targetIndex = parseInt(key) - 1;
     if (targetIndex >= 0 && targetIndex < currentWodParts.length) {
@@ -214,12 +215,7 @@ document.addEventListener('keydown', function(event) {
   if (key === 'Enter' || code === 13) cambiarSlide(1);
 });
 
-// Init
+// Inicialización
 window.addEventListener('load', () => { cargarWOD(); setTimeout(ajustarEscala, 500); });
 window.addEventListener('resize', () => setTimeout(ajustarEscala, 100));
 setInterval(cargarWOD, 60000);
-
-
-
-
-
