@@ -4,23 +4,34 @@ const wods = {
   domingo: [
     {
       titulo: "WARM-UP",
-      contenido: `5:00 Practice Jump Rope
--into
-6:00 AMRAP 
-4 Lunge Matrix 
-10 Sit Ups
-4 InchWorms
-4 Up Downs`
+      contenido: `*2:00 cardio of choice (run or machine)*
+Then 2 rounds
+10 Air Squats
+10 Alternating Lunges
+5 Inchworm Push-ups
+10 Banded Good Mornings
+Then 2 rounds:
+Row 30 seconds (switch in round 2)
+Farmers Carry
+6 DB Snatch
+6 Wall Balls
+* Round one is light, round two at workout weight`
     },
     {
       titulo: "METCON (Reps)",
-      contenido: `
-5 sets 
-1:00 Max Burpees (or Sand Ball Slams (15/10)) 
-1:00 Max Double Unders 
-1:00 Max Stick Sit Ups 
-1:00 Rest  
-Scoring: Reps `
+      contenido: `*Host of Angels*
+
+Each station is 2 minutes of work, followed by 1 minute of rest. Athletes will stay at each station for 3 rounds, before moving on to the next station.
+
+(Score is total reps in each station)`
+    },
+    {
+      titulo: "METCON (Reps)",
+      contenido: `*Station 1*: 300/250m Row + Max Burpee Over Rower in remaining time
+*Station 2*: 250 m Run + Max distance Farmers Carry in remaining time (every 7.5m or 25 feet = 1 rep)
+*Station 3*: 10x50ft Shuttle Run + Max Alternating DB Snatches in remaining time (50/35 lbs, 22.5/15 kg)
+*Station 4*: 250m Run + Max Wall Balls in remaining time (20/14 lbs, 9/6 kg)`
+
     }
   ],
 
@@ -28,29 +39,36 @@ Scoring: Reps `
    lunes: [
     {
       titulo: "WARM-UP",
-      contenido: `8:00 AMRAP
-30-second Cardio
-10 Empty Bar Strict Press
-10 Handstand Shoulder Taps or 8 Box Pike Shoulder Taps
-5 Controlled Push Us
-10 Band Pull Aparts`
+      contenido: `*8:00 AMRAP*
+30-second Row
+10 Banded Pass Throughs
+6 Empty Bar Overhead Squats
+4 Snatch Balances
+6 Hollow Rocks
+
+-into
+Bar Muscle Up Progression Reps (kip swings → hips to bar → transitions)`
     },
     {
-      titulo: "WEIGHTLIFTING (Bench Press)",
-      contenido: `BENCH PRESS
-4 sets
-8 Bench Press
--build across sets by feel-
--rest 1:00-2:00 between sets-`
+      titulo: "METCON",
+      contenido: `*Star of Bethlehem*
+
+*2 sets*:
+*5:00 AMRAP*
+4-8-12-16….
+Overhead Squats (42.5/30)
+1-2-3-4….
+Bar Muscle Ups
+
+-rest 2:00 between sets- (Score is 2 sets of Rounds+Reps)`
     },
     {
-      titulo: "METCON (Tiempo)",
-      contenido: `3 sets
-10 Handstand Push Ups
-400m Run
-15 Wall Walks
--rest 3:00 between sets-
-(Scored by time each set)`
+      titulo: "ACCESORIO",
+      contenido: `*4 SETS*
+10 Dumbbell Bulgarian Split Squats (each side) RPE 6-7
+-rest 30 seconds
+10 Single Leg Dumbbell RDL (each side) RPE 6-7
+* Rest 2 minutes between rounds`
     }
   ],
 
@@ -59,171 +77,155 @@ Scoring: Reps `
   martes: [
     {
       titulo: "WARM-UP",
-      contenido: `8:00 AMRAP 
-30-second Row (moderate) 
-10 Beat Swings 
-6 Hanging Knee Raises 
-6 Low Box Step-Overs 
-8 Samson Lunges`
+      contenido: `*8:00 AMRAP*
+100m Easy Jog
+4 Shuttle Runs (practice technique)
+8 Air Squats
+4 Up Downs
+6 Reverse Lunges
+1 Wall Walk + 4 Shoulder Taps`
     },
     {
-      titulo: "METCON- Teams of 3",
-      contenido: `9 rounds, 3 round each
-6/5 Calorie Row 
-5 Toes to Bar 
-4 Box Jump Overs (30/24) 
-then:
-For Time a completar: 
-100/80 Calorie Row 
-60 Toes to Bar 
-50 Box Jump Overs (30/24)`
-    },
-    {
-      titulo: "Gymnastics (Toes-to-Bar) 1",
-      contenido: `AMRAP + 1 minute rest + 3 minute AMRAP - start where you left off
-•Level 1: 8 Hanging Knee Raises 100-foot farmers carry [35/25] 8 Plank Shoulder Taps [right/left = 2 reps] (KG: 15/10)
-•Level 2: 8 Alternating Leg Toes to Bar 100-foot farmers carry [50/35] 1 wall walk INTO 6 Wall Facing Handstand Shoulder Taps [right/left = 2 reps] (KG: 22.5/15)
-•Level 3: 10 Alternating Leg Toes to Bar 100-foot farmers carry [70/50] 1 wall walk INTO 10 Wall Facing Handstand Shoulder Taps [right/left = 2 reps (KG: 32.5/22.5)`
-    },
-    {
-      titulo: " (Toes-to-Bar) 2",
-      contenido: `•Level 2: 8 Alternating Leg Toes to Bar 100-foot farmers carry [50/35] 1 wall walk INTO 6 Wall Facing Handstand Shoulder Taps [right/left = 2 reps] (KG: 22.5/15)
-•Level 3: 10 Alternating Leg Toes to Bar 100-foot farmers carry [70/50] 1 wall walk INTO 10 Wall Facing Handstand Shoulder Taps [right/left = 2 reps (KG: 32.5/22.5)`
-    }
+      titulo: "GYMNASTICS (Handstand Walk)",
+      contenido: `*GYMNASTIC TEST*
 
+2:00 AMRAP
+*Level 1*: Max Distance Double Dumbbell Overhead Carry
+*Level 2*: Max Wall Walks
+*Level 3*: Max Distance Handstand Walk For distance, every 25 feet = 1 rep.
+
+We’re testing total accumulated effort in two minutes, not one max set`
+    },
+    {
+      titulo: "METCON (Reps)",
+      contenido: `*The Holly and the Ivy*
+
+*30:00 AMRAP*
+10x50ft Shuttle Runs
+15 Burpees
+
+(Score is Rounds + Reps)`
+    }
   ],
 
 // --------------------------------- MIÉRCOLES --------------------------------------  
   miercoles: [
     {
       titulo: "WARM-UP",
-      contenido: `8:00 AMRAP 
-30 Single Unders 
-10 PVC Good Mornings 
-6 Front Squats (empty bar) 
-4 Power Cleans + 2 Squat Cleans (empty bar) 
-Optional: 1–2 barbell build-up sets`
+      contenido: `*8:00 AMRAP*
+30-second Machine
+8 Empty Bar Hang Power Cleans
+6 Front Rack Lunges
+6 Up Downs Over Bar
+
+Optional: 1–2 Cycling Sets (3–5 reps at moderate weight)`
     },
     {
-      titulo: "METCON",
-      contenido: `2-2-2-3 min AMRAP 
-TC: 20:00
-75 Double Unders 
-Max Squat Cleans in the time remaining ( 60/42.5) 
--rest 1:00 between AMRAPs- 
-* Go until you get 40 squat cleans or hit the cap 
-(Score is total time, including rest)`
+      titulo: "METCON (Tiempo)",
+      contenido: `*Gold and Myrrh*
+
+21-15-9
+Hang Power Cleans (60/42.5)
+Burpee Over Bar
+
+-rest 3:00-
+
+9-15-21
+Burpee Over Bar
+Hang Power Cleans (60/42.5)
+
+(Score is 2 sets of Time)`
     },
     {
       titulo: "ACCESORIO",
-      contenido: `MINI PUMP - ARMS
-5 SETS 
-12 Dumbbell Alternating Skull Crushers (each side) @ RPE 7/10 
--rest 30 secs
-12 Dumbbell Alternating Curls (each side) @ RPE 7/10 
--rest 1 minute between sets- 
-* Instead of resting :30, athletes can partner up and go 1:1 on movements and advance together to the next station when their partner finishes.`
+      contenido: `* The Weight of the dumbbells and the resistance of the band need to be light. You should be able to move for almost the entire 20 seconds. Rest is short between sets; shake things out quickly and be ready to go. Scored by total reps for each section`
+    },
+     {
+      titulo: "ACCESORIO",
+      contenido: `*Tabata Dumbbell Bench*
+8 sets
+20-seconds Max Reps Dumbbell Bench (light-moderate)
+10-second Rest
+
+-Rest 2:00, into
+
+*Tabata Banded Face Pulls*
+8 sets
+20-seconds Max Reps Banded Face Pulls (light)
+10-second Rest`
     }
   ],
 // ----------------------------------- JUEVES -----------------------------------------
-  jueves: [
-    {
-      titulo: "WARM-UP",
-      contenido: `10:00 AMRAP 
-1:00 Machine 
-5 Deadlifts (empty bar) 
-5 Hang Squat Cleans (empty Bar) 
-5 Strict Pull Ups or 10 Ring rows 
-5 V-ups (each side) 
-5 Birddogs (each side)`
-    },
-    {
-      titulo: "METCON",
-      contenido: `”12 Days of Christmas”
-1 Squat Clean (70/47.5) 
-2 Strict Pull Ups
-3 Burpees
-4 Muscle Ups (Bar or Ring)  
-5 Deadlifts (70/47.5) 
-6 Pull Ups 
-7 V-Ups 
-8 Wall Balls (30/20) 
-9 Box Jumps (24/20) 
-10 Back Rack Lunges (70/47.5) 
-11 Handstand Push Ups 
-12 Thrusters (70/47.5)`
-    },
-    {
-      titulo: "ACCESORIO",
-      contenido: `4 ROUNDS 
-10 Banded Pushups @ moderate weight RPE 7 
--rest 30 seconds
-10 Ring Row – Feet Elevated @ moderate weight RPE 7 
--rest 30 seconds
-10 Standing Tricep DB French Press @ moderate weight RPE 7 
-* Rest 2 minutes between rounds`
-    }
-  ],
+  jueves:null,
 
 // ----------------------------------- VIERNES -------------------------------------
 
   viernes: [
     {
       titulo: "WARM-UP",
-      contenido: `8:00 AMRAP 
+      contenido: `*8:00 AMRAP*
 30-second Cardio
-3 Muscle Snatch (PVC-empty bar) 
-3 Overhead Squats (PVC-empty bar) 
-3 Hang Power Snatch (PVC-empty bar) 
-3 Squat Snatch (PVC-empty bar) 
-4 Burpees 
--into
-3 sets 
-2 Squat Snatch (singles, build up to starting weight)`
+10 Banded Good Mornings
+10 Banded Strict Press
+10-second Handstand Hold
+5 Deadlifts (empty bar)
+10 Deadbugs
+10 Hollow Rocks
+
+Optional: 1–2 build-up sets for deadlifts (light to moderate)`
     },
     {
-      titulo: "WEIGHTLIFTING (Snatch)",
-      contenido: `5 sets 
-1 Squat Snatch (@70-75%)
- -rest 1:00-2:00 between sets-`
+      titulo: "GYMNASTICS test (Strict Pull-up)",
+      contenido: `*Level 1*: Determine the thinnest band possible that you can perform a strict pull-up
+*Level 2*: Determine your max, unbroken set of strict pull-ups or chin-ups
+*Level 3*: Determine your max weighted strict pull-up weight`
     },
     {
-      titulo: "METCON",
-      contenido: ` 21-15-9 
-Power Snatch (52/38) 
-Burpee Over Bar 
-(Scored by Time)`
+      titulo: "METCON (Tiempo)",
+      contenido: `*Frankincense*
+
+3 Rounds
+21 Handstand Push Ups
+21 Deadlifts (85/57.5)
+21 V-Ups`
     }
   ],
-
 // ---------------------------------- SÁBADO ---------------------------------------------
   
   sabado: [
     {
       titulo: "WARM-UP",
-      contenido: `8:00 AMRAP 
-100m Easy Run 
-10 Supermans 
-10 Alternating V-ups 
-6 Walking Lunges (each leg) 
-10 Beat Swings
-Optional: 1–2 practice rounds of 50ft lunges + 5 V-Ups`
+      contenido: `*10:00 AMRAP*
+30-second Row
+30-second Run
+20 Single Unders
+6 Leg Swings (each side)
+6 Slow Burpees
+
+Optional: Practice 2–3 partner transition cycles on the rower and rope`
     },
     {
       titulo: "METCON",
-      contenido: `7 Rounds 
-200m Run 
-15  V-Ups 
-50ft Walking Lunge 
-(Scored by Time)`
+      contenido: `*The Magi*
+
+*Teams of 2*
+Partner Triple 3
+3000/2400m Row (partners must switch every 30 seconds)
+300 Double Unders (partners must switch every 30 seconds)
+3 Mile Run (together)`
+    },
+    {
+      titulo: "ACCESORIO",
+      contenido: `*MAYHEM MINI-PUMP – LOWER PULL*
+
+*4 ROUNDS*
+8 Weighted Hip Thrusts @ RPE 7-7.5/10
+-rest 30 seconds
+25 Supermans
+-rest 30 seconds
+15 Russian Kettlebell Swings @ RPE 7-7.5/10
+
+* Rest 2 minutes between rounds`
     }
   ]
-
 };
-
-
-
-
-
-
-
