@@ -3,7 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>WOD Vertical 50" - Final</title>
+  <title>WOD Vertical 50" - Pro Edition</title>
+  <!-- Google Fonts: Oswald (Headings) & Roboto (Body) & Orbitron (Clock) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Oswald:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -12,15 +16,16 @@
   
   <img src="logo.png" class="bg-logo" alt="Logo CrossFit">
 
-  <div class="datetime-container">
-    <div id="date-display">--/--/----</div>
-    <div id="time-display">--:--:--</div>
+  <div class="header-bar">
+      <div class="datetime-container">
+        <div id="date-display">--/--/----</div>
+        <div id="time-display">--:--:--</div>
+      </div>
+      <div class="slide-indicator" id="slide-indicator">1 / 1</div>
   </div>
 
-  <div class="slide-indicator" id="slide-indicator">1 / 1</div>
-
   <div class="content-wrapper" id="wod-display">
-    
+    <!-- WOD Content will be injected here -->
   </div>
 
   <div class="nav-buttons" id="nav-buttons">
@@ -28,15 +33,14 @@
     <button id="btn-next" onclick="cambiarSlide(1)">&#9654;</button>
   </div>
 
-
-  <div id="full-view-container" class="hidden">
-    
+  <div id="full-view-container" class="glass-panel hidden">
+    <!-- Full view content -->
   </div>
 
 </div>
 
-<script src="wods.js?v=2"></script>
-<script src="script.js?v=2"></script>
+<script src="wods.js?v=3"></script>
+<script src="script.js?v=3"></script>
 
 </body>
 </html>
