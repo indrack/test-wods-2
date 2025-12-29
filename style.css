@@ -93,13 +93,24 @@ html {
 
 /* --- WOD CONTENT --- */
 .content-wrapper {
+  /* CAMBIO 1: Origen del zoom en el CENTRO */
+  transform-origin: center center;
   transition: opacity 0.3s ease, transform 0.3s ease;
-  transform-origin: top left;
+  
+  /* CAMBIO 2: Flexbox para centrado perfecto */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Centrar verticalmente */
+  align-items: center;     /* Centrar horizontalmente */
+  
+  /* CAMBIO 3: Asegurar que ocupe espacio pero respete márgenes */
+  width: 100%;
+  margin: 0 auto;
 }
 
 .content-wrapper.fading {
   opacity: 0;
-  transform: translateY(10px);
+  transform: scale(0.9);
 }
 
 .content-wrapper h3 {
@@ -117,6 +128,7 @@ html {
 }
 
 .content-wrapper p {
+  width: 100%;
   font-family: var(--font-body);
   font-size: 3.5em;
   line-height: 1.3;
