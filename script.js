@@ -144,31 +144,41 @@ function ajustarEscala() {
   const wrapper = document.getElementById('wod-display');
   if (!wrapper) return;
 
-  // Reset transform to measure naturally
+  // 1. LIMPIEZA INICIAL
   wrapper.style.transform = 'scale(1)';
-  wrapper.style.width = 'auto'; // allow expansion
+  wrapper.style.height = 'auto'; 
+  
+  // 2. CÁLCULO DEL ESPACIO "VISUAL" (Considerando la rotación de TV)
+  // window.innerHeight = Es el ANCHO visual (de izquierda a derecha en tu pared)
+  // window.innerWidth  = Es el ALTO visual (de arriba a abajo en tu pared)
 
-  // CONSTANTS for Safe Area
-  // In rotated -90deg view:
-  // Physical Screen Width (1920) -> IS VISUAL HEIGHT
-  // Physical Screen Height (1080) -> IS VISUAL WIDTH
+  // Usamos el 94% del ancho para aprovechar la pantalla al máximo sin tocar bordes
+  const anchoVisualTotal = window.innerHeight * 0.94;
+  
+  // Usamos el 75% del alto (dejando hueco para logo y reloj arriba, y botones abajo)
+  const altoVisualTotal = window.innerWidth * 0.75;
 
-  const visualWidthAvailable = window.innerHeight * 0.90; // Using Height as Visual Width
-  const visualHeightAvailable = window.innerWidth * 0.70;  // Using Width as Visual Height (leaving space for header/footer)
+  // 3. FORZAR EL ANCHO (La clave para que no se vea angosto)
+  // Le decimos al div: "Mide 1800px de ancho". 
+  // Así el texto se estira a los lados y baja su altura.
+  wrapper.style.width = `${anchoVisualTotal}px`;
 
-  // Measure Content
-  const contentWidth = wrapper.scrollWidth;
-  const contentHeight = wrapper.scrollHeight;
+  // 4. MEDIR LA ALTURA RESULTANTE
+  const alturaContenido = wrapper.scrollHeight;
 
-  const scaleX = visualWidthAvailable / contentWidth;
-  const scaleY = visualHeightAvailable / contentHeight;
+  // 5. CALCULAR EL ZOOM
+  // Como ya fijamos el ancho para que quepa perfecto, solo nos preocupa la altura.
+  let escala = altoVisualTotal / alturaContenido;
 
-  let scale = Math.min(scaleX, scaleY);
+  // 6. LÍMITES DE ZOOM
+  // Máximo 1.6x para que no sea absurdo en textos cortos
+  if (escala > 1.6) escala = 1.6;
+  
+  // Mínimo 0.35x para que siempre entre todo
+  if (escala < 0.35) escala = 0.35;
 
-  // Clamp scale
-  scale = Math.min(Math.max(scale, 0.4), 1.5);
-
-  wrapper.style.transform = `scale(${scale})`;
+  // 7. APLICAR
+  wrapper.style.transform = `scale(${escala})`;
 }
 
 // --- CONTROL DE TECLADO ---
