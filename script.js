@@ -144,37 +144,36 @@ function ajustarEscala() {
   const wrapper = document.getElementById('wod-display');
   if (!wrapper) return;
 
-  // 1. LIMPIEZA INICIAL
+  // 1. LIMPIEZA
   wrapper.style.transform = 'scale(1)';
   wrapper.style.height = 'auto'; 
   
-  // 2. CÁLCULO DEL ESPACIO "VISUAL" (Considerando la rotación de TV)
-  // window.innerHeight = Es el ANCHO visual (de izquierda a derecha en tu pared)
-  // window.innerWidth  = Es el ALTO visual (de arriba a abajo en tu pared)
+  // 2. DIMENSIONES VISUALES
+  // window.innerHeight = ANCHO visual (Lado a lado)
+  // window.innerWidth  = ALTO visual (Arriba a abajo)
 
-  // Usamos el 94% del ancho para aprovechar la pantalla al máximo sin tocar bordes
+  // ANCHO: Usamos el 94% para que sea bien ancho
   const anchoVisualTotal = window.innerHeight * 0.94;
   
-  // Usamos el 75% del alto (dejando hueco para logo y reloj arriba, y botones abajo)
-  const altoVisualTotal = window.innerWidth * 0.75;
+  // ALTO: REDUCIMOS AL 65% (antes 75%).
+  // ¿Por qué? Porque al alinear arriba, necesitamos asegurar que el texto
+  // pare de crecer ANTES de tocar los botones verdes de abajo.
+  const altoVisualTotal = window.innerWidth * 0.65; 
 
-  // 3. FORZAR EL ANCHO (La clave para que no se vea angosto)
-  // Le decimos al div: "Mide 1800px de ancho". 
-  // Así el texto se estira a los lados y baja su altura.
+  // 3. FORZAR ANCHO
   wrapper.style.width = `${anchoVisualTotal}px`;
 
-  // 4. MEDIR LA ALTURA RESULTANTE
+  // 4. MEDIR
   const alturaContenido = wrapper.scrollHeight;
 
-  // 5. CALCULAR EL ZOOM
-  // Como ya fijamos el ancho para que quepa perfecto, solo nos preocupa la altura.
+  // 5. CALCULAR ZOOM
   let escala = altoVisualTotal / alturaContenido;
 
-  // 6. LÍMITES DE ZOOM
-  // Máximo 1.6x para que no sea absurdo en textos cortos
+  // 6. LÍMITES
+  // Máximo 1.6x (Textos cortos se verán grandes arriba)
   if (escala > 1.6) escala = 1.6;
   
-  // Mínimo 0.35x para que siempre entre todo
+  // Mínimo 0.35x (Textos largos se encogerán para no tapar los botones)
   if (escala < 0.35) escala = 0.35;
 
   // 7. APLICAR
@@ -214,3 +213,4 @@ window.addEventListener('load', () => {
 });
 window.addEventListener('resize', () => setTimeout(ajustarEscala, 200));
 setInterval(cargarWOD, 60000);
+
