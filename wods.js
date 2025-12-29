@@ -1,6 +1,6 @@
 const wods = {
 
-// --------------------------------- DOMINGO ------------------------------------
+  // --------------------------------- DOMINGO ------------------------------------
   domingo: [
     {
       titulo: "WARM-UP",
@@ -35,8 +35,8 @@ Each station is 2 minutes of work, followed by 1 minute of rest. Athletes will s
     }
   ],
 
-// ------------------------------------ LUNES -----------------------------------------------------
-   lunes: [
+  // ------------------------------------ LUNES -----------------------------------------------------
+  lunes: [
     {
       titulo: "WARM-UP",
       contenido: `*8:00 AMRAP*
@@ -73,7 +73,7 @@ Bar Muscle Ups
   ],
 
 
-// ----------------------------------- MARTES ------------------------------------------------
+  // ----------------------------------- MARTES ------------------------------------------------
   martes: [
     {
       titulo: "WARM-UP",
@@ -108,7 +108,7 @@ We’re testing total accumulated effort in two minutes, not one max set`
     }
   ],
 
-// --------------------------------- MIÉRCOLES --------------------------------------  
+  // --------------------------------- MIÉRCOLES --------------------------------------  
   miercoles: [
     {
       titulo: "WARM-UP",
@@ -140,7 +140,7 @@ Hang Power Cleans (60/42.5)
       titulo: "ACCESORIO",
       contenido: `* The Weight of the dumbbells and the resistance of the band need to be light. You should be able to move for almost the entire 20 seconds. Rest is short between sets; shake things out quickly and be ready to go. Scored by total reps for each section`
     },
-     {
+    {
       titulo: "ACCESORIO",
       contenido: `*Tabata Dumbbell Bench*
 8 sets
@@ -155,10 +155,10 @@ Hang Power Cleans (60/42.5)
 10-second Rest`
     }
   ],
-// ----------------------------------- JUEVES -----------------------------------------
-  jueves:null,
+  // ----------------------------------- JUEVES -----------------------------------------
+  jueves: null,
 
-// ----------------------------------- VIERNES -------------------------------------
+  // ----------------------------------- VIERNES -------------------------------------
 
   viernes: [
     {
@@ -190,8 +190,8 @@ Optional: 1–2 build-up sets for deadlifts (light to moderate)`
 21 V-Ups`
     }
   ],
-// ---------------------------------- SÁBADO ---------------------------------------------
-  
+  // ---------------------------------- SÁBADO ---------------------------------------------
+
   sabado: [
     {
       titulo: "WARM-UP",
