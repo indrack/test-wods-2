@@ -93,17 +93,19 @@ html {
 
 /* --- WOD CONTENT --- */
 .content-wrapper {
-  /* CAMBIO 1: Origen del zoom en el CENTRO */
-  transform-origin: center center;
+  /* CAMBIO 1: Origen del zoom ARRIBA al centro */
+  transform-origin: top center; 
   transition: opacity 0.3s ease, transform 0.3s ease;
   
-  /* CAMBIO 2: Flexbox para centrado perfecto */
+  /* CAMBIO 2: Alineación al inicio (arriba) en vez del centro */
   display: flex;
   flex-direction: column;
-  justify-content: center; /* Centrar verticalmente */
-  align-items: center;     /* Centrar horizontalmente */
+  justify-content: flex-start; /* IMPORTANTE: Esto lo sube */
+  align-items: center;     
   
-  /* CAMBIO 3: Asegurar que ocupe espacio pero respete márgenes */
+  /* CAMBIO 3: Padding superior para no chocar con el Logo/Reloj */
+  padding-top: 140px; /* Ajusta este número si choca con el logo */
+  
   width: 100%;
   margin: 0 auto;
 }
@@ -239,3 +241,4 @@ strong {
     display: none !important;
   }
 }
+
