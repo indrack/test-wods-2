@@ -3,59 +3,75 @@
 const wgirls = {
 
 // --------------------------------- DOMINGO ------------------------------------
-  domingo: [
-    {
-      titulo: "WGIRLS WARM-UP",
-      contenido: `Example Girls Warmup`
-    }
-  ],
+  domingo: [],
 
 // ------------------------------------ LUNES ------------------------------------
   lunes: [
     {
-      titulo: "WGIRLS WARM-UP",
-      contenido: `8:00 Glute Activation
-3 Rounds
-15 Banded Clamshells
-15 Glute Bridges
-10 Single Leg RDL`
+      titulo: "WARM-UP",
+      contenido: `*3 RFT*
+150m Row
+15m Walking Lunges
+10 Squats
+50 Jump Ropes`
     },
     {
-      titulo: "LOWER BODY STRENGTH",
-      contenido: `Hip Thrust
-4 sets of 10 reps
-*Hold 2 seconds at the top
--Rest 90 seconds-`
-    },
-    {
-      titulo: "GIRLS METCON",
-      contenido: `3 Rounds
-15 Goblet Squats
-200m Run
-15 Kettlebell Swings`
+      titulo: "Custom Metcon",
+      contenido: `*Cada 5 Min por 5 Sets*
+8 Cals Row
+10 Box Steps Over (24)
+12 Russian Swings
+6 KB Sumo Squats`
     }
   ],
 
 // ----------------------------------- MARTES ------------------------------------
-  martes: [
+  martes: [],
+// ----------------------------------- MIERCOLES ------------------------------------
+  miercoles: [
     {
-      titulo: "WGIRLS WARM-UP",
-      contenido: `Tabata Abs
-8 rounds
-20s Hollow Hold
-10s Rest`
+      titulo: "WARM-UP",
+      contenido: `*Tabata #1*
+Frog Pumps
+Mountain Climbers
+*Tabata #2*
+Banded Lat. Walk
+Squats
+*Tabata #3*
+Sit Ups
+Leg Raises`
+    },
+    {
+      titulo: "Custom Metcon",
+      contenido: `*AMRAP 20Min*
+100m Run
+6 Box Jumps
+12 Alt DB Snatch
+15 mts Burpee Broad Jump`
     }
   ],
-
-// ... (Completa el resto de días con la misma estructura) ...
-
-// Relleno rápido para días vacíos para evitar errores
-// ----------------------------------- MIERCOLES ------------------------------------
-  miercoles: [],
 // ----------------------------------- JUEVES ------------------------------------
   jueves: [],
 // ----------------------------------- VIERNES ------------------------------------
-  viernes: [],
+  viernes: [
+    {
+      titulo: "WARM-UP",
+      contenido: `*2 Rounds*
+50 Jump Ropes
+20 Plate Sit Ups
+20 Flutter Kicks 
+20 Plank Jacks
+100m Run`
+    },
+    {
+      titulo: "Custom Metcon",
+      contenido: `*5 Rounds*
+20 Cals Row
+15 Wall Balls
+30m DB Walking Lunges 
+-2 Min Rest-`
+    }
+  ],
 // ----------------------------------- SABADO ------------------------------------
   sabado: []
 };
