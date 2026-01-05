@@ -5,26 +5,30 @@ const wods = {
   domingo: [
     {
       titulo: "WARM-UP",
-      contenido: `Every 1:00 (7:00)
-4 Box Jumps (Low)
-6 Air Squats
-4 Up Downs`
+      contenido: `*3 sets*
+5 Inch Worms
+30 Single Unders
+5 Plate Ground to Overhead
+10 Sit ups`
     },
     {
       titulo: "CUSTOM METCON",
-      contenido: `*Marzipan Pigs for Luck*
-Every 2:00 (8 sets)
-15 Wall Balls (20/14)
-10 Burpee to Bar`
+      contenido: `*Coat of Many Colors*
+*5 sets*
+:45 on/:15 off
+1. Wall Walks 
+2. V-ups 
+3. Plate Ground to Overhead(20/15)
+4. Recovery Jog`
     },
     {
       titulo: "ACCESORIO",
-      contenido: `*Mini Pump - Lower Pull*
-4 sets
-8 Split Stance Barbell Good Morning @ RPE 8 (each side)
-*-rest 30 secs-*
-16 Dumbbell Glute Bridges @ RPE 6
-* Rest 1-2 minutes between rounds*`
+      contenido: `*Mayhem Mini Pump*
+*4 Rounds*
+10 Barbell Strict Press @ Peso moderado – mantener control y calidad
+12 DB Snow Angel Raise @ Peso moderado – mantener calidad
+10 Standing Barbell Curl @ Peso moderado – matener calidad
+*-Rest 1 min entre rounds-*`
     }
   ],
 
@@ -59,25 +63,23 @@ Every 2:00 (8 sets)
   martes: [
     {
       titulo: "WARM-UP",
-      contenido: `8:00 AMRAP
-20 Single Unders
-6 Hand Release Push Ups
-6 Step Ups (each leg)
-4 Ring Rows
-8 Scap Pulls
-Optional: 1 practice round of each workout piece (scaled)`
+      contenido: `*8:00 AMRAP* 
+1:00 Easy Row 
+4 Up Downs + Step Over Rower 
+8 PVC Shoulder Pass Throughs 
+4 Empty Bar Strict Press (build across sets, don’t go above 50%) 
+10 Air Squats `
     },
     {
-      titulo: "CUSTOM METCON (Tiempo)",
-      contenido: `*A Champagne Toast*
-10 Rounds
-30 Double Unders
-10 Push Ups
-*-rest 5:00-*
-10 Rounds
-10 Box Step Ups (20)
-5 Strict Pull Ups
-*(Score is Time for each Workout)*`
+      titulo: "Weightlifting (Shoulder Press)",
+      contenido: `Build up to a 1RM Shoulder Press `
+    },
+    {
+      titulo: "Custom Metcon",
+      contenido: `*Light of the World*
+Every 1:00 (16:00) 
+Odd Minute: 30-second Max Calorie Row 
+Even Minute: 30-second Max Burpee`
     }
   ],
 
@@ -86,62 +88,81 @@ Optional: 1 practice round of each workout piece (scaled)`
   miercoles: [
     {
       titulo: "WARM-UP",
-      contenido: `2 Rounds
-1:00 Row (easy → moderate)
-100m Run
-10 Glute Bridges
-10 Leg Swings (each leg)`
+      contenido: `*8:00 AMRAP *
+10 PVC Pass Throughs 
+4 Empty Bar Snatch Grip Deadlifts 
+4 Empty Bar Hang Muscle Snatches 
+4 Empty Bar Power Snatches (light) 
+1 Wall Walk 
+20 Single Unders `
     },
     {
-      titulo: "CUSTOM METCON (Tiempo)",
-      contenido: `*Auld Lang Syne*
-*Teams of 2:*
-2025 into 2026. Happy New Year! Each round, one person does the Row while the other does the Run.
-Partners work at the same time. In the next round, they switch places. 
-Totals per team for the workout: 520 cal Row and 6500m Run.`
+      titulo: "Weightlifting (Power Snatch)",
+      contenido: `Every 1:00 (8:00) 
+3 Power Snatches (singles) @ RPE 6 `
     },
     {
-    titulo: "CUSTOM METCON (Tiempo)",
-      contenido: `*Auld Lang Syne*
-*Teams of 2:*
-26 Rounds
-P1: 20 Calorie Row
-P2: 250m Run
-(Score is Time)`
+    titulo: "CUSTOM METCON ",
+      contenido: `*King of Kings*
+10-8-6-4-2 
+Wall Walks 
+50 Double Unders after each set `
     }
   ],
 
 
 // ----------------------------------- JUEVES -----------------------------------
-  jueves: null,
+  jueves: [
+    {
+      titulo: "WARM-UP",
+      contenido: `*8:00 AMRAP* 
+30-second Cardio 
+8 Glute Bridges 
+10 Cossack Squats 
+4 Empty Bar Deadlifts (build across sets, don’t go above 50%) 
+4 Dumbbell Bench Press 
+4 Low Box Step-Overs `
+    },
+    {
+      titulo: "Weightlifting (Deadlift)",
+      contenido: `Build up to a 1RM Deadlift `
+    },
+    {
+      titulo: "Custom Metcon",
+      contenido: `*Good Shepherd*
+Every 2:00 (6 sets) 
+12 Dumbbell Deadlifts (22.5/15) 
+12 Dumbbell Bench Press (22.5/15) 
+12 Box Jump Overs (20)  `
+    }
+  ],
 
 
 // ----------------------------------- VIERNES ----------------------------------
   viernes: [
     {
       titulo: "WARM-UP",
-      contenido: `8:00 Flow
-1:00 Easy Cardio
-3 Inchworms
-10 Deadbugs
-6 Dumbbell Snatches (light)
-10 Bodyweight Step Back Lunges
-4 Empty Bar Snatch Grip High Pulls
-2 Empty Bar Power Snatches`
+      contenido: `*2:00 Cardio*
+-into
+*8:00 AMRAP* 
+10 Banded Pull Aparts 
+5 Dynamic Squat Stretch 
+3 Front Squats with empty bar 
+3 Push Press with empty bar 
+3 Thrusters with empty bar 
+6 Ring Rows or 3–5 Pull Ups `
     },
     {
       titulo: "CUSTOM METCON (Rondas y Reps)",
-      contenido: `*Ring in the New Year*
-AMRAP 15:00
-5 Wall Walks
-20 V-Ups
-20 Hang Dumbbell Snatch (50/35)
-20 Dumbbell Step Back Lunges (50/35)`
-    },
-    {
-      titulo: "WEIGHTLIFTING (Power Snatch)",
-      contenido: `*-Rest 3:00 after the Workout is completed, then:*
-8:00 to establish a Heavy Power Snatch.`
+      contenido: `*Open 13.5*
+13.5 Open Workout 
+AMRAP (For As Long As Possible) 
+3 Rounds 
+15 Thrusters (42.5/30) 
+15 Chest to Bar Pull Ups 
+If 90 reps (3 rounds) are completed in under 4 minutes, time extends to 8 minutes. 
+If 180 reps (6 rounds) are completed in under 8 minutes, time extends to 12 minutes. 
+If 270 reps (9 rounds) are completed in under 12 minutes, time extends to 16 minutes. Etc.`
     }
   ],
 
@@ -150,35 +171,23 @@ AMRAP 15:00
   sabado: [
     {
       titulo: "WARM-UP",
-      contenido: `8:00 AMRAP
-1:00 Cardio
-10 Banded Pull Aparts
-10 Dumbbell Floor Press (light)
-10 Glute Bridges
-5 Single Arm Ring Row (each)`
+      contenido: `*10:00 AMRAP* 
+1:00 Easy Row
+8 HIP EXTENSIONS OR SUPERMANS 
+4 V-UPS 
+100M JOG `
     },
     {
       titulo: "CUSTOM METCON",
-      contenido: `*Black Eyed Peas*
-Teams of 2
-6 sets (each/1:1)
-10/8 Calorie Row
-15 Dumbbell Bench Press (22.5/15)
-10/8 Calorie Row`
-    },
-    {
-      titulo: "ACCESORIO",
-      contenido: `*MAYHEM MINI-PUMP – CORE AND ARMS*
-*5 sets*
-10 V-Ups
-*-rest 30 seconds-*
-:45 Seconds Max Flutter Kicks
-*-rest 30 seconds*
-10 Double Arm Hammer Curls @ RPE 7/10 (both arms, same time)
-*-rest 1 minute between sets*`
+      contenido: `*Emmanuel*
+*Teams of 2* 
+6 Rounds (each) 
+Partner 1: 
+Max Calorie Row
+Partner 2: 
+15 V-Ups
+ 200m Run (or 8x50ft Shuttle Run) 
+*-switch when the shuttle runs are completed-*`
     }
   ]
 };
-
-
-
