@@ -33,26 +33,24 @@ Every 2:00 (8 sets)
   lunes: [
     {
       titulo: "WARM-UP",
-      contenido: `8:00 AMRAP
-150m Run
-10 Leg Swings
-10 Walking Lunges
-10 Deadbugs
-5 Empty Bar Muscle Cleans
-5 Empty Bar Hang Power Cleans
-Optional: 2–3 barbell practice reps at 50–60%, 60–70%, 70–80%`
+      contenido: `10:00 AMRAP
+100m Run
+5 Dynamic Squat Stretch
+3 Tempo Back Squats with empty bar (build across sets, don’t go above 50%)
+10 Deadbugs`
     },
     {
-      titulo: "CUSTOM METCON (Reps)",
-      contenido: `*Confetti and Fireworks*
-3:00 Max Distance Run or 50ft Shuttle Runs
-1:00 Max Power Cleans (42.5/30)
-3:00 Max Distance Run or 50ft Shuttle Runs
-2:00 Max Power Cleans (60/42.5)
-3:00 Max DIstance Run or 50ft Shuttle Runs
-3:00 Max Power Cleans (85/57.5)
-3:00 Max Distance Run or 50ft Shuttle Runs
-(Score is Reps per Interval)`
+      titulo: "Weightlifting (Back Squat)",
+      contenido: `1RM Back Squat`
+    },
+    {
+      titulo: "Custom Metcon (Tiempo)",
+      contenido: `Son of God
+
+3 Rounds
+200m Run
+25 Wall Balls (20/14)
+25 V-Ups`
     }
   ],
 
@@ -181,3 +179,6 @@ Teams of 2
     }
   ]
 };
+
+
+
