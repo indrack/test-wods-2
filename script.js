@@ -165,33 +165,48 @@ function cambiarSlide(direccion) {
 
 // --- AJUSTAR ESCALA ---
 function ajustarEscala() {
-  if (isFullViewMode) return;
-  if (window.matchMedia("(orientation: portrait)").matches) return;
+  if (isFullViewMode) return; 
+  // Respetamos la vista móvil original (no escala igual)
+  if (window.matchMedia("(orientation: portrait)").matches) return; 
 
   const wrapper = document.getElementById('wod-display');
   if (!wrapper) return;
 
+  // 1. DEFINIR LÍMITES VISUALES
+  // window.innerHeight = ANCHO visual en tu pared (aprox 1920px)
+  // window.innerWidth  = ALTO visual en tu pared (aprox 1080px)
+  
+  const anchoVisualMaximo = window.innerHeight * 0.94; // 94% del ancho físico
+  const altoVisualMaximo = window.innerWidth * 0.90;   // 90% del alto físico
+
+  // 2. PREPARAR EL CONTENEDOR
+  // Usamos width: auto para que el div tome su tamaño natural
+  wrapper.style.width = 'auto'; 
+  wrapper.style.maxWidth = `${anchoVisualMaximo}px`;
+  wrapper.style.height = 'auto';
+  
   wrapper.style.transform = 'scale(1)';
-  wrapper.style.height = 'auto'; 
+
+  // 3. MEDIR TAMAÑO REAL
+  const anchoActual = wrapper.scrollWidth;
+  const altoActual = wrapper.scrollHeight;
+
+  // 4. CALCULAR ESCALA PERFECTA
+  // A) Escala para encajar ANCHO
+  const escalaAncho = anchoVisualMaximo / anchoActual;
   
-  // Usamos el 94% del ancho visual (Tv rotada = innerHeight)
-  const anchoVisualTotal = window.innerHeight * 0.94;
-  
-  // Usamos el 65% del alto visual (Tv rotada = innerWidth) para dejar espacio abajo
-  const altoVisualTotal = window.innerWidth * 0.65; 
+  // B) Escala para encajar ALTO
+  const escalaAlto = altoVisualMaximo / altoActual;
 
-  wrapper.style.width = `${anchoVisualTotal}px`;
+  // Elegimos la MENOR de las dos para asegurar que entre completo
+  let escala = Math.min(escalaAncho, escalaAlto);
 
-  const alturaContenido = wrapper.scrollHeight;
-
-  let escala = altoVisualTotal / alturaContenido;
-
-  if (escala > 1.6) escala = 1.6;
-  if (escala < 0.35) escala = 0.35;
+  // 5. LÍMITES
+  if (escala > 1.6) escala = 1.6; 
+  if (escala < 0.25) escala = 0.25;
 
   wrapper.style.transform = `scale(${escala})`;
 }
-
 // --- CONTROL DE TECLADO ---
 document.addEventListener('keydown', function (event) {
   const key = event.key;
@@ -237,3 +252,4 @@ window.addEventListener('load', () => {
 });
 window.addEventListener('resize', () => setTimeout(ajustarEscala, 200));
 setInterval(cargarWOD, 60000);
+
