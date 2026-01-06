@@ -23,47 +23,40 @@ const dias = ['domingo', 'lunes', 'martes', 'miercoles', 'jueves', 'viernes', 's
 let currentSlideIndex = 0;
 let currentWodParts = [];
 let isFullViewMode = false;
+let isWGirlsMode = false; // Variable para controlar el modo WGirls
 
-// --- NUEVO: VARIABLE DE ESTADO PARA WGIRLS ---
-let isWGirlsMode = false; 
-
-// --- CARGAR WOD (MODIFICADO PARA SOPORTAR WGIRLS) ---
+// --- CARGAR WOD ---
 function cargarWOD() {
-  // Verificación de seguridad
+  // Verificación de seguridad básica
   if (typeof wods === 'undefined') return;
 
   const hoyIndex = new Date().getDay();
   const diaNombre = dias[hoyIndex];
   const contenedor = document.getElementById('wod-display');
 
-  // --- NUEVO: SELECCIÓN DE BASE DE DATOS ---
-  // Si estamos en modo Girls, usamos la variable 'wgirls', si no, usamos 'wods'
-  let dataSource = wods; // Por defecto
-  
+  // Seleccionar la base de datos correcta (Wods o WGirls)
+  let dataSource = wods; 
   if (isWGirlsMode) {
-    // Verificamos que el archivo WGirls.js se haya cargado bien
     if (typeof wgirls !== 'undefined') {
       dataSource = wgirls;
     } else {
-      console.error("WGirls.js no está cargado o tiene errores");
+      console.error("Error: WGirls.js no se ha cargado.");
     }
   }
 
-  // Si cambia el día, la base de datos (modo), o carga inicial
-  // Agregamos una marca al dataset para saber en qué modo estamos visualmente en código
+  // Detectar cambio de día, cambio de modo (Girls/Normal) o carga inicial
   const modoActual = isWGirlsMode ? 'girls' : 'normal';
 
   if (contenedor.dataset.dia !== diaNombre || contenedor.dataset.mode !== modoActual || currentWodParts.length === 0) {
     
     contenedor.dataset.dia = diaNombre;
-    contenedor.dataset.mode = modoActual; // Guardamos el modo actual
+    contenedor.dataset.mode = modoActual; // Guardamos el modo para no recargar innecesariamente
     
     const datosDia = dataSource[diaNombre];
 
     if (Array.isArray(datosDia) && datosDia.length > 0) {
       currentWodParts = datosDia;
     } else {
-      // Mensaje de descanso (personalizado según el modo si quieres)
       const tituloDescanso = isWGirlsMode ? "WGIRLS DESCANSO" : "DESCANSO";
       currentWodParts = [{ titulo: tituloDescanso, contenido: "Box Cerrado / Open Box" }];
     }
@@ -71,10 +64,10 @@ function cargarWOD() {
     currentSlideIndex = 0;
     renderSlide();
 
-    // Si estábamos en vista completa, refrescar
+    // Si tenías abierta la vista completa (0), la actualizamos automáticamente con los nuevos datos
     if (isFullViewMode) {
-      isFullViewMode = false;
-      toggleFullView(); 
+      isFullViewMode = false; // Lo apagamos momentáneamente
+      toggleFullView();       // Lo volvemos a encender para repintar
     }
   }
 }
@@ -89,16 +82,16 @@ function renderSlide() {
   setTimeout(() => {
     const part = currentWodParts[currentSlideIndex];
 
-    // 1. APLICAR FORMATO NEGRITA
+    // Aplicar formato negrita
     const contenidoFormateado = formatearTexto(part.contenido);
 
-    // 2. INYECTAR HTML
+    // Inyectar HTML
     wrapper.innerHTML = `<h3>${part.titulo}</h3><p>${contenidoFormateado}</p>`;
 
-    // Actualizar indicador
+    // Indicador (Ej: 1/3)
     document.getElementById('slide-indicator').innerText = `${currentSlideIndex + 1} / ${currentWodParts.length}`;
 
-    // Actualizar botones
+    // Estado de botones
     const btnPrev = document.getElementById('btn-prev');
     const btnNext = document.getElementById('btn-next');
     if (btnPrev) {
@@ -121,7 +114,7 @@ function formatearTexto(texto) {
   return texto.replace(/\*(.*?)\*/g, '<strong>$1</strong>');
 }
 
-// --- MODO VISTA COMPLETA ---
+// --- MODO VISTA COMPLETA (TECLA 0) ---
 function toggleFullView() {
   isFullViewMode = !isFullViewMode;
 
@@ -131,7 +124,14 @@ function toggleFullView() {
   const buttons = document.getElementById('nav-buttons');
 
   if (isFullViewMode) {
+    // Generar el HTML de TODOS los bloques
     let fullHTML = "";
+    
+    // Título opcional para saber en qué modo estamos
+    if(isWGirlsMode) {
+        fullHTML += `<div class="text-center text-secondary mb-3" style="font-family:var(--font-tech); letter-spacing:3px;">-- WGIRLS MODE --</div>`;
+    }
+
     currentWodParts.forEach(part => {
       const contenidoFormateado = formatearTexto(part.contenido);
       fullHTML += `
@@ -143,10 +143,12 @@ function toggleFullView() {
     });
     fullContainer.innerHTML = fullHTML;
 
+    // Mostrar capa completa, ocultar slides
     fullContainer.classList.remove('d-none');
     if (slideWrapper) slideWrapper.classList.add('d-none');
     if (buttons) buttons.classList.add('d-none');
   } else {
+    // Ocultar capa completa, mostrar slides
     fullContainer.classList.add('d-none');
     if (slideWrapper) slideWrapper.classList.remove('d-none');
     if (buttons) buttons.classList.remove('d-none');
@@ -163,77 +165,68 @@ function cambiarSlide(direccion) {
   }
 }
 
-// --- AJUSTAR ESCALA ---
+// --- AJUSTAR ESCALA (Corrección de Texto Angosto y Centrado Superior) ---
 function ajustarEscala() {
-  if (isFullViewMode) return; 
-  // Respetamos la vista móvil original (no escala igual)
-  if (window.matchMedia("(orientation: portrait)").matches) return; 
+  if (isFullViewMode) return;
+  if (window.matchMedia("(orientation: portrait)").matches) return;
 
   const wrapper = document.getElementById('wod-display');
   if (!wrapper) return;
 
-  // 1. DEFINIR LÍMITES VISUALES
-  // window.innerHeight = ANCHO visual en tu pared (aprox 1920px)
-  // window.innerWidth  = ALTO visual en tu pared (aprox 1080px)
-  
-  const anchoVisualMaximo = window.innerHeight * 0.94; // 94% del ancho físico
-  const altoVisualMaximo = window.innerWidth * 0.90;   // 90% del alto físico
-
-  // 2. PREPARAR EL CONTENEDOR
-  // Usamos width: auto para que el div tome su tamaño natural
-  wrapper.style.width = 'auto'; 
-  wrapper.style.maxWidth = `${anchoVisualMaximo}px`;
-  wrapper.style.height = 'auto';
-  
   wrapper.style.transform = 'scale(1)';
-
-  // 3. MEDIR TAMAÑO REAL
-  const anchoActual = wrapper.scrollWidth;
-  const altoActual = wrapper.scrollHeight;
-
-  // 4. CALCULAR ESCALA PERFECTA
-  // A) Escala para encajar ANCHO
-  const escalaAncho = anchoVisualMaximo / anchoActual;
+  wrapper.style.height = 'auto'; 
   
-  // B) Escala para encajar ALTO
-  const escalaAlto = altoVisualMaximo / altoActual;
+  // Usamos el 94% del ancho visual (Tv rotada)
+  const anchoVisualTotal = window.innerHeight * 0.94;
+  
+  // Usamos el 65% del alto visual para evitar chocar con los botones de abajo
+  const altoVisualTotal = window.innerWidth * 0.65; 
 
-  // Elegimos la MENOR de las dos para asegurar que entre completo
-  let escala = Math.min(escalaAncho, escalaAlto);
+  // Forzamos el ancho para que el texto no se haga angosto
+  wrapper.style.width = `${anchoVisualTotal}px`;
 
-  // 5. LÍMITES
-  if (escala > 1.6) escala = 1.6; 
-  if (escala < 0.25) escala = 0.25;
+  const alturaContenido = wrapper.scrollHeight;
+
+  // Calculamos zoom basado en la altura
+  let escala = altoVisualTotal / alturaContenido;
+
+  // Límites
+  if (escala > 1.6) escala = 1.6;
+  if (escala < 0.35) escala = 0.35;
 
   wrapper.style.transform = `scale(${escala})`;
 }
+
 // --- CONTROL DE TECLADO ---
 document.addEventListener('keydown', function (event) {
   const key = event.key;
 
-  // --- NUEVO: TECLA 9 PARA CAMBIAR MODO ---
+  // TECLA 9: Alternar entre WODs Normales y WGirls
   if (key === '9') {
-    isWGirlsMode = !isWGirlsMode; // Alternar true/false
+    isWGirlsMode = !isWGirlsMode; 
     
-    // Forzamos la recarga inmediata del contenido
+    // Limpiamos el dataset para obligar a cargarWOD a repintar todo
     const contenedor = document.getElementById('wod-display');
-    contenedor.dataset.mode = ""; // Limpiamos para forzar el if de cargarWOD
-    cargarWOD();
+    contenedor.dataset.mode = ""; 
     
+    cargarWOD();
     return;
   }
 
+  // TECLA 0: Activar/Desactivar Vista Completa
   if (key === '0') {
     toggleFullView();
     return;
   }
 
+  // Si está en vista completa, salir con Escape, Borrar o 0
   if (isFullViewMode) {
     if (key === 'Escape' || key === 'Backspace' || key === '0') toggleFullView();
     return;
   }
 
-  if (key >= '1' && key <= '8') { // Cambiado a 8 porque el 9 ahora es toggle
+  // Teclas 1-8 para ir directo a un slide
+  if (key >= '1' && key <= '8') {
     const targetIndex = parseInt(key) - 1;
     if (targetIndex >= 0 && targetIndex < currentWodParts.length) {
       currentSlideIndex = targetIndex;
@@ -241,6 +234,7 @@ document.addEventListener('keydown', function (event) {
     }
   }
 
+  // Flechas de navegación
   if (key === 'ArrowLeft') cambiarSlide(-1);
   if (key === 'ArrowRight' || key === 'Enter') cambiarSlide(1);
 });
@@ -252,4 +246,3 @@ window.addEventListener('load', () => {
 });
 window.addEventListener('resize', () => setTimeout(ajustarEscala, 200));
 setInterval(cargarWOD, 60000);
-
