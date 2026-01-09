@@ -1,96 +1,124 @@
 /* --- START OF FILE script.js --- */
 
-// --- 1. CONFIGURACIÓN FIREBASE (PEGA LO MISMO QUE EN ADMIN.JS) ---
+// ==========================================
+// 1. CONFIGURACIÓN FIREBASE
+// ==========================================
+// ¡OJO! REEMPLAZA ESTO CON TUS DATOS REALES DE FIREBASE O NO FUNCIONARÁ EL MODO 8
 const firebaseConfig = {
-    apiKey: "TU_API_KEY_AQUI", // <--- REEMPLAZA
-    authDomain: "TU_PROYECTO.firebaseapp.com",
-    databaseURL: "https://TU_PROYECTO-default-rtdb.firebaseio.com",
-    projectId: "TU_PROYECTO",
-    storageBucket: "...",
-    messagingSenderId: "...",
-    appId: "..."
+  apiKey: "AIzaSyCC3idHLHcFFcGOAbdJGtuWYsrV0PFf8Oc",
+  authDomain: "crosssfit--3640-tv.firebaseapp.com",
+  databaseURL: "https://crosssfit--3640-tv-default-rtdb.firebaseio.com",
+  projectId: "crosssfit--3640-tv",
+  storageBucket: "crosssfit--3640-tv.firebasestorage.app",
+  messagingSenderId: "908256000888",
+  appId: "1:908256000888:web:09e4bffb19519b8784668d"
 };
 
-// Inicializar solo si no existe ya
-if (!firebase.apps.length) firebase.initializeApp(firebaseConfig);
-const db = firebase.database();
+// Inicializar Firebase de forma segura
+if (typeof firebase !== 'undefined' && !firebase.apps.length) {
+    firebase.initializeApp(firebaseConfig);
+}
 
-// VARIABLES
-let firebaseWodData = []; // Aquí guardaremos lo que venga de la nube
-let isCustomMode = false; // Tecla 8 activada?
-
-// --- ESCUCHAR CAMBIOS EN TIEMPO REAL ---
-// Esto se ejecuta solo cada vez que cambias algo en el Admin
-db.ref('customWod').on('value', (snapshot) => {
-    const data = snapshot.val();
-    if (data) {
-        console.log("Datos recibidos de la nube:", data);
-        firebaseWodData = data;
-        
-        // Si la TV ya está en el canal 8, refrescar al instante
-        if (isCustomMode) {
-            cargarWOD(); 
-        }
-    }
-});
-
+// Intentar conectar la base de datos (si firebase cargó correctamente)
+let db;
+try {
+    db = firebase.database();
+} catch (e) {
+    console.error("Firebase no está configurado o scripts no cargados en index.html");
+}
 
 // ==========================================
-// RESTO DEL SISTEMA (Reloj, WODs, Slides)
+// 2. VARIABLES GLOBALES
 // ==========================================
-
 const dias = ['domingo', 'lunes', 'martes', 'miercoles', 'jueves', 'viernes', 'sabado'];
 let currentSlideIndex = 0;
 let currentWodParts = [];
 let isFullViewMode = false;
-let isWGirlsMode = false; 
+let isWGirlsMode = false;     // Tecla 9
+let isCustomMode = false;     // Tecla 8 (Unificado el nombre de variable)
+let firebaseWodData = [];     // Datos descargados de la nube
 let timeOffset = 0;
 
+// Escuchar cambios de Firebase
+if (db) {
+    db.ref('customWod').on('value', (snapshot) => {
+        const data = snapshot.val();
+        if (data) {
+            console.log("Datos nube recibidos");
+            firebaseWodData = data;
+            if (isCustomMode) cargarWOD(); // Refrescar si estamos viendo el canal 8
+        }
+    });
+}
+
+// ==========================================
+// 3. SINCRONIZACIÓN Y RELOJ
+// ==========================================
+function getBoliviaDate() {
+  return new Date(Date.now() + timeOffset);
+}
+
+function syncTime() {
+  fetch('http://worldtimeapi.org/api/timezone/America/La_Paz')
+    .then(response => response.json())
+    .then(data => {
+      const serverTime = new Date(data.datetime).getTime();
+      const localTime = Date.now();
+      timeOffset = serverTime - localTime;
+      updateClock();
+      cargarWOD(); 
+    })
+    .catch(err => console.log("Usando hora del sistema (Offline o error API)"));
+}
+
 function updateClock() {
-  const now = new Date();
+  const now = getBoliviaDate();
   const dia = String(now.getDate()).padStart(2, '0');
   const mes = String(now.getMonth() + 1).padStart(2, '0');
   const anio = now.getFullYear();
+  
   const elDate = document.getElementById('date-display');
   if (elDate) elDate.innerText = `${dia}/${mes}/${anio}`;
 
   const horas = String(now.getHours()).padStart(2, '0');
   const min = String(now.getMinutes()).padStart(2, '0');
   const seg = String(now.getSeconds()).padStart(2, '0');
+  
   const elTime = document.getElementById('time-display');
   if (elTime) elTime.innerText = `${horas}:${min}:${seg}`;
 }
-setInterval(updateClock, 1000);
 
-// --- CARGAR WOD (LÓGICA MAESTRA) ---
+// ==========================================
+// 4. LÓGICA PRINCIPAL (CARGAR WOD)
+// ==========================================
 function cargarWOD() {
   if (typeof wods === 'undefined') return;
 
-  const hoyIndex = new Date().getDay();
+  const hoyIndex = getBoliviaDate().getDay();
   const diaNombre = dias[hoyIndex];
   const contenedor = document.getElementById('wod-display');
 
-  // 1. DEFINIR FUENTE DE DATOS
-  let dataSource = wods[diaNombre]; // Por defecto: Wods Normales del día
+  // 1. Elegir fuente de datos
+  let dataSource = wods[diaNombre]; // Por defecto
   let modoString = 'normal';
 
   if (isCustomMode) {
-    // MODO TECLA 8: Usamos los datos de Firebase
+    // Modo Nube (Tecla 8)
     if (firebaseWodData && firebaseWodData.length > 0) {
       dataSource = firebaseWodData;
       modoString = 'custom';
     } else {
-      dataSource = [{titulo: "CARGANDO...", contenido: "Conectando con la nube...\nO no hay WOD personalizado aún."}];
+      dataSource = [{titulo: "CONECTANDO...", contenido: "Esperando datos de la nube...\nRevisa tu conexión o el Admin."}];
     }
   } else if (isWGirlsMode) {
-    // MODO TECLA 9: Usamos WGirls.js
+    // Modo Girls (Tecla 9)
     if (typeof wgirls !== 'undefined') {
       dataSource = wgirls[diaNombre];
       modoString = 'girls';
     }
   }
 
-  // 2. DETECTAR CAMBIOS Y RENDERIZAR
+  // 2. Detectar cambios para no parpadear
   if (contenedor.dataset.dia !== diaNombre || contenedor.dataset.mode !== modoString || currentWodParts.length === 0) {
     
     contenedor.dataset.dia = diaNombre;
@@ -103,11 +131,10 @@ function cargarWOD() {
       currentWodParts = [{ titulo: titulo, contenido: "Box Cerrado / Open Box" }];
     }
 
-    // Resetear al slide 1
     currentSlideIndex = 0;
     renderSlide();
 
-    // Si estaba la vista completa, refrescarla
+    // Si la vista completa estaba abierta, cerrarla y abrirla para actualizar
     if (isFullViewMode) {
       isFullViewMode = false;
       toggleFullView();
@@ -116,7 +143,7 @@ function cargarWOD() {
 }
 
 function renderSlide() {
-  if (isFullViewMode) return;
+  if (isFullViewMode) return; 
 
   const wrapper = document.getElementById('wod-display');
   wrapper.classList.add('fading');
@@ -125,10 +152,11 @@ function renderSlide() {
     const part = currentWodParts[currentSlideIndex];
     const contenidoFormateado = formatearTexto(part.contenido);
 
-    // Inyectar HTML (Manteniendo estilos originales)
     wrapper.innerHTML = `<h3>${part.titulo}</h3><p>${contenidoFormateado}</p>`;
     
-    document.getElementById('slide-indicator').innerText = `${currentSlideIndex + 1} / ${currentWodParts.length}`;
+    // Indicador
+    const ind = document.getElementById('slide-indicator');
+    if (ind) ind.innerText = `${currentSlideIndex + 1} / ${currentWodParts.length}`;
 
     // Botones
     const btnPrev = document.getElementById('btn-prev');
@@ -142,7 +170,7 @@ function renderSlide() {
       btnNext.style.opacity = (currentSlideIndex === currentWodParts.length - 1) ? "0.3" : "1";
     }
 
-    ajustarEscala();
+    ajustarEscala(); // Llamamos a tu ajuste preferido
     wrapper.classList.remove('fading');
   }, 300);
 }
@@ -152,43 +180,65 @@ function formatearTexto(texto) {
   return texto.replace(/\*(.*?)\*/g, '<strong>$1</strong>');
 }
 
-// --- AJUSTE DE PANTALLA ---
+// ==========================================
+// 5. AJUSTE DE PANTALLA (TU VERSIÓN PREFERIDA)
+// ==========================================
 function ajustarEscala() {
-  if (isFullViewMode || isCustomViewMode) return;
-  if (window.matchMedia("(orientation: portrait)").matches) return;
+  // Si estamos en modo resumen o es móvil vertical, no escalamos igual
+  if (isFullViewMode) return; 
+  if (window.matchMedia("(orientation: portrait)").matches) return; 
 
   const wrapper = document.getElementById('wod-display');
   if (!wrapper) return;
 
-  // Reset
-  wrapper.style.transform = 'scale(1)';
-  wrapper.style.height = 'auto'; 
+  // 1. DEFINIR LÍMITES VISUALES (Caja Rígida / Safe Box)
+  // window.innerHeight = ANCHO visual en tu pared (aprox 1920px)
+  // window.innerWidth  = ALTO visual en tu pared (aprox 1080px)
   
-  const anchoVisual = window.innerHeight * 0.94; 
-  const altoVisual = window.innerWidth * 0.90; 
+  // Usamos márgenes de seguridad del que te gustaba
+  const anchoVisualMaximo = window.innerHeight * 0.94; // 94% del ancho físico
+  const altoVisualMaximo = window.innerWidth * 0.90;   // 90% del alto físico
 
-  wrapper.style.width = `${anchoVisual}px`;
-  wrapper.style.maxWidth = `${anchoVisual}px`;
+  // 2. PREPARAR EL CONTENEDOR 
+  // No forzamos un ancho fijo gigante. Decimos: "Sé tan ancho como necesites, 
+  // pero NUNCA más ancho que la pantalla".
+  wrapper.style.width = 'auto'; 
+  wrapper.style.maxWidth = `${anchoVisualMaximo}px`;
+  wrapper.style.height = 'auto';
+  
+  // Reseteamos escala para medir el tamaño "natural"
+  wrapper.style.transform = 'scale(1)';
 
-  // Medir
-  const alturaContenido = wrapper.scrollHeight;
-  const anchoContenido = wrapper.scrollWidth; // Debería ser igual al estilo width
+  // 3. MEDIR TAMAÑO REAL DEL CONTENIDO
+  const anchoActual = wrapper.scrollWidth;
+  const altoActual = wrapper.scrollHeight;
 
-  // Calcular escalas
-  const escalaAlto = altoVisual / alturaContenido;
-  const escalaAncho = anchoVisual / anchoContenido; // Por si acaso
+  // 4. CALCULAR ESCALA PERFECTA (DOBLE VERIFICACIÓN)
+  
+  // A) ¿Cuánto puedo crecer/encoger para encajar en el ANCHO?
+  const escalaAncho = anchoVisualMaximo / anchoActual;
+  
+  // B) ¿Cuánto puedo crecer/encoger para encajar en el ALTO?
+  const escalaAlto = altoVisualMaximo / altoActual;
 
-  // Usar la más restrictiva
-  let escala = Math.min(escalaAlto, escalaAncho);
+  // Elegimos la MENOR de las dos.
+  // Esto asegura que si el texto es muy ancho, se limita por el ancho.
+  // Si es muy alto, se limita por el alto. NUNCA se saldrá.
+  let escala = Math.min(escalaAncho, escalaAlto);
 
-  // Límites
-  if (escala > 1.6) escala = 1.6;
+  // 5. LÍMITES FINALES
+  // Tope máximo (1.6x) para que el Warm-up se vea grande y potente
+  if (escala > 1.6) escala = 1.6; 
+  
+  // Tope mínimo (0.25x) para que entre cualquier biblia de texto
   if (escala < 0.25) escala = 0.25;
 
   wrapper.style.transform = `scale(${escala})`;
 }
 
-// --- TECLADO ---
+// ==========================================
+// 6. CONTROL DE ENTRADA (TECLADO)
+// ==========================================
 function cambiarSlide(direccion) {
   const nuevoIndex = currentSlideIndex + direccion;
   if (nuevoIndex >= 0 && nuevoIndex < currentWodParts.length) {
@@ -200,32 +250,38 @@ function cambiarSlide(direccion) {
 document.addEventListener('keydown', function (event) {
   const key = event.key;
 
+  // --- MODOS ESPECIALES ---
+  
   // TECLA 8: CUSTOM MODE (Nube)
   if (key === '8') {
     isCustomMode = !isCustomMode;
-    isWGirlsMode = false; // Apagar otros modos
-    document.getElementById('wod-display').dataset.mode = ""; 
-    cargarWOD(); // Esto ahora usará firebaseWodData
+    isWGirlsMode = false; // Apagar WGirls
+    document.getElementById('wod-display').dataset.mode = ""; // Forzar refresco
+    cargarWOD();
     return;
   }
 
   // TECLA 9: GIRLS MODE
   if (key === '9') {
     isWGirlsMode = !isWGirlsMode;
-    isCustomMode = false;
+    isCustomMode = false; // Apagar Custom
     document.getElementById('wod-display').dataset.mode = "";
     cargarWOD();
     return;
   }
 
-  if (key === '0') { toggleFullView(); return; }
+  // TECLA 0: VISTA COMPLETA
+  if (key === '0') {
+    toggleFullView();
+    return;
+  }
 
-  // Si estamos en Full View, salir
+  // SALIR DE FULL VIEW
   if (isFullViewMode && (key === 'Escape' || key === 'Backspace' || key === '0')) {
     toggleFullView(); return;
   }
 
-  // Navegación 1-7
+  // --- NAVEGACIÓN (1-7) ---
   if (key >= '1' && key <= '7') {
     const targetIndex = parseInt(key) - 1;
     if (targetIndex >= 0 && targetIndex < currentWodParts.length) {
@@ -242,12 +298,13 @@ document.addEventListener('keydown', function (event) {
 function toggleFullView() {
   isFullViewMode = !isFullViewMode;
   const fullContainer = document.getElementById('full-view-container');
-  const slideWrapper = document.getElementById('wod-display');
+  const slideWrapper = document.getElementById('wod-display'); // Corrección: Ocultar el wrapper directo, no container
   const indicator = document.getElementById('slide-indicator');
   const buttons = document.getElementById('nav-buttons');
 
   if (isFullViewMode) {
     let fullHTML = "";
+    // Etiquetas de modo
     if (isCustomMode) fullHTML += `<div style="text-align:center; color:#39ff14; letter-spacing:3px; margin-bottom:20px;">-- CUSTOM / NUBE --</div>`;
     else if (isWGirlsMode) fullHTML += `<div style="text-align:center; color:#ff00d4; letter-spacing:3px; margin-bottom:20px;">-- WGIRLS MODE --</div>`;
     
@@ -269,11 +326,15 @@ function toggleFullView() {
   }
 }
 
-// Init
+// ==========================================
+// 7. INICIALIZACIÓN
+// ==========================================
 window.addEventListener('load', () => {
-  cargarWOD();
+  syncTime(); 
+  cargarWOD(); 
   setTimeout(ajustarEscala, 500);
 });
 window.addEventListener('resize', () => setTimeout(ajustarEscala, 200));
+setInterval(syncTime, 3600000); 
+setInterval(updateClock, 1000);
 setInterval(cargarWOD, 60000);
-
