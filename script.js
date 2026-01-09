@@ -154,25 +154,36 @@ function formatearTexto(texto) {
 
 // --- AJUSTE DE PANTALLA ---
 function ajustarEscala() {
-  if (isFullViewMode) return;
+  if (isFullViewMode || isCustomViewMode) return;
   if (window.matchMedia("(orientation: portrait)").matches) return;
 
   const wrapper = document.getElementById('wod-display');
   if (!wrapper) return;
 
+  // Reset
   wrapper.style.transform = 'scale(1)';
   wrapper.style.height = 'auto'; 
   
-  const anchoVisualTotal = window.innerHeight * 0.94;
-  const altoVisualTotal = window.innerWidth * 0.65; 
+  const anchoVisual = window.innerHeight * 0.94; 
+  const altoVisual = window.innerWidth * 0.90; 
 
-  wrapper.style.width = `${anchoVisualTotal}px`;
+  wrapper.style.width = `${anchoVisual}px`;
+  wrapper.style.maxWidth = `${anchoVisual}px`;
 
+  // Medir
   const alturaContenido = wrapper.scrollHeight;
-  let escala = altoVisualTotal / alturaContenido;
+  const anchoContenido = wrapper.scrollWidth; // Debería ser igual al estilo width
 
+  // Calcular escalas
+  const escalaAlto = altoVisual / alturaContenido;
+  const escalaAncho = anchoVisual / anchoContenido; // Por si acaso
+
+  // Usar la más restrictiva
+  let escala = Math.min(escalaAlto, escalaAncho);
+
+  // Límites
   if (escala > 1.6) escala = 1.6;
-  if (escala < 0.35) escala = 0.35;
+  if (escala < 0.25) escala = 0.25;
 
   wrapper.style.transform = `scale(${escala})`;
 }
@@ -265,3 +276,4 @@ window.addEventListener('load', () => {
 });
 window.addEventListener('resize', () => setTimeout(ajustarEscala, 200));
 setInterval(cargarWOD, 60000);
+
