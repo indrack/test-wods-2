@@ -1,178 +1,68 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>WOD Admin - Login</title>
+    <title>WOD Admin - Cloud</title>
     <link rel="stylesheet" href="style.css">
+    
+    <!-- LIBRERÍAS FIREBASE (Auth + Database) -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+
     <style>
-        /* Estilos específicos para Admin que no afecten a la pantalla principal */
-        body.admin-mode {
-            overflow-y: auto;
-            /* Permitir scroll en admin */
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-start;
-            padding: 20px;
-        }
-
-        .admin-container {
-            width: 100%;
-            max-width: 400px;
-            margin-top: 50px;
-            padding: 20px;
-            background: rgba(20, 20, 20, 0.9);
-            border: 1px solid #333;
-            border-radius: 10px;
-            box-shadow: 0 0 20px rgba(0, 255, 0, 0.1);
-            text-align: center;
-        }
-
-        .admin-logo {
-            width: 80px;
-            opacity: 0.8;
-            margin-bottom: 20px;
-        }
-
-        .input-group {
-            margin-bottom: 20px;
-            text-align: left;
-        }
-
-        label {
-            display: block;
-            color: #aaa;
-            margin-bottom: 8px;
-            font-size: 0.9em;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        input[type="text"],
-        input[type="password"],
-        textarea {
-            width: 100%;
-            padding: 12px;
-            background: #000;
-            border: 1px solid #444;
-            color: #fff;
-            font-size: 1em;
-            border-radius: 5px;
-            outline: none;
-            transition: border-color 0.3s;
-            font-family: inherit;
-        }
-
-        input:focus,
-        textarea:focus {
-            border-color: #39ff14;
-        }
-
-        textarea {
-            height: 200px;
-            resize: vertical;
-            line-height: 1.4;
-        }
-
-        button.btn-action {
-            width: 100%;
-            padding: 15px;
-            background: #39ff14;
-            color: #000;
-            font-weight: bold;
-            border: none;
-            border-radius: 5px;
-            font-size: 1.1em;
-            cursor: pointer;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-top: 10px;
-            transition: all 0.2s;
-        }
-
-        button.btn-action:hover {
-            background: #32d612;
-            box-shadow: 0 0 15px rgba(57, 255, 20, 0.4);
-        }
-
-        button.btn-logout {
-            background: #ff0000;
-            color: #fff;
-            margin-top: 20px;
-        }
-
-        button.btn-logout:hover {
-            background: #cc0000;
-            box-shadow: 0 0 15px rgba(255, 0, 0, 0.4);
-        }
-
-        .hidden {
-            display: none;
-        }
-
-        .status-msg {
-            margin-top: 15px;
-            font-size: 0.9em;
-            min-height: 20px;
-        }
-
-        .status-success {
-            color: #39ff14;
-        }
-
-        .status-error {
-            color: #ff0000;
-        }
+        body.admin-mode { overflow-y: auto; display: flex; flex-direction: column; align-items: center; padding: 20px; }
+        .admin-container { width: 100%; max-width: 500px; margin-top: 30px; padding: 20px; background: rgba(20, 20, 20, 0.95); border: 1px solid #333; border-radius: 10px; text-align: center; }
+        .input-group { margin-bottom: 20px; text-align: left; }
+        label { display: block; color: #aaa; margin-bottom: 8px; font-size: 0.9em; text-transform: uppercase; }
+        input, textarea { width: 100%; padding: 12px; background: #000; border: 1px solid #444; color: #fff; font-size: 1.1em; border-radius: 5px; outline: none; }
+        textarea { height: 120px; resize: vertical; }
+        button.btn-action { width: 100%; padding: 15px; background: #39ff14; color: #000; font-weight: bold; border: none; border-radius: 5px; font-size: 1.1em; cursor: pointer; text-transform: uppercase; margin-top: 10px; }
+        .hidden { display: none; }
+        .status-msg { margin-top: 15px; color: #39ff14; font-weight: bold; }
     </style>
 </head>
 
 <body class="admin-mode">
 
-    <!-- LOGIN SECTION -->
+    <!-- LOGIN -->
     <div id="login-section" class="admin-container">
-        <img src="logo.png" class="admin-logo" alt="Logo">
-        <h2 style="margin-bottom: 20px; color:#fff;">ACCESO STAFF</h2>
-
+        <h2 style="color:#fff; margin-bottom:20px;">ACCESO STAFF</h2>
         <div class="input-group">
-            <label>Usuario</label>
-            <input type="text" id="username" placeholder="Usuario">
+            <label>Email</label>
+            <input type="email" id="email" placeholder="admin@crossfit.com">
         </div>
-
         <div class="input-group">
             <label>Contraseña</label>
-            <input type="password" id="password" placeholder="Contraseña">
+            <input type="password" id="pass" placeholder="******">
         </div>
-
-        <button class="btn-action" onclick="handleLogin()">Entrar</button>
-        <div id="login-msg" class="status-msg"></div>
+        <button class="btn-action" onclick="login()">Entrar</button>
+        <div id="login-msg" style="color:red; margin-top:10px;"></div>
     </div>
 
-    <!-- EDITOR SECTION -->
-    <div id="editor-section" class="admin-container hidden" style="max-width: 600px;">
-        <h2 style="margin-bottom: 20px; color:#fff;">CREAR CUSTOM WORKOUT</h2>
-        <p style="color:#666; font-size:0.8em; margin-bottom:20px;">Este WOD aparecerá al presionar '8' en la TV.</p>
+    <!-- PASO 1: CANTIDAD PANTALLAS -->
+    <div id="step-1-section" class="admin-container hidden">
+        <h2 style="color:#fff;">CUSTOM WOD (TECLA 8)</h2>
+        <p style="color:#aaa; margin-bottom:20px;">¿Cuántas partes tendrá este entrenamiento?</p>
+        <input type="number" id="slide-count" value="1" min="1" max="10" style="text-align:center; font-size:2em; margin-bottom:20px;">
+        <button class="btn-action" onclick="generateForms()">Continuar</button>
+        <button class="btn-action" style="background:#555; color:#fff; margin-top:10px;" onclick="logout()">Cerrar Sesión</button>
+    </div>
 
-        <div class="input-group">
-            <label>Título del WOD</label>
-            <input type="text" id="wod-title" placeholder="Ej: HERO WOD EMMANUEL">
-        </div>
-
-        <div class="input-group">
-            <label>Contenido del WOD</label>
-            <div style="font-size:0.8em; color:#666; margin-bottom:5px;">Usa *asteriscos* para negrita</div>
-            <textarea id="wod-content" placeholder="Escribe aquí el entrenamiento..."></textarea>
-        </div>
-
-        <button class="btn-action" onclick="saveCustomWod()">Guardar y Publicar</button>
-
+    <!-- PASO 2: EDITOR -->
+    <div id="editor-section" class="admin-container hidden" style="max-width: 800px;">
+        <h2 style="color:#fff; margin-bottom:20px;">EDITAR CONTENIDO</h2>
+        <div id="slides-container"></div>
+        
+        <button class="btn-action" style="background:#00bfff; color:#fff;" onclick="publishToFirebase()">
+            ☁️ PUBLICAR EN PANTALLAS
+        </button>
+        
         <div id="save-msg" class="status-msg"></div>
-
-        <button class="btn-action btn-logout" onclick="logout()">Cerrar Sesión</button>
+        <button class="btn-action" style="background:#333; color:#fff; margin-top:30px;" onclick="location.reload()">Volver</button>
     </div>
 
     <script src="admin.js"></script>
 </body>
-
 </html>
