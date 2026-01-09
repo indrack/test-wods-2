@@ -1,100 +1,122 @@
 /* --- START OF FILE script.js --- */
 
+// --- 1. CONFIGURACIÓN FIREBASE (PEGA LO MISMO QUE EN ADMIN.JS) ---
+const firebaseConfig = {
+    apiKey: "TU_API_KEY_AQUI", // <--- REEMPLAZA
+    authDomain: "TU_PROYECTO.firebaseapp.com",
+    databaseURL: "https://TU_PROYECTO-default-rtdb.firebaseio.com",
+    projectId: "TU_PROYECTO",
+    storageBucket: "...",
+    messagingSenderId: "...",
+    appId: "..."
+};
+
+// Inicializar solo si no existe ya
+if (!firebase.apps.length) firebase.initializeApp(firebaseConfig);
+const db = firebase.database();
+
+// VARIABLES
+let firebaseWodData = []; // Aquí guardaremos lo que venga de la nube
+let isCustomMode = false; // Tecla 8 activada?
+
+// --- ESCUCHAR CAMBIOS EN TIEMPO REAL ---
+// Esto se ejecuta solo cada vez que cambias algo en el Admin
+db.ref('customWod').on('value', (snapshot) => {
+    const data = snapshot.val();
+    if (data) {
+        console.log("Datos recibidos de la nube:", data);
+        firebaseWodData = data;
+        
+        // Si la TV ya está en el canal 8, refrescar al instante
+        if (isCustomMode) {
+            cargarWOD(); 
+        }
+    }
+});
+
+
 // ==========================================
-// 1. VARIABLES GLOBALES Y CONFIGURACIÓN
+// RESTO DEL SISTEMA (Reloj, WODs, Slides)
 // ==========================================
+
 const dias = ['domingo', 'lunes', 'martes', 'miercoles', 'jueves', 'viernes', 'sabado'];
 let currentSlideIndex = 0;
 let currentWodParts = [];
 let isFullViewMode = false;
-let isWGirlsMode = false;     // Controla el modo WGirls (Tecla 9)
-let isCustomViewMode = false; // Controla el modo Custom (Tecla 8)
+let isWGirlsMode = false; 
 let timeOffset = 0;
 
-// ==========================================
-// 2. SINCRONIZACIÓN Y RELOJ
-// ==========================================
-function getBoliviaDate() {
-  return new Date(Date.now() + timeOffset);
-}
-
-function syncTime() {
-  fetch('http://worldtimeapi.org/api/timezone/America/La_Paz')
-    .then(response => response.json())
-    .then(data => {
-      const serverTime = new Date(data.datetime).getTime();
-      const localTime = Date.now();
-      timeOffset = serverTime - localTime;
-      console.log(`Sincronizado. Offset: ${timeOffset}ms`);
-      updateClock();
-      cargarWOD(); // Recargar WOD con fecha confirmada
-    })
-    .catch(err => console.log("Usando hora del sistema."));
-}
-
 function updateClock() {
-  const now = getBoliviaDate();
+  const now = new Date();
   const dia = String(now.getDate()).padStart(2, '0');
   const mes = String(now.getMonth() + 1).padStart(2, '0');
   const anio = now.getFullYear();
-  
   const elDate = document.getElementById('date-display');
   if (elDate) elDate.innerText = `${dia}/${mes}/${anio}`;
 
   const horas = String(now.getHours()).padStart(2, '0');
   const min = String(now.getMinutes()).padStart(2, '0');
   const seg = String(now.getSeconds()).padStart(2, '0');
-  
   const elTime = document.getElementById('time-display');
   if (elTime) elTime.innerText = `${horas}:${min}:${seg}`;
 }
+setInterval(updateClock, 1000);
 
-// ==========================================
-// 3. LÓGICA DE CARGA DE WODS
-// ==========================================
+// --- CARGAR WOD (LÓGICA MAESTRA) ---
 function cargarWOD() {
   if (typeof wods === 'undefined') return;
 
-  const hoyIndex = getBoliviaDate().getDay();
+  const hoyIndex = new Date().getDay();
   const diaNombre = dias[hoyIndex];
   const contenedor = document.getElementById('wod-display');
 
-  // Seleccionar fuente de datos
-  let dataSource = wods;
-  if (isWGirlsMode) {
-    if (typeof wgirls !== 'undefined') dataSource = wgirls;
+  // 1. DEFINIR FUENTE DE DATOS
+  let dataSource = wods[diaNombre]; // Por defecto: Wods Normales del día
+  let modoString = 'normal';
+
+  if (isCustomMode) {
+    // MODO TECLA 8: Usamos los datos de Firebase
+    if (firebaseWodData && firebaseWodData.length > 0) {
+      dataSource = firebaseWodData;
+      modoString = 'custom';
+    } else {
+      dataSource = [{titulo: "CARGANDO...", contenido: "Conectando con la nube...\nO no hay WOD personalizado aún."}];
+    }
+  } else if (isWGirlsMode) {
+    // MODO TECLA 9: Usamos WGirls.js
+    if (typeof wgirls !== 'undefined') {
+      dataSource = wgirls[diaNombre];
+      modoString = 'girls';
+    }
   }
 
-  const modoActual = isWGirlsMode ? 'girls' : 'normal';
-
-  // Solo actualizar si algo cambió
-  if (contenedor.dataset.dia !== diaNombre || contenedor.dataset.mode !== modoActual || currentWodParts.length === 0) {
+  // 2. DETECTAR CAMBIOS Y RENDERIZAR
+  if (contenedor.dataset.dia !== diaNombre || contenedor.dataset.mode !== modoString || currentWodParts.length === 0) {
     
     contenedor.dataset.dia = diaNombre;
-    contenedor.dataset.mode = modoActual;
+    contenedor.dataset.mode = modoString;
     
-    const datosDia = dataSource[diaNombre];
-
-    if (Array.isArray(datosDia) && datosDia.length > 0) {
-      currentWodParts = datosDia;
+    if (Array.isArray(dataSource) && dataSource.length > 0) {
+      currentWodParts = dataSource;
     } else {
-      const tituloDescanso = isWGirlsMode ? "WGIRLS DESCANSO" : "DESCANSO";
-      currentWodParts = [{ titulo: tituloDescanso, contenido: "Box Cerrado / Open Box" }];
+      const titulo = isWGirlsMode ? "WGIRLS DESCANSO" : "DESCANSO";
+      currentWodParts = [{ titulo: titulo, contenido: "Box Cerrado / Open Box" }];
     }
 
+    // Resetear al slide 1
     currentSlideIndex = 0;
     renderSlide();
 
-    // Refrescar vista completa si está abierta
+    // Si estaba la vista completa, refrescarla
     if (isFullViewMode) {
-      isFullViewMode = false; 
+      isFullViewMode = false;
       toggleFullView();
     }
   }
 }
 
 function renderSlide() {
-  if (isFullViewMode || isCustomViewMode) return; // No renderizar slides si hay overlays
+  if (isFullViewMode) return;
 
   const wrapper = document.getElementById('wod-display');
   wrapper.classList.add('fading');
@@ -103,11 +125,10 @@ function renderSlide() {
     const part = currentWodParts[currentSlideIndex];
     const contenidoFormateado = formatearTexto(part.contenido);
 
+    // Inyectar HTML (Manteniendo estilos originales)
     wrapper.innerHTML = `<h3>${part.titulo}</h3><p>${contenidoFormateado}</p>`;
     
-    // Indicador
-    const ind = document.getElementById('slide-indicator');
-    if(ind) ind.innerText = `${currentSlideIndex + 1} / ${currentWodParts.length}`;
+    document.getElementById('slide-indicator').innerText = `${currentSlideIndex + 1} / ${currentWodParts.length}`;
 
     // Botones
     const btnPrev = document.getElementById('btn-prev');
@@ -131,9 +152,80 @@ function formatearTexto(texto) {
   return texto.replace(/\*(.*?)\*/g, '<strong>$1</strong>');
 }
 
-// ==========================================
-// 4. VISTAS ESPECIALES (Full & Custom)
-// ==========================================
+// --- AJUSTE DE PANTALLA ---
+function ajustarEscala() {
+  if (isFullViewMode) return;
+  if (window.matchMedia("(orientation: portrait)").matches) return;
+
+  const wrapper = document.getElementById('wod-display');
+  if (!wrapper) return;
+
+  wrapper.style.transform = 'scale(1)';
+  wrapper.style.height = 'auto'; 
+  
+  const anchoVisualTotal = window.innerHeight * 0.94;
+  const altoVisualTotal = window.innerWidth * 0.65; 
+
+  wrapper.style.width = `${anchoVisualTotal}px`;
+
+  const alturaContenido = wrapper.scrollHeight;
+  let escala = altoVisualTotal / alturaContenido;
+
+  if (escala > 1.6) escala = 1.6;
+  if (escala < 0.35) escala = 0.35;
+
+  wrapper.style.transform = `scale(${escala})`;
+}
+
+// --- TECLADO ---
+function cambiarSlide(direccion) {
+  const nuevoIndex = currentSlideIndex + direccion;
+  if (nuevoIndex >= 0 && nuevoIndex < currentWodParts.length) {
+    currentSlideIndex = nuevoIndex;
+    renderSlide();
+  }
+}
+
+document.addEventListener('keydown', function (event) {
+  const key = event.key;
+
+  // TECLA 8: CUSTOM MODE (Nube)
+  if (key === '8') {
+    isCustomMode = !isCustomMode;
+    isWGirlsMode = false; // Apagar otros modos
+    document.getElementById('wod-display').dataset.mode = ""; 
+    cargarWOD(); // Esto ahora usará firebaseWodData
+    return;
+  }
+
+  // TECLA 9: GIRLS MODE
+  if (key === '9') {
+    isWGirlsMode = !isWGirlsMode;
+    isCustomMode = false;
+    document.getElementById('wod-display').dataset.mode = "";
+    cargarWOD();
+    return;
+  }
+
+  if (key === '0') { toggleFullView(); return; }
+
+  // Si estamos en Full View, salir
+  if (isFullViewMode && (key === 'Escape' || key === 'Backspace' || key === '0')) {
+    toggleFullView(); return;
+  }
+
+  // Navegación 1-7
+  if (key >= '1' && key <= '7') {
+    const targetIndex = parseInt(key) - 1;
+    if (targetIndex >= 0 && targetIndex < currentWodParts.length) {
+      currentSlideIndex = targetIndex;
+      renderSlide();
+    }
+  }
+
+  if (key === 'ArrowLeft') cambiarSlide(-1);
+  if (key === 'ArrowRight' || key === 'Enter') cambiarSlide(1);
+});
 
 // --- VISTA COMPLETA (0) ---
 function toggleFullView() {
@@ -145,7 +237,8 @@ function toggleFullView() {
 
   if (isFullViewMode) {
     let fullHTML = "";
-    if (isWGirlsMode) fullHTML += `<div style="text-align:center; color:#ccc; letter-spacing:3px; margin-bottom:20px;">-- WGIRLS MODE --</div>`;
+    if (isCustomMode) fullHTML += `<div style="text-align:center; color:#39ff14; letter-spacing:3px; margin-bottom:20px;">-- CUSTOM / NUBE --</div>`;
+    else if (isWGirlsMode) fullHTML += `<div style="text-align:center; color:#ff00d4; letter-spacing:3px; margin-bottom:20px;">-- WGIRLS MODE --</div>`;
     
     currentWodParts.forEach(part => {
       fullHTML += `<div class="full-section"><h3>${part.titulo}</h3><p>${formatearTexto(part.contenido)}</p></div>`;
@@ -165,129 +258,10 @@ function toggleFullView() {
   }
 }
 
-// --- VISTA CUSTOM (8) ---
-function toggleCustomView() {
-  const existingOverlay = document.getElementById('custom-overlay');
-
-  if (isCustomViewMode && existingOverlay) {
-    existingOverlay.remove();
-    isCustomViewMode = false;
-  } else {
-    const saved = localStorage.getItem('customWod');
-    if (!saved) {
-      alert("No hay WOD personalizado guardado. Usa /admin.html para crear uno.");
-      return;
-    }
-    
-    let data;
-    try { data = JSON.parse(saved); } catch(e) { return; }
-
-    const overlay = document.createElement('div');
-    overlay.id = 'custom-overlay';
-    overlay.className = 'custom-wod-overlay'; // REQUIERE EL CSS NUEVO
-    overlay.innerHTML = `<h3>${data.titulo}</h3><p>${formatearTexto(data.contenido)}</p>`;
-    
-    document.body.appendChild(overlay);
-    isCustomViewMode = true;
-  }
-}
-
-// ==========================================
-// 5. AJUSTE DE PANTALLA
-// ==========================================
-function ajustarEscala() {
-  if (isFullViewMode || isCustomViewMode) return;
-  if (window.matchMedia("(orientation: portrait)").matches) return;
-
-  const wrapper = document.getElementById('wod-display');
-  if (!wrapper) return;
-
-  // Reset
-  wrapper.style.transform = 'scale(1)';
-  wrapper.style.height = 'auto'; 
-  
-  const anchoVisual = window.innerHeight * 0.94; 
-  const altoVisual = window.innerWidth * 0.90; 
-
-  wrapper.style.width = `${anchoVisual}px`;
-  wrapper.style.maxWidth = `${anchoVisual}px`;
-
-  // Medir
-  const alturaContenido = wrapper.scrollHeight;
-  const anchoContenido = wrapper.scrollWidth; // Debería ser igual al estilo width
-
-  // Calcular escalas
-  const escalaAlto = altoVisual / alturaContenido;
-  const escalaAncho = anchoVisual / anchoContenido; // Por si acaso
-
-  // Usar la más restrictiva
-  let escala = Math.min(escalaAlto, escalaAncho);
-
-  // Límites
-  if (escala > 1.6) escala = 1.6;
-  if (escala < 0.25) escala = 0.25;
-
-  wrapper.style.transform = `scale(${escala})`;
-}
-
-// ==========================================
-// 6. CONTROL DE ENTRADA (TECLADO)
-// ==========================================
-document.addEventListener('keydown', function (event) {
-  const key = event.key;
-
-  // --- PRIORIDAD 1: SALIR DE MODOS ESPECIALES ---
-  if (isCustomViewMode) {
-    if (key === 'Escape' || key === 'Backspace' || key === '8') toggleCustomView();
-    return; // Bloquea todo lo demás
-  }
-  
-  if (isFullViewMode) {
-    if (key === 'Escape' || key === 'Backspace' || key === '0') toggleFullView();
-    return; // Bloquea todo lo demás
-  }
-
-  // --- PRIORIDAD 2: ACTIVAR MODOS ---
-  if (key === '9') { // Toggle Girls
-    isWGirlsMode = !isWGirlsMode;
-    document.getElementById('wod-display').dataset.mode = ""; // Forzar recarga
-    cargarWOD();
-    return;
-  }
-
-  if (key === '0') { toggleFullView(); return; }
-  if (key === '8') { toggleCustomView(); return; }
-
-  // --- PRIORIDAD 3: NAVEGACIÓN NORMAL (1-7 y Flechas) ---
-  if (key >= '1' && key <= '7') {
-    const targetIndex = parseInt(key) - 1;
-    if (targetIndex >= 0 && targetIndex < currentWodParts.length) {
-      currentSlideIndex = targetIndex;
-      renderSlide();
-    }
-  }
-
-  if (key === 'ArrowLeft') cambiarSlide(-1);
-  if (key === 'ArrowRight' || key === 'Enter') cambiarSlide(1);
-});
-
-// ==========================================
-// 7. INICIALIZACIÓN
-// ==========================================
-function cambiarSlide(direccion) {
-  const nuevoIndex = currentSlideIndex + direccion;
-  if (nuevoIndex >= 0 && nuevoIndex < currentWodParts.length) {
-    currentSlideIndex = nuevoIndex;
-    renderSlide();
-  }
-}
-
+// Init
 window.addEventListener('load', () => {
-  syncTime(); 
-  cargarWOD(); 
+  cargarWOD();
   setTimeout(ajustarEscala, 500);
 });
 window.addEventListener('resize', () => setTimeout(ajustarEscala, 200));
-setInterval(syncTime, 3600000); // Sync cada hora
-setInterval(updateClock, 1000);
-setInterval(cargarWOD, 60000); // Chequeo cambio día
+setInterval(cargarWOD, 60000);
