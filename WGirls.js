@@ -9,69 +9,72 @@ const wgirls = {
   lunes: [
     {
       titulo: "WARM-UP",
-      contenido: `*3 RFT*
-150m Row
-15m Walking Lunges
-10 Squats
-50 Jump Ropes`
+      contenido: `*10 min AMRAP*
+30 jump ropes
+10 MB G2OH 
+6 MB lunges 
+100m run 
+20 plank jacks
+10 alt v ups`
     },
     {
       titulo: "Custom Metcon",
-      contenido: `*Cada 5 Min por 5 Sets*
-8 Cals Row
-10 Box Steps Over (24)
-12 Russian Swings
-6 KB Sumo Squats`
+      contenido: `*Team of 2*
+20–18-16-14-12-10-8-6-4-2
+Cals row 
+Taters synchro
+Shuttle runs`
     }
   ],
 
   // ----------------------------------- MARTES ------------------------------------
   martes: [],
-  // ----------------------------------- MIERCOLES ------------------------------------
+
+  // --------------------------------- MIÉRCOLES ----------------------------------
   miercoles: [
     {
       titulo: "WARM-UP",
-      contenido: `*Tabata #1*
-Frog Pumps
-Mountain Climbers
-*Tabata #2*
-Banded Lat. Walk
-Squats
-*Tabata #3*
-Sit Ups
-Leg Raises`
+      contenido: `*3 rounds*
+150m row
+15m walking lunges 
+15m up down broad jump
+15 air squats`
     },
     {
-      titulo: "Custom Metcon",
-      contenido: `*AMRAP 20Min*
-100m Run
-6 Box Jumps
-12 Alt DB Snatch
-15 mts Burpee Broad Jump`
+      titulo: "Custom Metcon (Tiempo)",
+      contenido: `*6 RFT*
+100m run
+12 wall balls 
+10 knee raises 
+8 ring rows
+4 push ups`
     }
   ],
+
   // ----------------------------------- JUEVES ------------------------------------
   jueves: [],
-  // ----------------------------------- VIERNES ------------------------------------
+
+  // ----------------------------------- VIERNES ----------------------------------
   viernes: [
     {
       titulo: "WARM-UP",
-      contenido: `*2 Rounds*
-50 Jump Ropes
-20 Plate Sit Ups
-20 Flutter Kicks 
-20 Plank Jacks
-100m Run`
+      contenido: `*10 min AMRAP* 
+15 plate sit ups 
+15 leg raises
+20 Mountain climbers
+20 plank jacks 
+30 jump ropes`
     },
     {
       titulo: "Custom Metcon",
-      contenido: `*5 Rounds*
-20 Cals Row
-15 Wall Balls
-30m DB Walking Lunges 
--2 Min Rest-`
+      contenido: `*cada 5 min x 5 sets* 
+8/10 cals row
+8 box jump overs
+8 devil press
+15 m. DB walking lunges`
     }
   ],
-  // ----------------------------------- SABADO ------------------------------------
+
+  // ---------------------------------- SÁBADO ------------------------------------
   sabado: []
 };
