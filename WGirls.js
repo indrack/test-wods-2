@@ -9,21 +9,22 @@ const wgirls = {
   lunes: [
     {
       titulo: "WARM-UP",
-      contenido: `*10 min AMRAP*
-30 jump ropes
-10 MB G2OH 
-6 MB lunges 
-100m run 
-20 plank jacks
-10 alt v ups`
+      contenido: `*AMRAP x 10 min* 
+15 plate sit ups 
+20 Mountain climbers 
+15 russian swings 
+20 squats 
+5 shuttle runs `
     },
     {
       titulo: "Custom Metcon",
-      contenido: `*Team of 2*
-20–18-16-14-12-10-8-6-4-2
-Cals row 
-Taters synchro
-Shuttle runs`
+      contenido: `*5 ROUNDS* 
+12 goblet squats 
+10 jumping lunges 
+12 kb romanian deadlift 
+20 frog pumps 
+50 jump ropes 
+*-rest 2 min-*`
     }
   ],
 
@@ -34,20 +35,22 @@ Shuttle runs`
   miercoles: [
     {
       titulo: "WARM-UP",
-      contenido: `*3 rounds*
-150m row
-15m walking lunges 
-15m up down broad jump
-15 air squats`
+      contenido: `*Teams of 3*
+*AMRAP x 12 min* 
+Max cals row 
+P1 row
+P2 plank hold
+P3 rest `
     },
     {
-      titulo: "Custom Metcon (Tiempo)",
-      contenido: `*6 RFT*
-100m run
-12 wall balls 
-10 knee raises 
-8 ring rows
-4 push ups`
+      titulo: "Custom Metcon",
+      contenido: `*EMOM X 20 min* 
+:40 ON / :20 OFF
+1. DB thrusters 
+2. ⁠box steps over 
+3. ⁠up Down over DB 
+4. ⁠sit ups 
+5. ⁠ rest`
     }
   ],
 
@@ -58,20 +61,24 @@ Shuttle runs`
   viernes: [
     {
       titulo: "WARM-UP",
-      contenido: `*10 min AMRAP* 
-15 plate sit ups 
-15 leg raises
-20 Mountain climbers
-20 plank jacks 
-30 jump ropes`
+      contenido: ` *Tabata 1*
+Banded lateral walk
+Banded glute bridge
+*Tabata 2*
+Alt. V-ups
+Shoulder taps
+*Tabata 3*
+Climber taps 
+Flutter kicks `
     },
     {
       titulo: "Custom Metcon",
-      contenido: `*cada 5 min x 5 sets* 
-8/10 cals row
-8 box jump overs
-8 devil press
-15 m. DB walking lunges`
+      contenido: `*Cada 3 min x 7 rounds*
+10 knee raises
+8 alt DB snatch
+6 box jump
+4 burpees 
+100m run`
     }
   ],
 
