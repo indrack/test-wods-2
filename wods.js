@@ -33,35 +33,34 @@ This is a grip burner. The goal is to not put the dumbbells down until the round
   lunes: [
     {
       titulo: "WARM-UP",
-      contenido: `*10:00 AMRAP*
-30-second Cardio
-10 Beat Swings
-5 Hanging Knee Raises
-5 empty bar Deadlifts (build in weight, stay under 50%)
-4 PVC Front Squats
-3 PVC Overhead Squats
-4 Up Downs`
+      contenido: `*7:00 AMRAP*
+4x50ft Shuttle Runs
+10 Banded Pass Throughs
+5 Dynamic Squat Stretches
+10 Cossack Squats
+4 PVC - empty bar Muscle Snatch
+4 PVC - empty bar Overhead Squats
+*-into-*
+2:00
+Build up to opening weight`
     },
     {
-      titulo: "Weightlifting (Deadlift)",
-      contenido: `*DEADLIFT*
-Every 2:30 × 4 sets
-5 Deadlifts @ 65%`
+      titulo: "Weightlifting (Power Snatch)",
+      contenido: `Power Snatch + Overhead Squat 10x4
+Every 1:00 (10:00)
+2 Touch-and-Go Power Snatch 
++ 
+2 Overhead Squat 
+@ RPE 6–7`
     },
     {
       titulo: "Custom Metcon (Tiempo)",
-      contenido: `*Little House on the Prairie* 
-30 Toes to Bar
-30 Back Squats (40/30)
-30 Burpees
-*-Rest 1:00-*
-20 Toes to Bar
-20 Front Squats (50/35)
-20 Burpee to Bar
-*-Rest 1:00-*
-10 Toes to Bar
-10 Overhead Squats (60/40)
-10 Burpees Over the Bar`
+      contenido: `*Constantly Varied*
+25x50ft Shuttle Runs
+50 Wall Balls (20/14)
+50 V-Ups
+50 Wall Balls (20/14)
+25x50ft Shuttle Runs`
     }
   ],
 
@@ -236,3 +235,4 @@ Deadlifts (142.5/92.5)
     }
   ]
 };
+
