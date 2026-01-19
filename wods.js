@@ -5,26 +5,31 @@ const wods = {
   domingo: [
     {
       titulo: "WARM-UP",
-      contenido: `*AMRAP 6*
-1 minute Jump Rope 
-10 Up Downs
-10 Inch Worms
-10 Glute Bridges (pause at top)`
+      contenido: `*AMRAP 8:00*
+10 second Handstand Hold
+15 sec Plank Hold (elbows)
+5 Kettlebell Swings Lightning
+5 InchWorms
+10 Step Ups`
     },
     {
-      titulo: "CUSTOM METCON (Tiempo)",
-      contenido: `*The Andy Griffith Show*
-4 rounds
-60 Double Unders
-10 Burpee Box Get Overs (30/24)`
+      titulo: "CUSTOM METCON",
+      contenido: `*What is Fitness?*
+*Every 1:00 (15:00)*
+*Minute 1:* 30 second Handstand Hold (back to wall)
+*Minute 2:* 12 Kettlebell Swings (22.5/15)
+*Minute 3:* 5 Box Jumps (30/24)`
     },
     {
-      titulo: "ACCESORIO",
-      contenido: `*3 Rounds:*
-10 Tempo Double Dumbbell RDLs (3 seconds down)
-20 Farmer Carry Steps
-15 Calf Raises
-This is a grip burner. The goal is to not put the dumbbells down until the round is complete. Rotate rounds with a partner.`
+      titulo: "CUSTOM METCON",
+      contenido: `*RECOVERY WORKOUT*
+*Teams of 2 (1:1)*
+*2 Rounds* 
+200m Run
+3 Turkish Get Up (each arm 53/35)
+12/10 Calorie Row 
+50ft Bear Crawl w/controlled low hips
+30 Sec Reverse Plank Hold`
     }
   ],
 
@@ -69,40 +74,48 @@ Every 1:00 (10:00)
   martes: [
     {
       titulo: "WARM-UP",
-      contenido: `Banded 7s
--into-
-Every 1:00 (5:00)
-50m Run
-10 Single Unders
-5 light Single Arm Dumbbell Push Press (each)`
+      contenido: `*8:00 AMRAP*
+200m Easy Row
+5 Inchworms
+5 Up Downs over Bar
+10 Bird Dogs
+10 Cat Cows`
     },
     {
-      titulo: "Gymnastics (Handstand Push-up)",
-      contenido: `*Level 1:*
+      titulo: "Custom Metcon",
+      contenido: `*Fitness  in 100 Words*
+*Teams of 2 (1:1)*
+As few sets as possible to finish:
+*AMRAP 2:00*
+75 Lateral Burpee Over Bar
+100/80 Calorie Row
+*-rest 2:00 between sets-*
+*Partner 1 works for two minutes, while partner 2 rests. Switch back and forth.`
+    },
+    {
+      titulo: "(Chest-To-Bar Pull-up) par 1",
+      contenido: `*Chest to Bar Pull-ups/Bar Muscle-Ups*
+*Level 1:*
 9 min EMOM:
-Min 1: 12 Double DB Seated Strict Press with legs extended
-Min 2: 20-30 sec Double DB Overhead Hold with legs extended
-Min 3: Rest
+Min 1: 6 Single Leg Box Butterfly Circle Drill
+Min 2: 6 Strict Scap Circles
+Min 3: 6-8 Butterfly Small Circles
 *Level 2:*
 9 min EMOM:
-Min 1: AMRAP unbroken Pike on Box Strict HSPUs (20 sec cap)
-Min 2: 4 Strict HSPUs with 4 sec negative (lowering from extension to the
-floor)
-Min 3: Rest
-*Level 3:*
-9 min EMOM:
-Min 1: AMRAP Strict HSPUs to floor in 30 sec
-Min 2: AMRAP unbroken Strict HSPUs to 2” riser in 30 sec
-Min 3: Rest`
+Min 1: 6 Single Leg Box Butterfly Circle Drill
+Min 2: 6 Strict Scap Circles
+Min 3: 8-10 Butterfly Pull Ups (or 4-6 Chest to Bar Pull Ups)`
     },
     {
-      titulo: "Custom Metcon (Tiempo)",
-      contenido: `*Home Improvement*
-*4 sets:*
-200m Run
-75 Double Unders
-15 Dumbbell Push Press (22.5/15)
-*-rest 2:00 between sets-*`
+      titulo: "(Chest-To-Bar Pull-up) part 2",
+      contenido: `*Chest to Bar Pull-ups/Bar Muscle-Ups*
+*Level 3:*
+Perform one set of Max Unbroken Bar Muscle Ups (as soon as you lose quality technique, stop. Max amount: 15 reps)
+- Rest 2 minutes, then:
+6 min EMOM:
+Min 1: 30 Sec Row @ 5k pace
+Min 2: 40% of AMRAP unbroken Bar Muscle Ups
+(No minute 3. Repeat minutes 1 and 2 for 3 rounds)`
     }
   ],
 
@@ -111,29 +124,29 @@ Min 3: Rest`
   miercoles: [
     {
       titulo: "WARM-UP",
-      contenido: `*2 Rounds*
-30-second Cardio
-10 Russian Kettlebell Swings (light)
-10 Sit Ups
-6 Box Step Ups
-3 empty bar Muscle Cleans + 3 Shoulder Press
-3 empty bar Hang Power Cleans and Push Press
-*-into-*
-3:00
-Build up to weight in sets of 3 (singles). Focus on good positioning and proper resets after each lift.`
+      contenido: `*8:00 AMRAP*
+5 Roll and Reach
+10 Glute Bridges
+4 Deadlifts (empty bar- build in weight, stay under 50%)
+5 PVC Hang Muscle Snatches
+4 Inchworms
+5 Hanging Knee Raises`
     },
     {
-      titulo: "Weightlifting (Clean and Jerk)",
-      contenido: `Every 1:00 (8:00)
-3 Power Clean and Jerks (singles) @ RPE 6`
+      titulo: "Weightlifting (Deadlift)",
+      contenido: `*Every 2:30 × 4*
+4 Deadlifts 
+@ 70%`
     },
     {
-      titulo: "Custom Metcon (Rondas y Reps)",
-      contenido: `*Family Matters*
-*12:00 AMRAP*
-15 Kettlebell Swings (24/16)
-15 Stick Sit Ups
-15 Box Jumps (24/20)`
+      titulo: "Custom Metcon",
+      contenido: `*Core to Extremity*
+3 sets
+2 Rounds
+10 Toes to Bar
+2 Wall Walks
+10 Hang Power Snatches (35/25)
+*-rest 2:00 between sets-*`
     }
   ],
 
@@ -142,26 +155,30 @@ Build up to weight in sets of 3 (singles). Focus on good positioning and proper 
   jueves: [
     {
       titulo: "WARM-UP",
-      contenido: `*7:00 AMRAP*
-10 Deadbugs
-3 Tempo Back Squats (empty bar, build up to 50%)
-20-second Moderate Row`
+      contenido: `*Banded 7s*
+*-into-*
+*5:00 AMRAP*
+5 Up-Downs
+20 Single Unders
+4 Strict Press (empty bar - build in weight, stay under 50%)`
     },
     {
-      titulo: "Weightlifting (Back Squat)",
-      contenido: `Every 2:30 × 5 sets
-4 Back Squats @ 65%`
+      titulo: "Weightlifting (Shoulder Press)",
+      contenido: `*Every 2:00 × 4*
+4 Shoulder Press 
+@ 65%`
     },
     {
       titulo: "Custom Metcon",
-      contenido: `*The Brady Bunch*
-*Teams of 2*
-*10:00 AMRAP*
-Partner 1:
-Max Air Squats
-Partner 2:
-10/8 Calorie Row
-Switch when the row is completed. Score is 2 sets of reps: total air squats and total calorie row.`
+      contenido: `*Pukie*
+*2 sets*
+21 Burpee
+50 Double Unders
+15 Burpee
+50 Double Unders
+9 Burpee
+50 Double Unders
+*-rest 3:00 between sets-*`
     }
   ],
 
@@ -170,30 +187,24 @@ Switch when the row is completed. Score is 2 sets of reps: total air squats and 
   viernes: [
     {
       titulo: "WARM-UP",
-      contenido: `*10:00 AMRAP*
-5 Roll and Reach
-10 Glute Bridges
-10 Deadbugs
-5 empty bar Shoulder Press
-5 empty bar Deadlifts
-10-second Handstand Hold`
+      contenido: `7:00 Flow
+10 Cossack Squats
+3 Tempo Back Squats (empty bar, build up to 50%)
+5 Single Arm Dumbbell Thrusters (each)
+10 Ring Rows`
     },
     {
-      titulo: "Weightlifting (Shoulder Press)",
-      contenido: `Every 2:00 × 4 sets
-5 Shoulder Press @ 62%`
+      titulo: "Weightlifting (Back Squat)",
+      contenido: `*Every 2:30 × 5*
+4 Back Squats 
+@ 70%`
     },
     {
-      titulo: "Custom Metcon (Reps)",
-      contenido: `*Open 18.4/20.3*
+      titulo: "Custom Metcon",
+      contenido: `*Fran*
 21-15-9
-Deadlifts (102.5/70)
-Handstand Push Ups
--into-
-21-15-9
-Deadlifts (142.5/92.5)
-50ft Handstand Walk (Or 4 Wall Walks) after each set of Deadlifts
-(Score by reps completed at 9 minute time cap. If finished, note time of completion)`
+Thrusters (42.5/30)
+Pull Ups`
     }
   ],
 
@@ -203,36 +214,33 @@ Deadlifts (142.5/92.5)
     {
       titulo: "WARM-UP",
       contenido: `*10:00 AMRAP*
-200m easy Run 
-10 Leg Swings (each)
-5 Scap Pull Ups
-10 Ring Rows
-5 Bench Press (light)`
+1:00 Easy Row
+4 Clean Grip Deadlifts (empty bar)
+4 Hang Power Cleans (empty bar)
+20ft Farmer Carry (light)
+4 Inchworms`
     },
     {
-      titulo: "Custom Metcon (Tiempo)",
-      contenido: `*Malcolm in the Middle*
+      titulo: "Custom Metcon",
+      contenido: `*Regularly Learn and Play New Sports*
 *Teams of 2*
 *4 Rounds*
-400m Run together 
-25 Strict Pull Ups
-50 Bench Press (60/37.5)`
+1000/850m Row
+10 Power Cleans (85/57.5) (split between partners)
+100ft Dumbbell Farmer Carry (32.5/22.5) (each)`
     },
     {
       titulo: "ACCESORIO",
-      contenido: `*MAYHEM MINI-PUMP – GLUTES AND CORE*
-*3 rounds:*
-10 Weighted Hip Thrust @ moderate weight
+      contenido: `*MAYHEM MINI-PUMP – ARMS AND SHOULDERS*
+*4 rounds:*
+10 Standing Alternating Double DB Shoulder Press (each side) @moderate weight
 *-rest 30 seconds-*
-10 Kneeling Banded Hip Extension @ moderate weight
+10 Bent Over Lateral Raises @ moderate weight
 *-rest 30 seconds-*
-10 Lateral Band Walk @ moderate weight
+10 Standing KB Crush Grip Bicep Curl @ maintain quality
 *-rest 30 seconds-*
-10 Standing Banded Pallof Press (each side)
-*-rest 30 seconds-*
-12 Strict Hanging Leg Raise
+10 Tricep Dips @ moderate weight
 *-Rest 2 minutes between rounds-*`
     }
   ]
 };
-
