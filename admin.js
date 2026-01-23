@@ -1,6 +1,6 @@
 /* --- START OF FILE admin.js --- */
 
-// 1. CONFIGURACIÓN FIREBASE (PON TUS DATOS AQUÍ)
+// 1. CONFIGURACIÓN FIREBASE
 const firebaseConfig = {
   apiKey: "AIzaSyCC3idHLHcFFcGOAbdJGtuWYsrV0PFf8Oc",
   authDomain: "crosssfit--3640-tv.firebaseapp.com",
@@ -16,21 +16,29 @@ if (!firebase.apps.length) firebase.initializeApp(firebaseConfig);
 const db = firebase.database();
 const auth = firebase.auth();
 
+// ESTADO GLOBAL
+let selectedLocation = ""; // 'miraflores' | 'calacoto'
+let selectedMode = "";     // 'new' | 'append'
+
 // 2. MANEJO DE SESIÓN
 auth.onAuthStateChanged((user) => {
     document.getElementById('loading-section').classList.add('hidden'); 
     
     if (user) {
         document.getElementById('login-section').classList.add('hidden');
-        document.getElementById('step-1-section').classList.remove('hidden');
+        document.getElementById('location-section').classList.remove('hidden'); // Ir a selección de sede
     } else {
-        document.getElementById('step-1-section').classList.add('hidden');
-        document.getElementById('editor-section').classList.add('hidden');
+        hideAllSections();
         document.getElementById('login-section').classList.remove('hidden');
     }
 });
 
-// 3. FUNCIONES
+function hideAllSections() {
+    const sections = ['login-section', 'loading-section', 'location-section', 'mode-section', 'count-section', 'editor-section'];
+    sections.forEach(id => document.getElementById(id).classList.add('hidden'));
+}
+
+// 3. LOGICA DE NAVEGACIÓN
 function login() {
     const email = document.getElementById('email').value;
     const pass = document.getElementById('password').value;
@@ -58,23 +66,128 @@ function logout() {
     location.reload();
 }
 
-function generateForms() {
+// PASO 1: SELECCIONAR SEDE
+function selectLocation(loc) {
+    selectedLocation = loc;
+    
+    // UI Update
+    document.getElementById('location-section').classList.add('hidden');
+    document.getElementById('mode-section').classList.remove('hidden');
+    
+    const label = document.getElementById('selected-location-label');
+    label.innerText = `SEDE: ${loc.toUpperCase()}`;
+}
+
+// PASO 2: SELECCIONAR MODO
+function selectMode(mode) {
+    selectedMode = mode;
+    
+    document.getElementById('mode-section').classList.add('hidden');
+
+    if (mode === 'new') {
+        // Modo Nuevo -> Pedir cantidad
+        document.getElementById('count-section').classList.remove('hidden');
+    } else {
+        // Modo Agregar -> Cargar datos existentes
+        loadExistingAndEdit();
+    }
+}
+
+// BACK BUTTONS
+function goBackToLocation() {
+    document.getElementById('mode-section').classList.add('hidden');
+    document.getElementById('location-section').classList.remove('hidden');
+}
+
+function goBackToMode() {
+    document.getElementById('count-section').classList.add('hidden');
+    document.getElementById('mode-section').classList.remove('hidden');
+}
+
+// 4. GENERADORES DEL EDITOR
+function initEditorNew() {
     const count = document.getElementById('slide-count').value;
     const container = document.getElementById('slides-container');
     container.innerHTML = "";
+    
     for(let i=0; i<count; i++) {
-        container.innerHTML += `
-        <div style="background:#000; padding:15px; border:1px solid #444; margin-bottom:15px; border-radius:8px;">
-            <!-- CAMBIO: Título en Rojo Neón -->
-            <h3 style="color:#ff0000; text-align:left;">Pantalla ${i+1}</h3>
-            <div class="input-group"><label>Título</label><input type="text" class="slide-title"></div>
-            <div class="input-group"><label>Contenido</label><textarea class="slide-content"></textarea></div>
-        </div>`;
+        addSlideHTML(i+1, "", "");
     }
-    document.getElementById('step-1-section').classList.add('hidden');
-    document.getElementById('editor-section').classList.remove('hidden');
+    
+    showEditor();
 }
 
+function loadExistingAndEdit() {
+    const dbPath = (selectedLocation === 'miraflores') ? 'customWodMiraflores' : 'customWodCalacoto';
+    const msgDiv = document.createElement('div'); 
+    msgDiv.innerHTML = '<h3 style="color:#fff">Cargando datos actuales...</h3>';
+    document.body.appendChild(msgDiv); // Temporary generic loading
+    
+    db.ref(dbPath).once('value').then(snapshot => {
+        const data = snapshot.val() || [];
+        const container = document.getElementById('slides-container');
+        container.innerHTML = "";
+        
+        document.body.removeChild(msgDiv); // Remove loading
+
+        if (!Array.isArray(data) || data.length === 0) {
+            alert("No hay datos existentes. Iniciando en blanco.");
+            addSlideHTML(1, "", "");
+        } else {
+            data.forEach((item, index) => {
+                addSlideHTML(index + 1, item.titulo, item.contenido);
+            });
+            // Agregar uno extra vacio automáticamente para facilitar
+            addSlideHTML(data.length + 1, "", ""); 
+        }
+        
+        showEditor();
+    }).catch(err => {
+        alert("Error cargando datos: " + err.message);
+        location.reload();
+    });
+}
+
+function showEditor() {
+    document.getElementById('count-section').classList.add('hidden');
+    document.getElementById('mode-section').classList.add('hidden'); // Ensure closed
+    document.getElementById('editor-section').classList.remove('hidden');
+    
+    document.getElementById('editor-location-label').innerText = 
+        `EDITANDO: ${selectedLocation.toUpperCase()} | MODO: ${selectedMode === 'new' ? 'REEMPLAZAR TODO' : 'AGREGAR'}`;
+}
+
+// HELPER: Agregar un bloque de slide al DOM
+function addSlideHTML(num, titleVal, contentVal) {
+    const container = document.getElementById('slides-container');
+    const div = document.createElement('div');
+    div.className = 'slide-block';
+    div.style.cssText = "background:#000; padding:15px; border:1px solid #444; margin-bottom:15px; border-radius:8px; position:relative;";
+    
+    div.innerHTML = `
+        <span style="position:absolute; right:10px; top:10px; color:#444; font-weight:bold;">#${num}</span>
+        <h3 style="color:#ff0000; text-align:left; margin-top:0;">Pantalla ${num}</h3>
+        <div class="input-group">
+            <label>Título</label>
+            <input type="text" class="slide-title" value="${titleVal || ''}" placeholder="Ej: WOD, CALENTAMIENTO...">
+        </div>
+        <div class="input-group">
+            <label>Contenido (*usar asteriscos para negrita*)</label>
+            <textarea class="slide-content" placeholder="Escribe aquí el ejercicio...">${contentVal || ''}</textarea>
+        </div>
+        <div style="text-align:right;">
+            <button onclick="this.parentElement.parentElement.remove()" style="background:none; border:none; color:#666; cursor:pointer;">[Eliminar esta pantalla]</button>
+        </div>
+    `;
+    container.appendChild(div);
+}
+
+function addSlideField() {
+    const currentCount = document.querySelectorAll('.slide-block').length;
+    addSlideHTML(currentCount + 1, "", "");
+}
+
+// 5. PUBLICAR
 function publishToFirebase() {
     if (!auth.currentUser) {
         alert("Sesión expirada. Por favor entra de nuevo.");
@@ -84,24 +197,36 @@ function publishToFirebase() {
 
     const titles = document.querySelectorAll('.slide-title');
     const contents = document.querySelectorAll('.slide-content');
-    let data = [];
     
+    if (titles.length === 0) {
+        if(!confirm("¿Estás seguro de publicar VACÍO? Esto borrará el WOD de la pantalla.")) return;
+    }
+
+    let data = [];
     titles.forEach((t, i) => {
-        data.push({ titulo: t.value || "SIN TÍTULO", contenido: contents[i].value || "" });
+        data.push({ 
+            titulo: t.value || "SIN TÍTULO", 
+            contenido: contents[i].value || "" 
+        });
     });
 
     const msg = document.getElementById('save-msg');
-    msg.innerText = "Subiendo...";
+    msg.innerText = "Subiendo a " + selectedLocation.toUpperCase() + "...";
     msg.style.color = "#fff";
 
-    db.ref('customWod').set(data)
+    const dbPath = (selectedLocation === 'miraflores') ? 'customWodMiraflores' : 'customWodCalacoto';
+
+    db.ref(dbPath).set(data)
         .then(() => {
-            msg.innerText = "¡WOD PUBLICADO CON ÉXITO!";
+            msg.innerText = "¡WOD PUBLICADO CON ÉXITO EN " + selectedLocation.toUpperCase() + "!";
             msg.style.color = "#ff0000"; // Rojo éxito
-            setTimeout(() => msg.innerText = "", 3000);
+            setTimeout(() => {
+                if(confirm("Publicado. ¿Quieres salir?")) location.reload();
+            }, 1000);
         })
         .catch((error) => {
             msg.innerText = "Error: " + error.message;
             msg.style.color = "orange";
         });
 }
+

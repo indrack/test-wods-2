@@ -21,17 +21,25 @@
             padding: 20px; 
         }
         
+        .admin-logo {
+            width: 150px;
+            margin-bottom: 20px;
+            margin-top: 20px;
+            filter: drop-shadow(0 0 10px rgba(255,0,0,0.5));
+        }
+
         .admin-container { 
             width: 100%; 
-            max-width: 400px; 
-            margin-top: 50px; 
-            padding: 20px; 
+            max-width: 450px; 
+            margin-top: 20px; 
+            padding: 30px; 
             background: rgba(20, 20, 20, 0.95); 
             border: 1px solid #333; 
             border-radius: 10px; 
             text-align: center;
             /* Sombra Roja */
             box-shadow: 0 0 20px rgba(255, 0, 0, 0.2); 
+            transition: all 0.3s ease;
         }
 
         .input-group { margin-bottom: 20px; text-align: left; }
@@ -84,17 +92,59 @@
         button.btn-action:hover {
             background: #cc0000;
             box-shadow: 0 0 15px rgba(255, 0, 0, 0.4);
+            transform: translateY(-2px);
+        }
+        
+        button.btn-secondary {
+            background: #333;
+            margin-top: 15px;
+        }
+        button.btn-secondary:hover {
+            background: #444;
+            box-shadow: none;
         }
 
-        .hidden { display: none; }
+        /* Cards para selección */
+        .selection-card {
+            background: #000;
+            border: 1px solid #333;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .selection-card:hover {
+            border-color: #ff0000;
+            background: #0a0a0a;
+            transform: scale(1.02);
+        }
+        .selection-card h3 { margin: 0 0 5px 0; color: #fff; }
+        .selection-card p { margin: 0; color: #888; font-size: 0.9em; }
+
+        .hidden { display: none !important; }
         .error-msg { color: #ff4444; margin-top: 10px; font-size: 0.9em; }
         
         /* Mensajes de estado */
         .status-msg { margin-top: 15px; min-height: 20px; color: #ff0000; font-weight: bold; }
+        
+        .help-text {
+            color: #888;
+            font-size: 0.85em;
+            margin-top: -15px;
+            margin-bottom: 20px;
+            text-align: left;
+            background: #111;
+            padding: 10px;
+            border-radius: 5px;
+            border-left: 3px solid #ff0000;
+        }
     </style>
 </head>
 
 <body class="admin-mode">
+
+    <img src="logo.png" alt="Logo Box" class="admin-logo">
 
     <!-- PANTALLA DE LOGIN -->
     <div id="login-section" class="admin-container">
@@ -113,30 +163,77 @@
 
     <!-- CARGANDO -->
     <div id="loading-section" class="admin-container hidden">
-        <h3 style="color:#fff;">Verificando acceso...</h3>
+        <h3 style="color:#fff;">Cargando sistema...</h3>
     </div>
 
-    <!-- PASO 1: CANTIDAD -->
-    <div id="step-1-section" class="admin-container hidden">
+    <!-- PASO 1: SELECCIÓN DE SEDE -->
+    <div id="location-section" class="admin-container hidden">
+        <h2 style="color:#fff; margin-bottom:10px;">SELECCIONA SEDE</h2>
+        <p style="color:#666; margin-bottom:30px;">¿Qué pantalla quieres controlar?</p>
+        
+        <div class="selection-card" onclick="selectLocation('calacoto')">
+            <h3>CALACOTO (TV 8)</h3>
+            <p>Control Remoto Botón 8</p>
+        </div>
+
+        <div class="selection-card" onclick="selectLocation('miraflores')">
+            <h3>MIRAFLORES (TV 7)</h3>
+            <p>Control Remoto Botón 7</p>
+        </div>
+
+        <button class="btn-action btn-secondary" onclick="logout()">Cerrar Sesión</button>
+    </div>
+
+    <!-- PASO 2: MODO DE EDICIÓN -->
+    <div id="mode-section" class="admin-container hidden">
+        <h2 style="color:#fff; margin-bottom:10px;">GESTIÓN WOD</h2>
+        <p id="selected-location-label" style="color:#ff0000; font-weight:bold; margin-bottom:20px;">SEDE: ---</p>
+        
+        <div class="selection-card" onclick="selectMode('append')">
+            <h3>AGREGAR SLIDE</h3>
+            <p>Mantener lo actual y añadir una nueva pantalla</p>
+        </div>
+
+        <div class="selection-card" onclick="selectMode('new')">
+            <h3>LIMPIAR TODO</h3>
+            <p>Borrar todo y crear WOD desde cero</p>
+        </div>
+
+        <button class="btn-action btn-secondary" onclick="goBackToLocation()">Volver</button>
+    </div>
+
+    <!-- PASO 3: CANTIDAD (SOLO SI ES NUEVO) -->
+    <div id="count-section" class="admin-container hidden">
         <h2 style="color:#fff;">NUEVO WOD</h2>
-        <p style="color:#aaa; margin-bottom:20px;">¿Cuántas pantallas?</p>
+        <p style="color:#aaa; margin-bottom:20px;">¿Cuántas pantallas iniciales?</p>
         <input type="number" id="slide-count" value="1" min="1" max="10" style="text-align:center; font-size:1.5em; margin-bottom:20px;">
-        <button class="btn-action" onclick="generateForms()">Continuar</button>
-        <button class="btn-action" style="background:#333; color:#fff; margin-top:20px;" onclick="logout()">Cerrar Sesión</button>
+        <button class="btn-action" onclick="initEditorNew()">Continuar</button>
+        <button class="btn-action btn-secondary" onclick="goBackToMode()">Cancelar</button>
     </div>
 
-    <!-- PASO 2: EDITOR -->
+    <!-- PASO 4: EDITOR -->
     <div id="editor-section" class="admin-container hidden" style="max-width: 800px;">
-        <h2 style="color:#fff; margin-bottom:20px;">EDITAR CONTENIDO</h2>
+        <h2 style="color:#fff; margin-bottom:10px;">EDITAR CONTENIDO</h2>
+        <p id="editor-location-label" style="color:#666; margin-bottom:20px;">---</p>
+        
+        <div class="help-text">
+            <strong>TIP:</strong> Para poner texto en <strong>negrita</strong> (verde), enciérralo entre asteriscos.<br>
+            Ejemplo: <code>Calentamiento: *3 Rondas* de...</code>
+        </div>
+
         <div id="slides-container"></div>
         
+        <button class="btn-action btn-secondary" style="margin-bottom:20px; background:#222; border:1px dashed #444;" onclick="addSlideField()">
+            + Agregar otra pantalla
+        </button>
+
         <!-- Botón Publicar (Rojo) -->
         <button class="btn-action" onclick="publishToFirebase()">
-            ☁️ PUBLICAR
+            ☁️ PUBLICAR EN TV
         </button>
         
         <div id="save-msg" class="status-msg"></div>
-        <button class="btn-action" style="background:#333; color:#fff; margin-top:30px;" onclick="location.reload()">Volver</button>
+        <button class="btn-action btn-secondary" onclick="location.reload()">Salir / Volver al Inicio</button>
     </div>
 
     <!-- Referencia al archivo JS separado -->

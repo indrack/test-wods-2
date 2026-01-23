@@ -3,7 +3,6 @@
 // ==========================================
 // 1. CONFIGURACIÓN FIREBASE
 // ==========================================
-// ¡OJO! REEMPLAZA ESTO CON TUS DATOS REALES DE FIREBASE O NO FUNCIONARÁ EL MODO 8
 const firebaseConfig = {
   apiKey: "AIzaSyCC3idHLHcFFcGOAbdJGtuWYsrV0PFf8Oc",
   authDomain: "crosssfit--3640-tv.firebaseapp.com",
@@ -16,15 +15,15 @@ const firebaseConfig = {
 
 // Inicializar Firebase de forma segura
 if (typeof firebase !== 'undefined' && !firebase.apps.length) {
-    firebase.initializeApp(firebaseConfig);
+  firebase.initializeApp(firebaseConfig);
 }
 
-// Intentar conectar la base de datos (si firebase cargó correctamente)
+// Intentar conectar la base de datos
 let db;
 try {
-    db = firebase.database();
+  db = firebase.database();
 } catch (e) {
-    console.error("Firebase no está configurado o scripts no cargados en index.html");
+  console.error("Firebase no está configurado o scripts no cargados en index.html");
 }
 
 // ==========================================
@@ -34,21 +33,28 @@ const dias = ['domingo', 'lunes', 'martes', 'miercoles', 'jueves', 'viernes', 's
 let currentSlideIndex = 0;
 let currentWodParts = [];
 let isFullViewMode = false;
-let isWGirlsMode = false;     // Tecla 9
-let isCustomMode = false;     // Tecla 8 (Unificado el nombre de variable)
-let firebaseWodData = [];     // Datos descargados de la nube
+
+// MODOS
+// 'miraflores' (7) | 'calacoto' (8) | 'wgirls' (9) | null (Normal)
+let activeMode = null;
+
+let firebaseDataMiraflores = [];
+let firebaseDataCalacoto = [];
 let timeOffset = 0;
 
-// Escuchar cambios de Firebase
+// Escuchar cambios de Firebase (AMBAS SEDES)
 if (db) {
-    db.ref('customWod').on('value', (snapshot) => {
-        const data = snapshot.val();
-        if (data) {
-            console.log("Datos nube recibidos");
-            firebaseWodData = data;
-            if (isCustomMode) cargarWOD(); // Refrescar si estamos viendo el canal 8
-        }
-    });
+  // Miraflores -> customWodMiraflores
+  db.ref('customWodMiraflores').on('value', (snapshot) => {
+    firebaseDataMiraflores = snapshot.val() || [];
+    if (activeMode === 'miraflores') cargarWOD();
+  });
+
+  // Calacoto -> customWodCalacoto
+  db.ref('customWodCalacoto').on('value', (snapshot) => {
+    firebaseDataCalacoto = snapshot.val() || [];
+    if (activeMode === 'calacoto') cargarWOD();
+  });
 }
 
 // ==========================================
@@ -66,7 +72,7 @@ function syncTime() {
       const localTime = Date.now();
       timeOffset = serverTime - localTime;
       updateClock();
-      cargarWOD(); 
+      cargarWOD();
     })
     .catch(err => console.log("Usando hora del sistema (Offline o error API)"));
 }
@@ -76,14 +82,14 @@ function updateClock() {
   const dia = String(now.getDate()).padStart(2, '0');
   const mes = String(now.getMonth() + 1).padStart(2, '0');
   const anio = now.getFullYear();
-  
+
   const elDate = document.getElementById('date-display');
   if (elDate) elDate.innerText = `${dia}/${mes}/${anio}`;
 
   const horas = String(now.getHours()).padStart(2, '0');
   const min = String(now.getMinutes()).padStart(2, '0');
   const seg = String(now.getSeconds()).padStart(2, '0');
-  
+
   const elTime = document.getElementById('time-display');
   if (elTime) elTime.innerText = `${horas}:${min}:${seg}`;
 }
@@ -98,65 +104,75 @@ function cargarWOD() {
   const diaNombre = dias[hoyIndex];
   const contenedor = document.getElementById('wod-display');
 
-  // 1. Elegir fuente de datos
-  let dataSource = wods[diaNombre]; // Por defecto
-  let modoString = 'normal';
+  // 1. Elegir fuente de datos según MODO
+  let dataSource = wods[diaNombre]; // Por defecto (WOD Normal del js)
+  let modoDisplay = 'normal';
 
-  if (isCustomMode) {
-    // Modo Nube (Tecla 8)
-    if (firebaseWodData && firebaseWodData.length > 0) {
-      dataSource = firebaseWodData;
-      modoString = 'custom';
-    } else {
-      dataSource = [{titulo: "CONECTANDO...", contenido: "Esperando datos de la nube...\nRevisa tu conexión o el Admin."}];
-    }
-  } else if (isWGirlsMode) {
-    // Modo Girls (Tecla 9)
+  if (activeMode === 'miraflores') {
+    dataSource = (firebaseDataMiraflores.length > 0) ? firebaseDataMiraflores : [{ titulo: "MIRAFLORES", contenido: "Esperando WOD..." }];
+    modoDisplay = 'custom-mira'; // Usado para CSS si quisieras
+  }
+  else if (activeMode === 'calacoto') {
+    dataSource = (firebaseDataCalacoto.length > 0) ? firebaseDataCalacoto : [{ titulo: "CALACOTO", contenido: "Esperando WOD..." }];
+    modoDisplay = 'custom-cala';
+  }
+  else if (activeMode === 'wgirls') {
     if (typeof wgirls !== 'undefined') {
       dataSource = wgirls[diaNombre];
-      modoString = 'girls';
+      modoDisplay = 'girls';
     }
   }
 
   // 2. Detectar cambios para no parpadear
-  if (contenedor.dataset.dia !== diaNombre || contenedor.dataset.mode !== modoString || currentWodParts.length === 0) {
-    
+  if (contenedor.dataset.dia !== diaNombre || contenedor.dataset.mode !== modoDisplay || currentWodParts.length === 0) {
+
     contenedor.dataset.dia = diaNombre;
-    contenedor.dataset.mode = modoString;
-    
+    contenedor.dataset.mode = modoDisplay;
+
     if (Array.isArray(dataSource) && dataSource.length > 0) {
       currentWodParts = dataSource;
     } else {
-      const titulo = isWGirlsMode ? "WGIRLS DESCANSO" : "DESCANSO";
+      const titulo = (activeMode === 'wgirls') ? "WGIRLS DESCANSO" : "DESCANSO";
       currentWodParts = [{ titulo: titulo, contenido: "Box Cerrado / Open Box" }];
     }
 
+    // Reiniciar slide
     currentSlideIndex = 0;
     renderSlide();
 
-    // Si la vista completa estaba abierta, cerrarla y abrirla para actualizar
+    // Actualizar vista completa si está abierta
     if (isFullViewMode) {
       isFullViewMode = false;
-      toggleFullView();
+      toggleFullView(); // Cerrar y reabrir (opcional, aquí solo cierro para evitar bugs visuales)
     }
   }
 }
 
 function renderSlide() {
-  if (isFullViewMode) return; 
+  if (isFullViewMode) return;
 
   const wrapper = document.getElementById('wod-display');
   wrapper.classList.add('fading');
 
   setTimeout(() => {
+    // Protección de índice
+    if (currentSlideIndex >= currentWodParts.length) currentSlideIndex = 0;
+
     const part = currentWodParts[currentSlideIndex];
     const contenidoFormateado = formatearTexto(part.contenido);
 
     wrapper.innerHTML = `<h3>${part.titulo}</h3><p>${contenidoFormateado}</p>`;
-    
+
     // Indicador
     const ind = document.getElementById('slide-indicator');
-    if (ind) ind.innerText = `${currentSlideIndex + 1} / ${currentWodParts.length}`;
+
+    // Texto del indicador con el modo
+    let modeLabel = "";
+    if (activeMode === 'miraflores') modeLabel = "MIRAFLORES ";
+    if (activeMode === 'calacoto') modeLabel = "CALACOTO ";
+    if (activeMode === 'wgirls') modeLabel = "WGIRLS ";
+
+    if (ind) ind.innerText = `${modeLabel} ${currentSlideIndex + 1} / ${currentWodParts.length}`;
 
     // Botones
     const btnPrev = document.getElementById('btn-prev');
@@ -170,67 +186,44 @@ function renderSlide() {
       btnNext.style.opacity = (currentSlideIndex === currentWodParts.length - 1) ? "0.3" : "1";
     }
 
-    ajustarEscala(); // Llamamos a tu ajuste preferido
+    ajustarEscala();
     wrapper.classList.remove('fading');
   }, 300);
 }
 
 function formatearTexto(texto) {
   if (!texto) return "";
+  // Negrita con asteriscos *texto*
   return texto.replace(/\*(.*?)\*/g, '<strong>$1</strong>');
 }
 
 // ==========================================
-// 5. AJUSTE DE PANTALLA (TU VERSIÓN PREFERIDA)
+// 5. AJUSTE DE PANTALLA (NO TOCAR)
 // ==========================================
 function ajustarEscala() {
-  // Si estamos en modo resumen o es móvil vertical, no escalamos igual
-  if (isFullViewMode) return; 
-  if (window.matchMedia("(orientation: portrait)").matches) return; 
+  if (isFullViewMode) return;
+  if (window.matchMedia("(orientation: portrait)").matches) return;
 
   const wrapper = document.getElementById('wod-display');
   if (!wrapper) return;
 
-  // 1. DEFINIR LÍMITES VISUALES (Caja Rígida / Safe Box)
-  // window.innerHeight = ANCHO visual en tu pared (aprox 1920px)
-  // window.innerWidth  = ALTO visual en tu pared (aprox 1080px)
-  
-  // Usamos márgenes de seguridad del que te gustaba
-  const anchoVisualMaximo = window.innerHeight * 0.94; // 94% del ancho físico
-  const altoVisualMaximo = window.innerWidth * 0.90;   // 90% del alto físico
+  const anchoVisualMaximo = window.innerHeight * 0.94;
+  const altoVisualMaximo = window.innerWidth * 0.90;
 
-  // 2. PREPARAR EL CONTENEDOR 
-  // No forzamos un ancho fijo gigante. Decimos: "Sé tan ancho como necesites, 
-  // pero NUNCA más ancho que la pantalla".
-  wrapper.style.width = 'auto'; 
+  wrapper.style.width = 'auto';
   wrapper.style.maxWidth = `${anchoVisualMaximo}px`;
   wrapper.style.height = 'auto';
-  
-  // Reseteamos escala para medir el tamaño "natural"
   wrapper.style.transform = 'scale(1)';
 
-  // 3. MEDIR TAMAÑO REAL DEL CONTENIDO
   const anchoActual = wrapper.scrollWidth;
   const altoActual = wrapper.scrollHeight;
 
-  // 4. CALCULAR ESCALA PERFECTA (DOBLE VERIFICACIÓN)
-  
-  // A) ¿Cuánto puedo crecer/encoger para encajar en el ANCHO?
   const escalaAncho = anchoVisualMaximo / anchoActual;
-  
-  // B) ¿Cuánto puedo crecer/encoger para encajar en el ALTO?
   const escalaAlto = altoVisualMaximo / altoActual;
 
-  // Elegimos la MENOR de las dos.
-  // Esto asegura que si el texto es muy ancho, se limita por el ancho.
-  // Si es muy alto, se limita por el alto. NUNCA se saldrá.
   let escala = Math.min(escalaAncho, escalaAlto);
 
-  // 5. LÍMITES FINALES
-  // Tope máximo (1.6x) para que el Warm-up se vea grande y potente
-  if (escala > 1.6) escala = 1.6; 
-  
-  // Tope mínimo (0.25x) para que entre cualquier biblia de texto
+  if (escala > 1.6) escala = 1.6;
   if (escala < 0.25) escala = 0.25;
 
   wrapper.style.transform = `scale(${escala})`;
@@ -251,20 +244,26 @@ document.addEventListener('keydown', function (event) {
   const key = event.key;
 
   // --- MODOS ESPECIALES ---
-  
-  // TECLA 8: CUSTOM MODE (Nube)
-  if (key === '8') {
-    isCustomMode = !isCustomMode;
-    isWGirlsMode = false; // Apagar WGirls
+
+  // TECLA 7: MIRAFLORES
+  if (key === '7') {
+    activeMode = (activeMode === 'miraflores') ? null : 'miraflores';
     document.getElementById('wod-display').dataset.mode = ""; // Forzar refresco
+    cargarWOD();
+    return;
+  }
+
+  // TECLA 8: CALACOTO
+  if (key === '8') {
+    activeMode = (activeMode === 'calacoto') ? null : 'calacoto';
+    document.getElementById('wod-display').dataset.mode = "";
     cargarWOD();
     return;
   }
 
   // TECLA 9: GIRLS MODE
   if (key === '9') {
-    isWGirlsMode = !isWGirlsMode;
-    isCustomMode = false; // Apagar Custom
+    activeMode = (activeMode === 'wgirls') ? null : 'wgirls';
     document.getElementById('wod-display').dataset.mode = "";
     cargarWOD();
     return;
@@ -281,8 +280,9 @@ document.addEventListener('keydown', function (event) {
     toggleFullView(); return;
   }
 
-  // --- NAVEGACIÓN (1-7) ---
-  if (key >= '1' && key <= '7') {
+  // --- NAVEGACIÓN DIRECTA (1-6) ---
+  // Nota: Quitamos el 7 de la navegación directa porque ahora es Miraflores
+  if (key >= '1' && key <= '6') {
     const targetIndex = parseInt(key) - 1;
     if (targetIndex >= 0 && targetIndex < currentWodParts.length) {
       currentSlideIndex = targetIndex;
@@ -290,6 +290,7 @@ document.addEventListener('keydown', function (event) {
     }
   }
 
+  // FLECHAS
   if (key === 'ArrowLeft') cambiarSlide(-1);
   if (key === 'ArrowRight' || key === 'Enter') cambiarSlide(1);
 });
@@ -298,30 +299,31 @@ document.addEventListener('keydown', function (event) {
 function toggleFullView() {
   isFullViewMode = !isFullViewMode;
   const fullContainer = document.getElementById('full-view-container');
-  const slideWrapper = document.getElementById('wod-display'); // Corrección: Ocultar el wrapper directo, no container
+  const slideWrapper = document.getElementById('wod-display');
   const indicator = document.getElementById('slide-indicator');
   const buttons = document.getElementById('nav-buttons');
 
   if (isFullViewMode) {
     let fullHTML = "";
     // Etiquetas de modo
-    if (isCustomMode) fullHTML += `<div style="text-align:center; color:#39ff14; letter-spacing:3px; margin-bottom:20px;">-- CUSTOM / NUBE --</div>`;
-    else if (isWGirlsMode) fullHTML += `<div style="text-align:center; color:#ff00d4; letter-spacing:3px; margin-bottom:20px;">-- WGIRLS MODE --</div>`;
-    
+    if (activeMode === 'miraflores') fullHTML += `<div style="text-align:center; color:#ff0000; letter-spacing:3px; margin-bottom:20px;">-- MIRAFLORES --</div>`;
+    else if (activeMode === 'calacoto') fullHTML += `<div style="text-align:center; color:#39ff14; letter-spacing:3px; margin-bottom:20px;">-- CALACOTO --</div>`;
+    else if (activeMode === 'wgirls') fullHTML += `<div style="text-align:center; color:#ff00d4; letter-spacing:3px; margin-bottom:20px;">-- WGIRLS MODE --</div>`;
+
     currentWodParts.forEach(part => {
       fullHTML += `<div class="full-section"><h3>${part.titulo}</h3><p>${formatearTexto(part.contenido)}</p></div>`;
     });
     fullContainer.innerHTML = fullHTML;
 
     fullContainer.classList.remove('hidden');
-    if(slideWrapper) slideWrapper.classList.add('hidden');
-    if(buttons) buttons.classList.add('hidden');
-    if(indicator) indicator.classList.add('hidden');
+    if (slideWrapper) slideWrapper.classList.add('hidden');
+    if (buttons) buttons.classList.add('hidden');
+    if (indicator) indicator.classList.add('hidden');
   } else {
     fullContainer.classList.add('hidden');
-    if(slideWrapper) slideWrapper.classList.remove('hidden');
-    if(buttons) buttons.classList.remove('hidden');
-    if(indicator) indicator.classList.remove('hidden');
+    if (slideWrapper) slideWrapper.classList.remove('hidden');
+    if (buttons) buttons.classList.remove('hidden');
+    if (indicator) indicator.classList.remove('hidden');
     setTimeout(ajustarEscala, 100);
   }
 }
@@ -330,11 +332,11 @@ function toggleFullView() {
 // 7. INICIALIZACIÓN
 // ==========================================
 window.addEventListener('load', () => {
-  syncTime(); 
-  cargarWOD(); 
+  syncTime();
+  cargarWOD();
   setTimeout(ajustarEscala, 500);
 });
 window.addEventListener('resize', () => setTimeout(ajustarEscala, 200));
-setInterval(syncTime, 3600000); 
+setInterval(syncTime, 3600000);
 setInterval(updateClock, 1000);
 setInterval(cargarWOD, 60000);
