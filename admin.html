@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>WOD Admin - Secure</title>
     <link rel="stylesheet" href="style.css">
-    
+
     <!-- LIBRERÍAS FIREBASE -->
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
@@ -13,80 +14,88 @@
 
     <style>
         /* ESTILOS ROJO NEÓN PARA ADMIN */
-        body.admin-mode { 
-            overflow-y: auto; 
-            display: flex; 
-            flex-direction: column; 
-            align-items: center; 
-            padding: 20px; 
+        body.admin-mode {
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
         }
-        
+
         .admin-logo {
             width: 150px;
             margin-bottom: 20px;
             margin-top: 20px;
-            filter: drop-shadow(0 0 10px rgba(255,0,0,0.5));
+            filter: drop-shadow(0 0 10px rgba(255, 0, 0, 0.5));
         }
 
-        .admin-container { 
-            width: 100%; 
-            max-width: 450px; 
-            margin-top: 20px; 
-            padding: 30px; 
-            background: rgba(20, 20, 20, 0.95); 
-            border: 1px solid #333; 
-            border-radius: 10px; 
+        .admin-container {
+            width: 100%;
+            max-width: 450px;
+            margin-top: 20px;
+            padding: 30px;
+            background: rgba(20, 20, 20, 0.95);
+            border: 1px solid #333;
+            border-radius: 10px;
             text-align: center;
             /* Sombra Roja */
-            box-shadow: 0 0 20px rgba(255, 0, 0, 0.2); 
+            box-shadow: 0 0 20px rgba(255, 0, 0, 0.2);
             transition: all 0.3s ease;
         }
 
-        .input-group { margin-bottom: 20px; text-align: left; }
-        
-        label { 
-            display: block; 
-            color: #aaa; 
-            margin-bottom: 8px; 
-            font-size: 0.9em; 
-            text-transform: uppercase; 
+        .input-group {
+            margin-bottom: 20px;
+            text-align: left;
         }
-        
-        input, textarea { 
-            width: 100%; 
-            padding: 12px; 
-            background: #000; 
-            border: 1px solid #444; 
-            color: #fff; 
-            font-size: 1em; 
-            border-radius: 5px; 
-            outline: none; 
+
+        label {
+            display: block;
+            color: #aaa;
+            margin-bottom: 8px;
+            font-size: 0.9em;
+            text-transform: uppercase;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            padding: 12px;
+            background: #000;
+            border: 1px solid #444;
+            color: #fff;
+            font-size: 1em;
+            border-radius: 5px;
+            outline: none;
             transition: border-color 0.3s, box-shadow 0.3s;
         }
 
         /* Borde rojo al escribir */
-        input:focus, textarea:focus {
+        input:focus,
+        textarea:focus {
             border-color: #ff0000;
             box-shadow: 0 0 8px rgba(255, 0, 0, 0.4);
         }
 
-        textarea { height: 100px; resize: vertical; }
-        
+        textarea {
+            height: 100px;
+            resize: vertical;
+        }
+
         /* Botones Rojos */
-        button.btn-action { 
-            width: 100%; 
-            padding: 15px; 
-            background: #ff0000; 
-            color: #fff; 
-            font-weight: bold; 
-            border: none; 
-            border-radius: 5px; 
-            font-size: 1.1em; 
-            cursor: pointer; 
-            text-transform: uppercase; 
-            margin-top: 10px; 
+        button.btn-action {
+            width: 100%;
+            padding: 15px;
+            background: #ff0000;
+            color: #fff;
+            font-weight: bold;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1em;
+            cursor: pointer;
+            text-transform: uppercase;
+            margin-top: 10px;
             transition: all 0.2s;
-            text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
         }
 
         button.btn-action:hover {
@@ -94,11 +103,12 @@
             box-shadow: 0 0 15px rgba(255, 0, 0, 0.4);
             transform: translateY(-2px);
         }
-        
+
         button.btn-secondary {
             background: #333;
             margin-top: 15px;
         }
+
         button.btn-secondary:hover {
             background: #444;
             box-shadow: none;
@@ -114,20 +124,42 @@
             cursor: pointer;
             transition: all 0.2s;
         }
+
         .selection-card:hover {
             border-color: #ff0000;
             background: #0a0a0a;
             transform: scale(1.02);
         }
-        .selection-card h3 { margin: 0 0 5px 0; color: #fff; }
-        .selection-card p { margin: 0; color: #888; font-size: 0.9em; }
 
-        .hidden { display: none !important; }
-        .error-msg { color: #ff4444; margin-top: 10px; font-size: 0.9em; }
-        
+        .selection-card h3 {
+            margin: 0 0 5px 0;
+            color: #fff;
+        }
+
+        .selection-card p {
+            margin: 0;
+            color: #888;
+            font-size: 0.9em;
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        .error-msg {
+            color: #ff4444;
+            margin-top: 10px;
+            font-size: 0.9em;
+        }
+
         /* Mensajes de estado */
-        .status-msg { margin-top: 15px; min-height: 20px; color: #ff0000; font-weight: bold; }
-        
+        .status-msg {
+            margin-top: 15px;
+            min-height: 20px;
+            color: #ff0000;
+            font-weight: bold;
+        }
+
         .help-text {
             color: #888;
             font-size: 0.85em;
@@ -153,9 +185,18 @@
             <label>Email</label>
             <input type="text" id="email" placeholder="admin@crossfit.com">
         </div>
-        <div class="input-group">
+        <div class="input-group" style="position:relative;">
             <label>Contraseña</label>
-            <input type="password" id="password" placeholder="******">
+            <input type="password" id="password" placeholder="******" style="padding-right: 40px;">
+            <!-- Icono Ojo (SVG Silhouette) -->
+            <span onclick="togglePassword()"
+                style="position:absolute; right:10px; top:38px; cursor:pointer; color:#666;" title="Ver contraseña">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                    <circle cx="12" cy="12" r="3"></circle>
+                </svg>
+            </span>
         </div>
         <button class="btn-action" id="btn-login" onclick="login()">Iniciar Sesión</button>
         <div id="login-msg" class="error-msg"></div>
@@ -170,7 +211,7 @@
     <div id="location-section" class="admin-container hidden">
         <h2 style="color:#fff; margin-bottom:10px;">SELECCIONA SEDE</h2>
         <p style="color:#666; margin-bottom:30px;">¿Qué pantalla quieres controlar?</p>
-        
+
         <div class="selection-card" onclick="selectLocation('calacoto')">
             <h3>CALACOTO (TV 8)</h3>
             <p>Control Remoto Botón 8</p>
@@ -188,7 +229,7 @@
     <div id="mode-section" class="admin-container hidden">
         <h2 style="color:#fff; margin-bottom:10px;">GESTIÓN WOD</h2>
         <p id="selected-location-label" style="color:#ff0000; font-weight:bold; margin-bottom:20px;">SEDE: ---</p>
-        
+
         <div class="selection-card" onclick="selectMode('append')">
             <h3>AGREGAR SLIDE</h3>
             <p>Mantener lo actual y añadir una nueva pantalla</p>
@@ -206,7 +247,8 @@
     <div id="count-section" class="admin-container hidden">
         <h2 style="color:#fff;">NUEVO WOD</h2>
         <p style="color:#aaa; margin-bottom:20px;">¿Cuántas pantallas iniciales?</p>
-        <input type="number" id="slide-count" value="1" min="1" max="10" style="text-align:center; font-size:1.5em; margin-bottom:20px;">
+        <input type="number" id="slide-count" value="1" min="1" max="10"
+            style="text-align:center; font-size:1.5em; margin-bottom:20px;">
         <button class="btn-action" onclick="initEditorNew()">Continuar</button>
         <button class="btn-action btn-secondary" onclick="goBackToMode()">Cancelar</button>
     </div>
@@ -215,15 +257,16 @@
     <div id="editor-section" class="admin-container hidden" style="max-width: 800px;">
         <h2 style="color:#fff; margin-bottom:10px;">EDITAR CONTENIDO</h2>
         <p id="editor-location-label" style="color:#666; margin-bottom:20px;">---</p>
-        
+
         <div class="help-text">
             <strong>TIP:</strong> Para poner texto en <strong>negrita</strong> (verde), enciérralo entre asteriscos.<br>
             Ejemplo: <code>Calentamiento: *3 Rondas* de...</code>
         </div>
 
         <div id="slides-container"></div>
-        
-        <button class="btn-action btn-secondary" style="margin-bottom:20px; background:#222; border:1px dashed #444;" onclick="addSlideField()">
+
+        <button class="btn-action btn-secondary" style="margin-bottom:20px; background:#222; border:1px dashed #444;"
+            onclick="addSlideField()">
             + Agregar otra pantalla
         </button>
 
@@ -231,7 +274,7 @@
         <button class="btn-action" onclick="publishToFirebase()">
             ☁️ PUBLICAR EN TV
         </button>
-        
+
         <div id="save-msg" class="status-msg"></div>
         <button class="btn-action btn-secondary" onclick="location.reload()">Salir / Volver al Inicio</button>
     </div>
@@ -239,4 +282,5 @@
     <!-- Referencia al archivo JS separado -->
     <script src="admin.js"></script>
 </body>
+
 </html>
