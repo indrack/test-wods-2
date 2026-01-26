@@ -35,37 +35,33 @@ const wods = {
 
 
 // ------------------------------------ LUNES ------------------------------------
-  lunes: [
+ lunes: [
     {
       titulo: "WARM-UP",
-      contenido: `*7:00 AMRAP*
-4x50ft Shuttle Runs
-10 Banded Pass Throughs
+      contenido: `*8:00 AMRAP*
+30-second Machine
+8 Box Step Ups
 5 Dynamic Squat Stretches
-10 Cossack Squats
-4 PVC - empty bar Muscle Snatch
-4 PVC - empty bar Overhead Squats
-*-into-*
-2:00
-Build up to opening weight`
+10 Glute Bridges
+10 Deadbugs
+4 Deadlifts (empty bar- build in weight, stay under 50%)`
     },
     {
-      titulo: "Weightlifting (Power Snatch)",
-      contenido: `Power Snatch + Overhead Squat 10x4
-Every 1:00 (10:00)
-2 Touch-and-Go Power Snatch 
-+ 
-2 Overhead Squat 
-@ RPE 6–7`
+      titulo: "Weightlifting (Deadlift)",
+      contenido: `*Every 2:00 × 4 sets*
+3 Deadlifts 
+@ 75%`
     },
     {
-      titulo: "Custom Metcon (Tiempo)",
-      contenido: `*Constantly Varied*
-25x50ft Shuttle Runs
-50 Wall Balls (20/14)
-50 V-Ups
-50 Wall Balls (20/14)
-25x50ft Shuttle Runs`
+      titulo: "Custom Metcon",
+      contenido: `*Engine Company*
+*4 Sets:*
+20 Wall Balls (20/14)
+10 Box Jump Overs (24/20)
+10 Wall Balls (20/14)
+5 Box Jump Overs (24/20)
+*-rest 2:00 between sets-*
+(Scored by Time)`
     }
   ],
 
@@ -244,3 +240,4 @@ Pull Ups`
     }
   ]
 };
+
