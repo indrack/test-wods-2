@@ -6,27 +6,27 @@ const wgirls = {
   domingo: [],
 
   // ------------------------------------ LUNES ------------------------------------
-  lunes: [
+   lunes: [
     {
       titulo: "WARM-UP",
-      contenido: `*AMRAP x 10 min* 
-15 plate sit ups 
-20 Mountain climbers 
-15 russian swings 
-20 squats 
-5 shuttle runs `
+      contenido: `*RFT* 
+200m row 
+8/8 split squats 
+8 knee raises 
+8 up downs 
+100m run`
     },
     {
       titulo: "Custom Metcon",
-      contenido: `*5 ROUNDS* 
-12 goblet squats 
-10 jumping lunges 
-12 kb romanian deadlift 
-20 frog pumps 
-50 jump ropes 
-*-rest 2 min-*`
+      contenido: `*CADA  4 min x 4 RONDAS*
+10 cals row 
+15m DB walking lunges 
+15 squats 
+Max box steps 
+*-2 MIN REST-*`
     }
   ],
+
 
   // ----------------------------------- MARTES ------------------------------------
   martes: [],
