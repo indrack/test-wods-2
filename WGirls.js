@@ -6,7 +6,7 @@ const wgirls = {
   domingo: [],
 
   // ------------------------------------ LUNES ------------------------------------
-   lunes: [
+  lunes: [
     {
       titulo: "WARM-UP",
       contenido: `*RFT* 
@@ -27,7 +27,6 @@ Max box steps
     }
   ],
 
-
   // ----------------------------------- MARTES ------------------------------------
   martes: [],
 
@@ -35,22 +34,19 @@ Max box steps
   miercoles: [
     {
       titulo: "WARM-UP",
-      contenido: `*Teams of 3*
-*AMRAP x 12 min* 
-Max cals row 
-P1 row
-P2 plank hold
-P3 rest `
+      contenido: `*AMRAP X 10 min* 
+50 jump ropes 
+5 shuttle runs
+15 plate sit ups 
+15 leg raises
+`
     },
     {
       titulo: "Custom Metcon",
-      contenido: `*EMOM X 20 min* 
-:40 ON / :20 OFF
-1. DB thrusters 
-2. ⁠box steps over 
-3. ⁠up Down over DB 
-4. ⁠sit ups 
-5. ⁠ rest`
+      contenido: `21-18-15-12-9-6-3
+DB burpee
+Alt. DB snatch 
+Goblet squat`
     }
   ],
 
@@ -73,11 +69,10 @@ Flutter kicks `
     },
     {
       titulo: "Custom Metcon",
-      contenido: `*Cada 3 min x 7 rounds*
-10 knee raises
-8 alt DB snatch
-6 box jump
-4 burpees 
+      contenido: `*AMRAP x 20 min* 
+10 russian swings
+10 box jumps over 
+10 wallballs 
 100m run`
     }
   ],
