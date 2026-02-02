@@ -9,21 +9,20 @@ const wgirls = {
   lunes: [
     {
       titulo: "WARM-UP",
-      contenido: `*RFT* 
-200m row 
-8/8 split squats 
-8 knee raises 
-8 up downs 
-100m run`
+      contenido: `*AMRAP X 10 min*
+50 jump ropes
+10 ring rows
+6 scap pull ups
+10 kb swings
+6 lunges`
     },
     {
-      titulo: "Custom Metcon",
-      contenido: `*CADA  4 min x 4 RONDAS*
-10 cals row 
-15m DB walking lunges 
-15 squats 
-Max box steps 
-*-2 MIN REST-*`
+      titulo: "WOD",
+      contenido: `*TEAMS OF 2*
+*EMOM x 30 min*
+5 pull ups
+10 push ups
+15 squats`
     }
   ],
 
@@ -34,19 +33,22 @@ Max box steps
   miercoles: [
     {
       titulo: "WARM-UP",
-      contenido: `*AMRAP X 10 min* 
-50 jump ropes 
-5 shuttle runs
-15 plate sit ups 
-15 leg raises
-`
+      contenido: `*3 RFT*
+150m row
+12 kb DL
+6 russian swings
+50 jump ropes
+12 squats
+6 up downs`
     },
     {
-      titulo: "Custom Metcon",
-      contenido: `21-18-15-12-9-6-3
-DB burpee
-Alt. DB snatch 
-Goblet squat`
+      titulo: "WOD",
+      contenido: `30-20-10
+Cals row
+Thrusters
+15-10-5
+Shuttle runs
+Devil press`
     }
   ],
 
@@ -57,26 +59,23 @@ Goblet squat`
   viernes: [
     {
       titulo: "WARM-UP",
-      contenido: ` *Tabata 1*
-Banded lateral walk
-Banded glute bridge
-*Tabata 2*
-Alt. V-ups
-Shoulder taps
-*Tabata 3*
-Climber taps 
-Flutter kicks `
+      contenido: `*3 RFT*
+100m run
+12 MB G2OH
+6 inchworm
+150m row`
     },
     {
-      titulo: "Custom Metcon",
-      contenido: `*AMRAP x 20 min* 
-10 russian swings
-10 box jumps over 
-10 wallballs 
-100m run`
+      titulo: "WOD",
+      contenido: `*Cada 4 min x 7 sets*
+6/8 cals row
+8 MB slams
+8 taters
+8 burpee broad jumps`
     }
   ],
 
   // ---------------------------------- SÁBADO ------------------------------------
   sabado: []
 };
+
