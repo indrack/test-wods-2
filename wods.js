@@ -25,30 +25,25 @@ const wods = {
   lunes: [
     {
       titulo: "WARM-UP",
-      contenido: `*8:00 AMRAP*
-30-second Machine
-8 Box Step Ups
-5 Dynamic Squat Stretches
-10 Glute Bridges
-10 Deadbugs
-4 Deadlifts (empty bar- build in weight, stay under 50%)`
+      contenido: ` *6:00 AMRAP* 
+30-second Cardio
+4 Lunge Matrix 
+3 Tempo Back Squats (empty bar, build up to 50%) 
+10 Sit Ups `
     },
     {
-      titulo: "Weightlifting (Deadlift)",
-      contenido: `*Every 2:00 × 4 sets*
-3 Deadlifts
-@ 75%`
+      titulo: "Weightlifting (Back Squat)",
+      contenido: ` Every 2:30 × 4 sets 
+2 Back Squats 
+@80–82% `
     },
     {
       titulo: "Custom Metcon",
-      contenido: `*Engine Company*
-*4 Sets:*
-20 Wall Balls (20/14)
-10 Box Jump Overs (24/20)
-10 Wall Balls (20/14)
-5 Box Jump Overs (24/20)
-*-rest 2:00 between sets-*
-(Scored by Time)`
+      contenido: `*Levi’s Stadium*
+5 Sets: 
+30 Air Squats 
+50ft Dumbbell Front Rack Lunges (22.5/15 DBs) 
+-rest 1:30 between sets- `
     }
   ],
   // ----------------------------------- MARTES ------------------------------------
@@ -212,3 +207,4 @@ Even: 30 Second Ski or Row @ moderate effort
     }
   ]
 };
+
