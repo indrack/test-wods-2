@@ -32,27 +32,30 @@ const wods = {
   lunes: [
     {
       titulo: "WARM-UP",
-      contenido: `*2 Rounds*
-100m Run
-8 Cossack Squats
-3 Clean Deadlifts
-3 Hang Muscle Cleans *(PVC / e bar)*
-3 Front Squats *(PVC / e bar)*
-3 Push Press *(PVC / e bar)*
-3 Up Downs *(PVC / e bar)*`
+      contenido: `*2 Rounds* 
+5 Dynamic Air Squats 
+10 Glute Bridges 
+10 Single Arm DB Deadlifts (each/light) 
+3 Double Pushup Inchworms 
+*-then barbell:*
+2 Rounds 
+3 Empty Bar Back Squats 
+3 Tempo Back Squats (3 seconds down) `
     },
     {
-      titulo: "Weightlifting (Clean and Jerk)",
-      contenido: `*Every 1:00 (10:00)*
-1 Squat Clean + Push Jerk
-*@ RPE 6*`
+      titulo: "Weightlifting (Back Squat)",
+      contenido: ` Every 2:00 x 4 sets 
+3 Back Squats 
+@70% `
     },
     {
-      titulo: "Custom Metcon (Reps)",
-      contenido: `*SPRINKLES ON MY CUPCAKE*
-*7:00 AMRAP*
-500m Run
-Max Clean & Jerks *(60/42.5)*`
+      titulo: "Custom Metcon",
+      contenido: `*ALPINE SKIING*
+12:00 AMRAP 
+10-20-30-40-50... 
+Air Squats 
+5-10-15-20-25... 
+Single Arm Devil Press ( 22.5/15 DB)`
     }
   ],
 
@@ -60,40 +63,46 @@ Max Clean & Jerks *(60/42.5)*`
   martes: [
     {
       titulo: "WARM-UP",
-      contenido: `*7:00 AMRAP*
-10 Abmat Sit Ups
-5 Scap Pull Ups
-3 Jumping Pull Ups
-5/5 Single Arm Ring Rows
-3 Up Downs to Bar`
+      contenido: `*2 Rounds* 
+1:00 Easy Row 
+8 Ring Rows 
+10 Banded or PVC Pass Through 
+5 Hand Release Push Ups`
     },
     {
       titulo: "Gymnastics (Bar Muscle-up)",
-      contenido: `*OPEN PREP: CHEST TO BAR / BAR MUSCLE UPS*
-*Level 1: EMOM x10*
-Odd: 6-8 Scap Pull-ups
-Even: 6-8 Kip Swings
-*Level 2: EMOM x10*
-Odd: 4-6 Single Leg Box Butterfly drill
-Even: 8-10 Butterfly Pull Ups *(or 4-6 Chest to Bar Pull Ups)*`
+      contenido: `*Level 1:*
+Part A: 3 sets of 5 strict pull-up negatives with a 4-second lowering on each rep. 1 minute rest between sets.
+Part B - 12min EMOM:
+Min 1: 8 Bent Over Barbell Rows
+Min 2: Max Band Assisted Chin over Bar Hold (30 second cap)
+Min 3: 8-12 Straight Arm Banded Lat Pull-Downs
+Min 4: Rest minute
+*Level 2:*
+Part A: Accumulate 10-15 reps “Jump to Hollow + Tight Arch + Feet Rise + Hip Extension with Straight Arms”
+Part B: 12 min EMOM:
+Min 1: 2 “Jump to Hollow+Tight Arch+Hip Extension Straight Arms”
+Min 2: Rest minute
+Min 3: 1 Complex of 3 Position Box Assisted Bar Muscle Up
+Min 4: Rest minute`
     },
     {
       titulo: "Gymnastics (Bar Muscle-up)",
-      contenido: `*OPEN PREP: CHEST TO BAR / BAR MUSCLE UPS*
-
-*Level 3: EMOM x10*
-Odd: 30 Sec Row *@ 5k pace*
-Even: 30-40% max unbroken Bar Muscle Ups *(cap 5)*`
+      contenido: `*Level 3:*
+Part A: Accumulate 10-15 reps “Jump to Hollow + Tight Arch + Feet Rise + Hip Extension with Straight Arms” 
+Part B: 12 min EMOM: 
+Min 1: 12/9 Calorie Row
+Min 2: 30 Second Max Bar Muscle Ups (cap of 6 per minute) 
+Min 3: 12/9 Calorie Row 
+Min 4: 30 Second Max Bar Muscle Ups`
     },
     {
-      titulo: "Custom Metcon (Tiempo)",
-      contenido: `*PB&J*
-*2 Sets*
-*3 Rounds*
-15 V-Ups
-12 Chest to Bar
-9 Burpee to Bar
-*-rest 3:00 between sets-*`
+      titulo: "Custom Metcon ",
+      contenido: `*FIGURE SKATING*
+*Teams of 2 - 5 Rounds:*
+Partner 1: 21/16 Calorie Row 
+Partner 2: 15 V-ups + 9 DB Bench (32.5/22.5 DBs) 
+Switch when both partners have completed the work`
     }
   ],
 
@@ -241,3 +250,4 @@ Even: 10 Bench Press (70/42.5)`
     }
   ]
 };
+
