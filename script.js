@@ -335,8 +335,31 @@ window.addEventListener('load', () => {
   syncTime();
   cargarWOD();
   setTimeout(ajustarEscala, 500);
+  initAnniversaryOverlay(); // Iniciar overlay
 });
 window.addEventListener('resize', () => setTimeout(ajustarEscala, 200));
 setInterval(syncTime, 3600000);
 setInterval(updateClock, 1000);
 setInterval(cargarWOD, 60000);
+
+// ==========================================
+// 8. ANNIVERSARY OVERLAY
+// ==========================================
+const ANNIVERSARY_INTERVAL = 15000; // 15 seconds (Test Mode)
+const ANNIVERSARY_DURATION = 2500; // 2.5 seconds
+
+function initAnniversaryOverlay() {
+  setInterval(showAnniversaryOverlay, ANNIVERSARY_INTERVAL);
+}
+
+function showAnniversaryOverlay() {
+  const overlay = document.getElementById('anniversary-overlay');
+  if (overlay) {
+    overlay.classList.remove('hidden');
+
+    // Auto-hide
+    setTimeout(() => {
+      overlay.classList.add('hidden');
+    }, ANNIVERSARY_DURATION);
+  }
+}
