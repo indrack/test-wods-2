@@ -370,8 +370,8 @@ strong {
 }
 
 #anniversary-text {
-  width: 50%;
-  max-width: 800px;
+  width: 85%;
+  max-width: 1500px;
   animation: popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   /* Fallback text style if image missing */
   min-height: 100px;
@@ -430,4 +430,5 @@ strong {
     transform: scale(1);
     opacity: 1;
   }
+
 }
