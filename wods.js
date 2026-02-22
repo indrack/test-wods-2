@@ -4,27 +4,29 @@ const wods = {
   domingo: [
     {
       titulo: "WARM-UP",
-      contenido: `*2 Rounds*
-*1:00 Cardio*
-10 Walking Lunge Steps
-10 Banded Clam Shells
-6 Alternating Dumbbell Hang Clean and Jerk *(light)*`
+      contenido: ` *3 Rounds* 
+30-sec Easy Jump Rope 
+10 Air Squats 
+5 Hand Release Push Ups 
+4 Step Up and Overs `
     },
     {
       titulo: "Custom Metcon",
-      contenido: `*BANANA SPLIT*
-50 Wall Balls *(20/14)*
-50 Alternating Hang Dumbbell Clean and Jerk *(22.5/15)*
-50 Wall Balls *(20/14)*`
+      contenido: `*“CURLING”*
+*4 rounds*
+60 Double Unders 
+10 Burpee Box Get Overs (30/24) `
     },
     {
-      titulo: "FINISHER",
-      contenido: `*BREATH CONTROL*
-*EMOM 8*
-1: Wall Sit *(Max time)*
-2: Burpee Step-back
-3: High Knees
-4: Active Rest`
+      titulo: "accesorio",
+      contenido: `*MINI PUMP*
+*4 sets *
+8 Dumbbell Bulgarian Split Squat (each side) @ RPE 7-7.5 
+*-rest 30 seconds*
+8 Goblet Hold Lateral Box Step Ups (each side) @ RPE 7-7.5 
+*-rest 30 seconds*
+10 3-Way Calf Raises (each way) 
+*-Rest 2:00 between sets-*`
     }
   ],
 
@@ -232,6 +234,7 @@ Minute 5: Recovery Jog
     }
  ]
 };
+
 
 
 
