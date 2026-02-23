@@ -4,29 +4,29 @@ const wods = {
   domingo: [
     {
       titulo: "WARM-UP",
-      contenido: ` *3 Rounds* 
-30-sec Easy Jump Rope 
-10 Air Squats 
-5 Hand Release Push Ups 
-4 Step Up and Overs `
+      contenido: `*9:00 AMRAP*
+*1:00 Machine*
+5 Roll and Reach
+10-second Single Leg Glute Bridge Hold *(each)*
+10 Russian KBS *(light)*
+20 Single Unders`
     },
     {
-      titulo: "Custom Metcon",
-      contenido: `*“CURLING”*
-*4 rounds*
-60 Double Unders 
-10 Burpee Box Get Overs (30/24) `
+      titulo: "Custom Metcon (Tiempo)",
+      contenido: `*“FRENCH ONION SOUP”*
+*8 rounds*
+15 Kettlebell Swings *(24/16)*
+45 Unbroken Single Unders`
     },
     {
-      titulo: "accesorio",
-      contenido: `*MINI PUMP*
-*4 sets *
-8 Dumbbell Bulgarian Split Squat (each side) @ RPE 7-7.5 
-*-rest 30 seconds*
-8 Goblet Hold Lateral Box Step Ups (each side) @ RPE 7-7.5 
-*-rest 30 seconds*
-10 3-Way Calf Raises (each way) 
-*-Rest 2:00 between sets-*`
+      titulo: "Accesorio",
+      contenido: `*CORE*
+*3 sets*
+15 Strict Abmat Sit Ups *(hands by head or across chest)*
+15 Pulse Ups
+10 V-Ups
+30 sec Copenhagen Plank *(each side)*
+*-rest 2:00 between sets-*`
     }
   ],
 
@@ -34,26 +34,26 @@ const wods = {
   lunes: [
     {
       titulo: "WARM-UP",
-      contenido: `*2 Rounds:*
-30-second Jump Rope 
+      contenido: `*2 Rounds*
+30-second Jump Rope
 20 Single Unders
 3 Clean Deadlifts
-3 Hang Muscle Cleans (PVC/empty bar)
-3 Front Squats (PVC/empty bar)
-3 Push Press (PVC/empty bar)
+3 Hang Muscle Cleans *(PVC/empty bar)*
+3 Front Squats *(PVC/empty bar)*
+3 Push Press *(PVC/empty bar)*
 3 Up Downs`
     },
     {
       titulo: "Weightlifting (Clean and Jerk)",
       contenido: `*Every 1:00 (8:00)*
-1 Power Clean + Push Jerk 
-@ RPE 5-6`
+1 Power Clean + Push Jerk
+*@ RPE 5-6*`
     },
     {
-      titulo: "Custom Metcon",
+      titulo: "Custom Metcon (Tiempo)",
       contenido: `*“CHICKEN NOODLE SOUP”*
 21-18-15-12-9-6
-Dumbbell Push Press (22.5/15)
+Dumbbell Push Press *(22.5/15)*
 63-54-45-36-27-18
 Double Unders`
     }
@@ -63,46 +63,33 @@ Double Unders`
   martes: [
     {
       titulo: "WARM-UP",
-      contenido: `*2 Rounds* 
-1:00 Easy Row 
-8 Ring Rows 
-10 Banded or PVC Pass Through 
-5 Hand Release Push Ups`
+      contenido: `*9:00 AMRAP*
+30-second Cardio
+10 Cossack Squats
+4 Up Downs
+10 Alt. Step Back Lunges
+3 Empty-Bar Back Squats`
     },
     {
-      titulo: "Gymnastics (Bar Muscle-up)",
-      contenido: `*Level 1:*
-Part A: 3 sets of 5 strict pull-up negatives with a 4-second lowering on each rep. 1 minute rest between sets.
-Part B - 12min EMOM:
-Min 1: 8 Bent Over Barbell Rows
-Min 2: Max Band Assisted Chin over Bar Hold (30 second cap)
-Min 3: 8-12 Straight Arm Banded Lat Pull-Downs
-Min 4: Rest minute
-*Level 2:*
-Part A: Accumulate 10-15 reps “Jump to Hollow + Tight Arch + Feet Rise + Hip Extension with Straight Arms”
-Part B: 12 min EMOM:
-Min 1: 2 “Jump to Hollow+Tight Arch+Hip Extension Straight Arms”
-Min 2: Rest minute
-Min 3: 1 Complex of 3 Position Box Assisted Bar Muscle Up
-Min 4: Rest minute`
+      titulo: "Weightlifting (Back Squat)",
+      contenido: `*Every 2:00 x 3 sets*
+5 Back Squats
+*@60%*`
     },
     {
-      titulo: "Gymnastics (Bar Muscle-up)",
-      contenido: `*Level 3:*
-Part A: Accumulate 10-15 reps “Jump to Hollow + Tight Arch + Feet Rise + Hip Extension with Straight Arms” 
-Part B: 12 min EMOM: 
-Min 1: 12/9 Calorie Row
-Min 2: 30 Second Max Bar Muscle Ups (cap of 6 per minute) 
-Min 3: 12/9 Calorie Row 
-Min 4: 30 Second Max Bar Muscle Ups`
-    },
-    {
-      titulo: "Custom Metcon ",
-      contenido: `*FIGURE SKATING*
-*Teams of 2 - 5 Rounds:*
-Partner 1: 21/16 Calorie Row 
-Partner 2: 15 V-ups + 9 DB Bench (32.5/22.5 DBs) 
-Switch when both partners have completed the work`
+      titulo: "Custom Metcon",
+      contenido: `*MINESTRONE*
+10x50ft Shuttle Run
+25 Burpees
+10x50ft Shuttle Run
+*-at 8:00-*
+10x50ft Shuttle Run
+20 Burpee to Bar *(6in)*
+10x50ft Shuttle Run
+*-at 16:00-*
+10x50ft Shuttle Run
+15 Burpee Box Jump Over *(24/20)*
+10x50ft Shuttle Run`
     }
   ],
 
@@ -110,30 +97,27 @@ Switch when both partners have completed the work`
   miercoles: [
     {
       titulo: "WARM-UP",
-      contenido: `*6:00 AMRAP*
-30-second Easy Cardio
-10 Box Step Ups
+      contenido: `*2 Rounds*
+1:00 Cardio
 10 Glute Bridges
-10 Banded Good Mornings
-10 Scap PullUps / Ring Rows
-*-then barbell:*
-*2 Rounds*
-5 Snatch Grip Deadlifts *(empty bar)*`
+10 Deadbugs
+10 Box Step Ups
+5 Ring Rows
+5 Empty Bar Deadlifts`
     },
     {
-      titulo: "Weightlifting (Power Snatch)",
-      contenido: `*Every 1:00 (10:00)*
-3 Touch & Go Power Snatch
-*@ RPE 6*`
+      titulo: "Weightlifting (Deadlift)",
+      contenido: `*Every 2:00 x 3 sets*
+5 Deadlifts
+*@60%*`
     },
     {
-      titulo: "Custom Metcon",
-      contenido: `*BOBSLEIGH*
-*7 Sets*
-7 Box Jumps *(30/24)*
-14 Kettlebell Swings *(24/16)*
-28 Double Unders
-*-rest 1:00 between sets-*`
+      titulo: "Custom Metcon (Tiempo)",
+      contenido: `*“CLAM CHOWDER”*
+*3 Rounds*
+30 Wall Balls *(20/14)*
+20 Pull Ups
+10 Power Snatch *(60/42.5)*`
     }
   ],
 
@@ -141,28 +125,40 @@ Switch when both partners have completed the work`
   jueves: [
     {
       titulo: "WARM-UP",
-      contenido: `*2 Rounds*
-*1:00 Easy Row*
-10 Glute Bridges
-10 Deadbugs
-8 Box Step Ups
-8 Empty Bar Deadlifts`
+      contenido: `*2:00 Easy Cardio*
+-into-
+*3 Rounds*
+10 Scap Pulls *(rings or bar)*
+4 Lunge Matrix *(each)*
+10-second Dead Hang
+10 Alternating V-Ups`
     },
     {
-      titulo: "Weightlifting (Deadlift)",
-      contenido: `*Every 2:00 × 4 sets*
-3 Deadlifts
-*@70%*`
+      titulo: "Gymnastics (Strict Pull-up)",
+      contenido: `*Level 1:*
+False Grip Ring Pull Ups: 3 sets max reps (perfect form). Rest 1:00.
++ *12min EMOM:*
+Min 1: 8 Single Arm DB Row/per arm
+Min 2: Max Chin Over Ring Hold *(30 sec cap)*
+Min 3: 6-8 Hanging Scap Circles *(each direction)*
+Min 4: Rest minute
+
+*Level 2:*
+EMOM5: 2 “small” ring swings + 1 “max-effort” ring swing + 1 Hip Drive + Pull to shoulder
++ *12min EMOM:*
+Min 1: 2 Complexes *(2 Ground Assisted Jumps + 2 Ring Turnovers)*
+Min 2: Rest minute
+Min 3: 2-3 Low Ring Horizontal Assisted Ring Muscle Ups
+Min 4: Rest minute`
     },
     {
       titulo: "Custom Metcon",
-      contenido: `*ICE HOCKEY*
-*Teams of 3*
-*16:00 AMRAP*
-Partner 1: 1:00 Max Calorie Row
-Partner 2: 1:00 Plank Hold
-Partner 3: 1:00 Rest
-*Rotate each round*`
+      contenido: `*“GAZPACHO”*
+*4 sets*
+1:00 Max Calorie Row
+1:00 Max Sit Ups
+1:00 Max Step Back Lunges
+1:00 Rest`
     }
   ],
 
@@ -170,38 +166,28 @@ Partner 3: 1:00 Rest
   viernes: [
     {
       titulo: "WARM-UP",
-      contenido: `*8:00 AMRAP*
-45-second Cardio
-5 Dynamic Squat Stretches
-10 Banded Pass Throughs
-10 Scap PullUps / Ring Rows
-5 Burpee Air Squats
-5 Strict Press *(empty bar)*
-5 Front Squats *(empty bar)*`
+      contenido: `*10:00 AMRAP*
+1:00 Easy Cardio
+10 PVC/Banded Pass Throughs
+5 Push Press *(empty bar)*
+5 Hang Muscle Cleans
+5 Pike Push Ups
+10 Box Step Ups`
     },
     {
       titulo: "Weightlifting (Shoulder Press)",
-      contenido: `*Every 1:30 × 4 sets*
-3 Shoulder Press
-*@65%*`
+      contenido: `*Every 2:00 x 3 sets*
+5 Shoulder Press
+*@55%*`
     },
     {
-      titulo: "Custom Metcon (Tiempo)",
-      contenido: `*OPEN 21.3*
-15 Front Squats *(42.5/30)*
-30 Toes to Bar
-15 Thrusters *(42.5/30)*
-*-Rest 1:00-*
-15 Front Squats *(42.5/30)*
-30 Chest to Bar Pull Ups
-15 Thrusters *(42.5/30)*
-*-Rest 1:00-*
-15 Front Squats *(42.5/30)*
-30 Bar Muscle Ups
-15 Thrusters *(42.5/30)*
-
-*(Scored by Total Time, including rest)*
-*Time cap extended to 18:00*`
+      titulo: "Custom Metcon",
+      contenido: `*BEEF CHILI*
+*10:00 AMRAP*
+2-4-6-8-10...
+Dumbbell Hang Power Cleans *(22.5/15)*
+Handstand Push Ups
+Box Jumps *(30/24)*`
     }
   ],
 
@@ -210,30 +196,31 @@ Partner 3: 1:00 Rest
     {
       titulo: "WARM-UP",
       contenido: `*9:00 AMRAP*
-30-second Row
-5 Box Step Ups
-5 Scapular Push Ups
-5 Inchworms
-3 Deadlifts *(light)*
-1 Clean *(light)*`
+100m Run
+30-second Cardio
+3 Up Downs
+5 Roll and Reach
+10 Cossack Squats`
     },
     {
       titulo: "Custom Metcon",
-      contenido: `*SNOWBOARDING*
-*5 sets of (:45 on / :15 off)*
-
-Minute 1: Calorie Row
-Minute 2: Wall Walks
-Minute 3: Box Step Ups *(20)*
-Minute 4: Power Cleans *(60/42.5)*
-Minute 5: Recovery Jog
-
-*(Score: total reps stations 1–4. Station 5 not scored)*`
+      contenido: `*“MULLIGATAWNY”*
+*Teams of 2*
+*20:00 AMRAP*
+200m Run *(together)* *(or 10x50ft Shuttle Run together)*
+Partner 1: 15 Burpee to Bar *(6in)*
+Partner 2: 30 Air Squats
+*-Switch. Both partners complete Burpees and Air Squats each round-*`
+    },
+    {
+      titulo: "Accesorio",
+      contenido: `*Mini Pump - Shoulders and Arms*
+*4 sets*
+6 Barbell Shoulder Press *@ RPE 8/10*
+8 Double DB Z-Press *@ RPE 8/10*
+12 Banded Push Ups *@ RPE 8/10*
+10 Standing Barbell Curl *@ RPE 8/10*
+*-rest 2:00-2:30 b/t sets-*`
     }
- ]
+  ]
 };
-
-
-
-
-
