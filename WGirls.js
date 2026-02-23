@@ -9,20 +9,22 @@ const wgirls = {
   lunes: [
     {
       titulo: "WARM-UP",
-      contenido: `*AMRAP X 10 min*
-50 jump ropes
-10 ring rows
-6 scap pull ups
-10 kb swings
-6 lunges`
+      contenido: `*3 RFT *
+200m row
+25 plate sit ups 
+100m run 
+25 leg raises 
+50 jump ropes 
+25 plank rolls`
     },
     {
       titulo: "WOD",
-      contenido: `*TEAMS OF 2*
-*EMOM x 30 min*
-5 pull ups
-10 push ups
-15 squats`
+      contenido: `*Cada 3 min x 6 sets* 
+6/8 cals row
+10 DB thrusters
+8 DB box steps 
+Max Shuttle runs 
+*-1 min rest-*`
     }
   ],
 
