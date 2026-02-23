@@ -34,30 +34,28 @@ const wods = {
   lunes: [
     {
       titulo: "WARM-UP",
-      contenido: `*2 Rounds* 
-5 Dynamic Air Squats 
-10 Glute Bridges 
-10 Single Arm DB Deadlifts (each/light) 
-3 Double Pushup Inchworms 
-*-then barbell:*
-2 Rounds 
-3 Empty Bar Back Squats 
-3 Tempo Back Squats (3 seconds down) `
+      contenido: `*2 Rounds:*
+30-second Jump Rope 
+20 Single Unders
+3 Clean Deadlifts
+3 Hang Muscle Cleans (PVC/empty bar)
+3 Front Squats (PVC/empty bar)
+3 Push Press (PVC/empty bar)
+3 Up Downs`
     },
     {
-      titulo: "Weightlifting (Back Squat)",
-      contenido: ` Every 2:00 x 4 sets 
-3 Back Squats 
-@70% `
+      titulo: "Weightlifting (Clean and Jerk)",
+      contenido: `*Every 1:00 (8:00)*
+1 Power Clean + Push Jerk 
+@ RPE 5-6`
     },
     {
       titulo: "Custom Metcon",
-      contenido: `*ALPINE SKIING*
-12:00 AMRAP 
-10-20-30-40-50... 
-Air Squats 
-5-10-15-20-25... 
-Single Arm Devil Press ( 22.5/15 DB)`
+      contenido: `*“CHICKEN NOODLE SOUP”*
+21-18-15-12-9-6
+Dumbbell Push Press (22.5/15)
+63-54-45-36-27-18
+Double Unders`
     }
   ],
 
@@ -234,6 +232,7 @@ Minute 5: Recovery Jog
     }
  ]
 };
+
 
 
 
