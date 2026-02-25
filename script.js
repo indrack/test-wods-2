@@ -345,7 +345,7 @@ setInterval(cargarWOD, 60000);
 // ==========================================
 // 8. ANNIVERSARY OVERLAY
 // ==========================================
-const ANNIVERSARY_INTERVAL = 15000; // 15 seconds (Test Mode)
+const ANNIVERSARY_INTERVAL = 35000; // 15 seconds (Test Mode)
 const ANNIVERSARY_DURATION = 3000; // 2.5 seconds
 
 function initAnniversaryOverlay() {
@@ -363,4 +363,5 @@ function showAnniversaryOverlay() {
     }, ANNIVERSARY_DURATION);
   }
 }
+
 
