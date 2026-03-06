@@ -60,7 +60,7 @@ Rest 1 min`
   viernes: [
     {
       titulo: "WARM-UP",
-      contenido: `Tabata #1*
+      contenido: `*Tabata #1*
 Toe taps
 Flutter kicks
 *Tabata #2*
