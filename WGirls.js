@@ -35,21 +35,21 @@ Max Shuttle runs
   miercoles: [
     {
       titulo: "WARM-UP",
-      contenido: `AMRAP x 10 min 
-100m run 
-12 MB G2OH
-10 lunges 
-8 jumping squats 
-6 up downs `
+      contenido: `3 rounds 
+10 banded glute bridges 
+20 aperturas en hold
+15 banded squats 
+20 aperturas en full squats 
+10 jumping squats  `
     },
     {
       titulo: "WOD",
-      contenido: `WOD “parejas”
-For time 
-21-18-15–12-15-18-21
-Cals row 
-Knee raises 
-MB sit ups`
+      contenido: `CADA 3 min x 6 sets 
+100 run 
+15 knee raises 
+10 burpees to target 
+Max jump ropes 
+Rest 1 min`
     }
   ],
 
@@ -60,21 +60,23 @@ MB sit ups`
   viernes: [
     {
       titulo: "WARM-UP",
-      contenido: `Warm up “parejas”
-AMRAP x 12min 
-Max cals row 
-*plank hold/wall sit`
+      contenido: `Tabata #1*
+Toe taps
+Flutter kicks
+*Tabata #2*
+Sit ups
+Pulse ups
+*Tabata #3*
+Mountain climbers
+Shuttle runs `
     },
     {
       titulo: "WOD",
-      contenido: `For time 
-Chipper 
-1000m row 
-80 KB/DL
-60 squats 
-40 box steps over 
-20 wall balls 
-*cada 3 min 5 burpees`
+      contenido: `*6 RFT* 
+10 cals row 
+10 kb swings 
+10 banded pull ups
+10 hand reléase push ups`
     }
   ],
 
