@@ -4,27 +4,27 @@ const wods = {
   domingo: [
     {
       titulo: "WARM-UP",
-      contenido: `*5:00 AMRAP*
-100m Easy Jog
-5 Ring Rows
-5 Scap Pull Ups
-10-second Hollow Hang`
+      contenido: `*3 Rounds*
+20-second Hollow Hold
+8 Abmat Sit Ups
+5 Hanging Knee Raises
+10-second Superman Hold`
     },
     {
       titulo: "Custom Metcon",
-      contenido: `*“MIAMI BEACH BOARDWALK”*
+      contenido: `*“OLIVE GREEN”*
 *Every 1:00 (10:00)*
-100m Run
-5 Strict Pull Ups`
+Minute 1: *15 V-Ups*
+Minute 2: *10 Toes to Ring (or 8 Toes to Bar)*`
     },
     {
       titulo: "Accesorio",
-      contenido: `*Mini Pump - Shoulders and Arms*
+      contenido: `*Mini Pump - Upper Push*
 *4 sets*
-8 Barbell Shoulder Press @ RPE 8/10
-8 Double DB Z-Press @ RPE 8/10
-12 Banded Push Ups @ RPE 8/10
-12 Standing Barbell Curl @ RPE 8/10
+8 Barbell Bench Press *@ RPE 8/10*
+8 Reverse Grip Incline Dumbbell Bench Press *@ RPE 8/10*
+10 Ring or Bar Dips *(or to RPE 7-7.5/10)*
+12 Alternating DB Skull Crushers *(each side)* @ RPE 8/10
 *-Rest 2:00-2:30 between sets-*`
     }
   ],
@@ -33,27 +33,25 @@ const wods = {
   lunes: [
     {
       titulo: "WARM-UP",
-      contenido: `*6:00 AMRAP*
+      contenido: `*7:00 AMRAP*
 30-second Cardio
-4 Lunge Matrix *(each)*
-10-second Squat Hold
-5 Low Box Jumps
-5 Hand Release Push Ups`
+10 Cossack Squats
+5 Tempo Air Squats *(3 seconds down)*
+10 Deadbugs
+6 Pike Push Ups`
     },
     {
       titulo: "Weightlifting (Back Squat)",
-      contenido: `*Every 2:30 × 4 sets*
-3 Back Squats *@72-75%*`
+      contenido: `*Every 3:00 × 3 sets*
+2 Back Squats *@78-82%*`
     },
     {
       titulo: "Custom Metcon (Tiempo)",
-      contenido: `*“OCEAN DRIVE”*
-*Every 8:00 (3 sets)*
-200m Run
-15 Box Jump Overs *(24/20)*
-30 Push Ups
-15 Box Jump Overs *(24/20)*
-200m Run`
+      contenido: `*“EMERALD”*
+*2 sets*
+9-6-3 Squat Cleans *(60/42.5)*
+15-12-9 Handstand Push Ups
+*-rest 3:00 between sets-*`
     }
   ],
 
@@ -61,24 +59,43 @@ const wods = {
   martes: [
     {
       titulo: "WARM-UP",
-      contenido: `*8:00 AMRAP*
-30-second Cardio
-4 Worlds Greatest Stretch
-5 Dynamic Squats
-10 Banded Shoulder Press
-5 Muscle Cleans + Strict Press *(PVC--empty bar)*`
+      contenido: `*Every 1:00 (9:00)*
+Min 1: 30-second Cardio + 5 Russian Kettlebell Swings
+Min 2: 3 Jump to Pike + Arch
+Min 3: 5 Scap Circles *(forward)* + 5 Kip Swings`
     },
     {
-      titulo: "Weightlifting (Clean and Jerk)",
-      contenido: `*Every 1:00 (10:00)*
-1 Clean and Jerk *@ RPE 7*`
+      titulo: "Gymnastics (Muscle-up)",
+      contenido: `*RING MUSCLE-UPS*
+
+*Level 1: Every 1:00 (9:00)*
+Min 1: 8 Feet Assisted Strict Pull-ups
+Min 2: 6-8 Matador Dips or Bench Dips
+Min 3: Rest Minute
+
+*Level 2: Every 1:00 (9:00)*
+Min 1: 2-3 Jump to Hollow + Tight Arch + Feet Rise + Hip Extension *(Straight Arms)*
+Min 2: 3-6 Banded Low Bar Muscle Ups OR 1-2 Spotted Bar Muscle Ups
+Min 3: Rest Minute
+
+*Level 3:*
+8 Bar Muscle Ups
+16/12 Cal Row
+6 Bar Muscle Ups
+12/8 Cal Row
+4 Bar Muscle Ups
+8/6 Cal Row
+2 Bar Muscle Ups
+*(Scored by Time, 9:00 Time Cap)*`
     },
     {
       titulo: "Custom Metcon (Tiempo)",
-      contenido: `*“FLAMINGO PARK”*
-*8 Rounds*
-15 V-Ups
-4 Deadlifts *(102.5/70)*`
+      contenido: `*“FOREST GREEN”*
+21-15-9 Burpees & KB Swing *(24/16)*
+*-rest till 7:00-*
+21-15-9 Burpees & Toes to Bar
+*-rest till 14:00-*
+21-15-9 Toes to Bar & KB Swing *(24/16)*`
     }
   ],
 
@@ -86,28 +103,27 @@ const wods = {
   miercoles: [
     {
       titulo: "WARM-UP",
-      contenido: `*6:00 AMRAP*
+      contenido: `*7:00 AMRAP*
+30-second Easy Row
 30-second Jump Rope
-10 Banded Pass Throughs
-5 PVC Strict Press
-5 PVC Muscle Snatch
-5 PVC Overhead Squats
-20-second Plank *(elbows)*`
+20 Mountain Climbers
+8 Banded Pass Throughs
+8 Half Kneeling Single Arm DB Press *(each/light)*
+8 Step Back Lunges`
     },
     {
       titulo: "Weightlifting (Shoulder Press)",
-      contenido: `*Every 2:30 × 4 sets*
-3 Shoulder Press *@72-75%*`
+      contenido: `*Every 3:00 × 3 sets*
+2 Shoulder Press *@78-82%*`
     },
     {
-      titulo: "Custom Metcon (Tiempo)",
-      contenido: `*“MUSCLE BEACH”*
-*2:00 AMRAP*
-10 Overhead Squat *(42.5/30)*
-50 Double Unders
-Max Wall Walks *(or Handstand Walk)*
-*-rest 1:00 between sets-*
-*Continue until accumulate 25 Wall Walks or 200ft Handstand Walk*`
+      titulo: "Custom Metcon",
+      contenido: `*“PISTACHIO”*
+*Teams of 2*
+*Every 1:00 (16:00)*
+Minute 1: 15/12 Calorie Row
+Minute 2: 100m Run or 5x50ft Shuttle Run
+*Athletes start on opposite stations & switch every min*`
     }
   ],
 
@@ -116,23 +132,25 @@ Max Wall Walks *(or Handstand Walk)*
     {
       titulo: "WARM-UP",
       contenido: `*7:00 AMRAP*
-30-second Easy Row
+30-second Cardio
 10 Glute Bridges
-8 Suitcase Deadlifts *(each)*
-8 Step Back Lunges
-2 Inchworms + 2 Push Ups`
+8 Single Dumbbell Suitcase Deadlifts *(each)*
+8 Walking Lunges
+4 Up Downs`
     },
     {
       titulo: "Weightlifting (Deadlift)",
-      contenido: `*Every 2:30 × 4 sets*
-3 Deadlifts *@72-75%*`
+      contenido: `*Every 3:00 × 3 sets*
+2 Deadlifts *@78-82%*`
     },
     {
-      titulo: "Custom Metcon (Tiempo)",
-      contenido: `*“VERSACE MANSION”*
-*Teams of 2*
-300/240 Calorie Row
-100 50ft Shuttle Runs`
+      titulo: "Custom Metcon (Reps)",
+      contenido: `*“TURQUOISE”*
+*3 sets*
+*3:00 AMRAP*
+100ft Single DB Walking Lunge *(22.5/15)*
+Max Burpee Over Dumbbell
+*-rest 2:00 between sets-*`
     }
   ],
 
@@ -140,40 +158,26 @@ Max Wall Walks *(or Handstand Walk)*
   viernes: [
     {
       titulo: "WARM-UP",
-      contenido: `*Every 1:00 (9:00)*
-Minute 1: 1:00 Row
-Minute 2: 5 False Grip Ring Row Pull Ups *(elevate feet if able)*
-Minute 3: 5 Scap Circles *(forward)* + 5 Kip Swings *(Ring or Bar)*`
+      contenido: `*7:00 AMRAP*
+30-second Cardio
+25ft Lizard Crawl
+10 PVC Pass Throughs
+5 PVC Muscle Snatches
+5 PVC Overhead Squats
+5 Scap Pull Ups`
     },
     {
-      titulo: "Gymnastics (Muscle-up)",
-      contenido: `*Week 4 (Part 2): Ring Muscle Ups*
-
-*Level 1:*
-*9 min EMOM:*
-Min 1: 6 Single Arm DB Row *(per arm)*
-Min 2: Max Ring to Chest Hold *(30 sec cap)*
-Min 3: Rest minute
-
-*Level 2:*
-*9 min EMOM:*
-Min 1: 2-3 Low Ring Horizontal Assisted Ring Muscle Ups
-Min 2: Ring Swing Drill: 5 reps of - 2 “small” ring swings into 1 “max-effort” ring swing into 1 Hip Drive + Pull to Shoulder
-Min 3: Rest minute
-
-*Level 3:*
-*5 sets: 1:00 AMRAP*
-8/6 Calorie Row
-Max Ring Muscle Ups *(in remaining time)*
-*-Rest 1 minute between sets-*`
+      titulo: "Weightlifting (Snatch)",
+      contenido: `*Every 2:00 (10:00)*
+2 Touch-and-Go Power Snatch + 1 Snatch Balance *@ RPE 7*`
     },
     {
-      titulo: "Custom Metcon (Rondas y Reps)",
-      contenido: `*“LINCOLN ROAD MALL”*
-*10:00 AMRAP*
-5-10-15-20-25...
-Toes to Bar
-*10 Push Press (42.5/30) after each set*`
+      titulo: "Custom Metcon (Tiempo)",
+      contenido: `*“LIME GREEN”*
+*6 Rounds*
+3 Wall Walks
+9 Overhead Squats *(42.5/30)*
+12 Pull Ups`
     }
   ],
 
@@ -181,33 +185,38 @@ Toes to Bar
   sabado: [
     {
       titulo: "WARM-UP",
-      contenido: `*7:00 AMRAP*
-30-second Cardio
-8 Roll and Reach
-6 Hang Power Cleans *(PVC-empty bar)*
-6 Air Squats
-4 Burpees`
+      contenido: `*8:00 AMRAP*
+100m Easy Jog
+5 Light Dumbbell Deadlifts
+5 Up Downs
+5 Box Step Overs
+10-second Plank Hold`
     },
     {
-      titulo: "Custom Metcon",
-      contenido: `*“FONTAINEBLEAU”*
-*Teams of 2*
-*4 sets (each/1:1)*
-*3:00 AMRAP*
-300m Run
-15 Power Cleans *(42.5/30)*
-Max Burpee over Bar
-*(Scored by Total Burpees)*`
+      titulo: "Custom Metcon (Rondas y Reps)",
+      contenido: `*“SPEARMINT”*
+*Teams of 3*
+*25:00 AMRAP*
+
+Partner 1: 400m Run *(or 16x50ft Shuttle Run)*
+
+Partner 2: AMRAP
+50ft Dumbbell Farmer Carry *(32.5/22.5 DBs)*
+5 Burpee Box Getovers *(48/42)* *(or 8 @ 30/24)*
+
+Partner 3: Rest
+
+*Rotate when partner finishes the run. Partner picks up where AMRAP was left off.*`
     },
     {
       titulo: "Accesorio",
-      contenido: `*MINI PUMP*
+      contenido: `*MINI PUMP - CORE*
 *3 sets*
-8 Weighted Hip Thrusts @ RPE 8/10
-*-rest 30 seconds*
-10 Barbell Good Mornings @ RPE 8/10
-*-rest 30 seconds*
-30 Lying Banded Leg Curls @ RPE 7-8/10
+20 Stick Sit Ups
+*-rest 30 seconds-*
+10 KB Side Bends *(each side)*
+*-rest 30 seconds-*
+10 Side Star Plank Reach Throughs
 *-Rest 2:00 between sets-*`
     }
   ]
