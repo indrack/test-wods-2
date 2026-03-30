@@ -35,33 +35,34 @@ Switch when both complete`
   lunes: [
     {
       titulo: "WARM-UP",
-      contenido: `2:00 Row
--into
-*3 Sets*
-25ft Lizard Crawl
-5 Single Arm Dumbbell Thrusters (light/each)
-10 Deadbugs
-5 Scap Pull Ups
-5 Ring Rows
-3 Back Squats (PVC-empty bar)`
+      contenido: `2:00 Cardio
+-into-
+*3 Rounds*
+200m Easy Jog
+10 Ring Rows
+5 Hand Release Push Ups
+10 Dynamic Air Squats
+10-second Dead Hang`
     },
     {
-      titulo: "Weightlifting (Back Squat)",
-      contenido: `Build up to a 1RM Back Squat`
+      titulo: "Gymnastics (Strict Pull-up)",
+      contenido: `Today we are teaching the strict pull up. Focus on active shoulders and full-body tension so athletes avoid kipping or losing position as fatigue rises.`
     },
     {
-      titulo: "Custom Metcon (Tiempo)",
-      contenido: `*“JACKIE”*
-*Teams of 2*
-Partner 1:
-1000m Row
-Partner 2:
-50 Thrusters *(20/15)*
-30 Pull Ups
-switch when both complete`
+      titulo: "Custom Metcon (Rondas y Reps)",
+      contenido: `*“CONQUER”*
+*25:00 AMRAP*
+400m Run
+*5 Rounds* of “Strict Cindy”
+5 Strict Pull Ups
+10 Push Ups
+15 Air Squats
+Finisher
+*Every 1:00 (5:00)*
+:45 Plank Hold (elbows)
+:15 Rest`
     }
   ],
-
   // --------------------------------- MARTES ------------------------------------
   martes: [
     {
