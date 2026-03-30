@@ -34,19 +34,20 @@ Cal row
   miercoles: [
     {
       titulo: "WARM-UP",
-      contenido: `AMRAP x 10 min 
-150m row 
-10 box steps 
-10 kb DL
-10 up downs`
+      contenido: `*AMRAP x 12 min* 
+30 jump ropes
+20 plate sit ups 
+100m run 
+10 climber taps`
     },
     {
       titulo: "WOD",
-      contenido: `Cada 4min x 7 sets 
-6 box jumps 
-7 DB burpee box step 
-8 wall balls 
-9 cals row`
+      contenido: `*Cada 4 min x 6 sets* 
+5 shuttle runs 
+15m burpee broad jump 
+15m walking lunges 
+Max jump ropes 
+*-rest 1 min -*`
     }
   ],
 
