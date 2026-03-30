@@ -56,12 +56,14 @@ Switch when both complete`
 *5 Rounds* of “Strict Cindy”
 5 Strict Pull Ups
 10 Push Ups
-15 Air Squats
-Finisher
-*Every 1:00 (5:00)*
+15 Air Squats`
+    },
+    {
+      titulo: "Finisher",
+      contenido: `*Every 1:00 (5:00)*
 :45 Plank Hold (elbows)
 :15 Rest`
-    }
+    },
   ],
   // --------------------------------- MARTES ------------------------------------
   martes: [
