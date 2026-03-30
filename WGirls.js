@@ -10,21 +10,20 @@ const wgirls = {
     {
       titulo: "WARM-UP",
       contenido: `*3 RFT *
-100m run 
-15 plate sit ups 
-15m plate OH walking lunges 
-50 jump ropes 
-15 leg raises 
-15 ring rows`
+3 RFT 
+150m row
+12 squats 
+10/10 split squats 
+20 frog pumps
+100m run`
     },
     {
       titulo: "WOD",
-      contenido: `21-15-9
+      contenido: `21-18-15-12-9-6-3
+Goblet squat
+Russian swing
 Cal row 
-Half T2B
-Goblet squats 
-*100m run
-*100 jump ropes`
+* 100m run`
     }
   ],
 
