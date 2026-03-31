@@ -4,30 +4,24 @@ const wods = {
   domingo: [
     {
       titulo: "WARM-UP",
-      contenido: `*3 Rounds*
-1:00 Easy Row
-10 Deadbugs
-10 Alternating V-Ups
-5 Up Downs`
+      contenido: `*7:00 AMRAP*
+30-second Cardio
+20-second Plank
+10 Sit Ups
+10 Dumbbell Deadlifts
+8 Step Back Lunges`
     },
     {
       titulo: "Custom Metcon (Tiempo)",
-      contenido: `*“PADRES”*
-*Teams of 2*
-*8 rounds:*
-P1: 200/175m Row,
-P2: 15 V-ups
-Switch when both complete`
-    },
-    {
-      titulo: "Accesorio",
-      contenido: `*Mini Pump - Upper Pull*
+      contenido: `*“EASTER SUNDAY”*
 *4 sets*
-6 Weighted Pull Ups *@ RPE 7.5/10*
-8 Double Dumbbell Incline Row *@ RPE 8/10*
-15 Lat Pulldown *@ RPE 8-8.5/10* (or 30 Banded Lat Pulldown)
-10 Dumbbell Spider Curls *@ RPE 8-8.5/10*
-*-Rest 2:00-2:30 between sets*`
+100ft Walking Lunge
+20 Alternating V-Ups
+100ft Farmer Carry *(32.5/22.5)*
+20 Alternating V-Ups
+100ft Dumbbell Front Rack Carry *(32.5/22.5)*
+20 Alternating V-Ups
+*-rest 1:00 between sets-*`
     }
   ],
 
@@ -56,41 +50,37 @@ Switch when both complete`
 *5 Rounds* of “Strict Cindy”
 5 Strict Pull Ups
 10 Push Ups
-15 Air Squats`
-    },
-    {
-      titulo: "Finisher",
-      contenido: `*Every 1:00 (5:00)*
+15 Air Squats
+Finisher
+*Every 1:00 (5:00)*
 :45 Plank Hold (elbows)
 :15 Rest`
-    },
+    }
   ],
+
   // --------------------------------- MARTES ------------------------------------
   martes: [
     {
       titulo: "WARM-UP",
-      contenido: `Banded 7s
--into
-*7:00 AMRAP*
-30-second Jump Rope
-5/side Half kneeling DB Press
-5/side Upright Row
-5/side Single Arm DB Bench
-10 Alternating V-Ups
-3 Shoulder Press(pvc/empty)`
+      contenido: `*8:00 AMRAP*
+20-second Plank
+10 Pike Shoulder Taps
+4 Box Step Overs
+20 Plate Hops
+5 Hanging Knee Raise
+Skill
+Wall Walk
+Today we are teaching the wall walk.
+Focus on midline control and active shoulders so athletes stay stable under inversion without overloading the lower back.`
     },
     {
-      titulo: "Weightlifting (Shoulder Press)",
-      contenido: `Build up to a 1RM Shoulder Press`
-    },
-    {
-      titulo: "Custom Metcon (Rondas y Reps)",
-      contenido: `*“RED SOX”*
-*Every 5:00 (3 sets)*
-75 Double Unders
-25 Push Ups
-50 Double Unders
-15 Dumbbell Bench Press *(22.5/15 DBs)*`
+      titulo: "Custom Metcon (Reps)",
+      contenido: `*“ROD OF IRON”*
+3-3-3-*4:00 AMRAP*
+5 Wall Walks
+20 Toes to Bar
+Max Box Jump Overs *(24/20)*
+*-rest 1:00 between sets-*`
     }
   ],
 
@@ -98,26 +88,28 @@ Switch when both complete`
   miercoles: [
     {
       titulo: "WARM-UP",
-      contenido: `*8:00 AMRAP*
+      contenido: `2:00 Jump Rope:
+-into
+*3 Rounds*
 30-second Cardio
-10 Glute Bridges
-10 Deadbugs
-8 Box Step Ups
-6 Abmat Sit Ups
-4 Deadlifts (PVC-Empty Bar)`
+10 Roll and Reach
+3 Inchworms
+3 Clean Deadlifts
+3 Muscle Cleans
+3 Hang Power Cleans
+3 Power Cleans (PVC-Empty Bar)`
     },
     {
-      titulo: "Weightlifting (Deadlift)",
-      contenido: `Build up to a 1RM Deadlift`
+      titulo: "Weightlifting (Power Clean)",
+      contenido: `Today we are teaching the power clean.
+Focus on bar proximity, vertical drive, and fast elbows so athletes maintain efficiency under fatigue.`
     },
     {
-      titulo: "Custom Metcon (Tiempo)",
-      contenido: `*“DODGERS”*
-400m Run
-25 V-Ups
-50 DB Box Step Ups *(15/10)* (20”)
-25 V-Ups
-400m Run`
+      titulo: "Custom Metcon (Reps)",
+      contenido: `*“WATCH & WAIT”*
+*Every 10:00 (2 sets)*
+15-12-9 Burpee to Bar
+5-4-3 Power Cleans *(85/57.5)*`
     }
   ],
 
@@ -125,26 +117,29 @@ Switch when both complete`
   jueves: [
     {
       titulo: "WARM-UP",
-      contenido: `*8:00 AMRAP*
-30-second Easy Jog
-5 Roll and Reach
-3 Inchworms
-5 Muscle Cleans (PVCEmpty Bar)
-5 Shoulder Press (PVCEmpty Bar)
-10 Russian Kettlebell Swings (light)`
+      contenido: `2:00 Jump Rope
+-into
+Banded 7s
+-into
+*3 Rounds*
+100m Run
+10 Leg Swings (Left/Right)
+5 Pike Push Ups
+20-second Knee Plank`
     },
     {
-      titulo: "Weightlifting (Clean and Jerk)",
-      contenido: `FLUSH CYCLING
-*Every 1:00 (8:00)*
-2 Power Clean & Push Jerks (singles) *@ RPE 5-6*`
+      titulo: "Gymnastics (Handstand Push-up)",
+      contenido: `Today we are teaching the strict handstand push up.
+Focus on midline tension and controlled descent so athletes maintain strict standards under fatigue.`
     },
     {
       titulo: "Custom Metcon (Tiempo)",
-      contenido: `*“TIGERS”*
-*2 Rounds*
-800m Run
-50 Kettlebell Swings *(24/16)*`
+      contenido: `*“CLEAN HOUSE”*
+*8 sets:*
+300m Run
+10 Strict Handstand Push Ups
+*-rest 1:00 between sets-*
+(2:00 Time Cap)`
     }
   ],
 
@@ -152,35 +147,24 @@ Switch when both complete`
   viernes: [
     {
       titulo: "WARM-UP",
-      contenido: `*8:00 AMRAP*
-30-second Machine
-5 Scap Pull Ups
-10 Ring Rows
-3 Worlds Greatest Stretch/side
-5 PVC Front Squats
-4 Up Downs`
-    },
-    {
-      titulo: "Gymnastics (Muscle-up)",
-      contenido: `*Level 1:* 9min EMOM
-Min 1: 1-2 Band Assisted Low Ring Muscle Ups or 4-5 Banded Strict Ring Pull-ups (perform the first part of the Band Assisted Low Ring Muscle-up without turning over)
-Min 2: 6-8 Ring Dips OR 4-5 Ring Dip Negatives with a 3 second lowering (support with toes as needed)
-Min 3: Rest minute
-*Level 2:* 9min EMOM
-Min 1: Ring Swing Drill: 2 reps of 2 “small” ring swings into 1 “max-effort” ring swing into 1 Hip Drive + Pull to Shoulder.
-Min 2: 3-4 Low Ring Horizontal Assisted Ring Muscle Ups
-Min 3: Rest minute
-*Level 3:* 9min AMRAP:
-4/2 Ring Muscle Ups
-8/6 calorie Row
-36 Double Unders`
+      contenido: `*7:00 AMRAP*
+30-second Easy Single Unders
+5 Single Dumbbell Squats (light)
+10 Deadbugs
+10 Bird Dogs
+10 Roll and Reach
+Skill
+Single dumbbell squat
+Today we are teaching the single dumbbell squat with two different holds.
+Focus on upright torso and controlled depth so athletes maintain balance and leg stamina through high volume.`
     },
     {
       titulo: "Custom Metcon (Tiempo)",
-      contenido: `*“CARDINALS”*
-15-12-9-6-3
-Front Squats *(60/42.5)*
-Bar Facing Burpees`
+      contenido: `*“GOOD FRIDAY”*
+100-80-60-40-20
+Double Unders
+50-40-30-20-10
+Single Dumbbell Squat *(15/10)*`
     }
   ],
 
@@ -189,30 +173,35 @@ Bar Facing Burpees`
     {
       titulo: "WARM-UP",
       contenido: `*8:00 AMRAP*
-30-second Easy Bike
-50ft Light Farmer Carry
-10 Air Squats
-20-second Plank`
+100m Easy Jog
+10 Walking Lunge Steps
+10 Dumbbell Suitcase Deadlifts *(each)*
+10 Alternating Dumbbell Hang Clean and Jerks
+10 Deadbugs`
     },
     {
       titulo: "Custom Metcon (Tiempo)",
-      contenido: `*“PHILLIES”*
-*Teams of 2:*
-2 Mile Run
-* One partner must always be doing a Dead Hang from pull up bar.
-Switch on the run as desired.`
+      contenido: `*“SEALED STONE”*
+*Teams of 2*
+400m Run (together)
+120 Deadlifts *(60/42.5)*
+400m Run (together)
+90 Hang Power Cleans *(60/42.5)*
+400m Run (together)
+60 Shoulder to Overhead *(60/42.5)*
+400m Run (together)`
     },
     {
       titulo: "Accesorio",
       contenido: `*MINI PUMP - SHOULDERS AND ARMS*
-*4 sets*
-6 Shoulder Press *@ RPE 7.5/10*
+*4 sets:*
+5 Shoulder Press *@ RPE 8/10*
 *-rest 30 seconds*
-8 Seated Arnold Press *@ RPE 8/10*
+8 Bottom-Up Single Arm Standing KB Press *(each side)* *@ RPE 8/10*
 *-rest 30 seconds*
-10 Ring or Bar Dips (or to* RPE 8/10* - leave 2 reps in the tank each set)
+10 Seated DB Balboas *@ RPE 8/10*
 *-rest 30 seconds*
-10 DB Lateral Raises *@ RPE 8/10*
+10 DB Snow Angel Raises *@ RPE 8/10*
 *-Rest 2:00 between sets-*`
     }
   ]
