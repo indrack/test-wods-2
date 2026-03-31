@@ -1,5 +1,4 @@
 const wods = {
-
   // --------------------------------- DOMINGO ------------------------------------
   domingo: [
     {
@@ -50,9 +49,11 @@ const wods = {
 *5 Rounds* of “Strict Cindy”
 5 Strict Pull Ups
 10 Push Ups
-15 Air Squats
-Finisher
-*Every 1:00 (5:00)*
+15 Air Squats`
+    },
+    {
+      titulo: "Finisher",
+      contenido: `*Every 1:00 (5:00)*
 :45 Plank Hold (elbows)
 :15 Rest`
     }
@@ -67,9 +68,11 @@ Finisher
 10 Pike Shoulder Taps
 4 Box Step Overs
 20 Plate Hops
-5 Hanging Knee Raise
-Skill
-Wall Walk
+5 Hanging Knee Raise`
+    },
+    {
+      titulo: "Skill",
+      contenido: `*Wall Walk*
 Today we are teaching the wall walk.
 Focus on midline control and active shoulders so athletes stay stable under inversion without overloading the lower back.`
     },
@@ -152,9 +155,11 @@ Focus on midline tension and controlled descent so athletes maintain strict stan
 5 Single Dumbbell Squats (light)
 10 Deadbugs
 10 Bird Dogs
-10 Roll and Reach
-Skill
-Single dumbbell squat
+10 Roll and Reach`
+    },
+    {
+      titulo: "Skill",
+      contenido: `*Single dumbbell squat*
 Today we are teaching the single dumbbell squat with two different holds.
 Focus on upright torso and controlled depth so athletes maintain balance and leg stamina through high volume.`
     },
