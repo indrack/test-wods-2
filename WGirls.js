@@ -9,21 +9,24 @@ const wgirls = {
   lunes: [
     {
       titulo: "WARM-UP",
-      contenido: `*3 RFT *
-3 RFT 
-150m row
+      contenido: `*3 RFT*
+100 jump ropes 
+15 supermans 
+30 flutter kicks 
+100m row
 12 squats 
-10/10 split squats 
-20 frog pumps
-100m run`
+12 lunges 
+`
     },
     {
       titulo: "WOD",
-      contenido: `21-18-15-12-9-6-3
-Goblet squat
-Russian swing
-Cal row 
-* 100m run`
+      contenido: `21-15-9
+DB thrusters 
+Box jump over 
+Half T2B
+Burpee over the bar 
+*2 min rest 
+Row (pace 3:00)`
     }
   ],
 
