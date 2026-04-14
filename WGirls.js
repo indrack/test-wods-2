@@ -37,20 +37,24 @@ Row (pace 3:00)`
   miercoles: [
     {
       titulo: "WARM-UP",
-      contenido: `*AMRAP x 12 min* 
-30 jump ropes
-20 plate sit ups 
-100m run 
-10 climber taps`
+      contenido: `*3 RFT*
+100m row
+12 plate sit ups 
+12 toe touches
+12 alt v-ups
+20 plank jacks 
+20 Mountain climbers`
     },
     {
       titulo: "WOD",
-      contenido: `*Cada 4 min x 6 sets* 
-5 shuttle runs 
-15m burpee broad jump 
-15m walking lunges 
-Max jump ropes 
-*-rest 1 min -*`
+      contenido: `*Cada 4 Min x 5 sets*
+10 pull ups/ 15 ring rows
+15 kb swings 
+5 heavy MB cleans
+5 burpee box steps over (24”)
+100m run 
+Max row 
+*-1 min rest-* `
     }
   ],
 
@@ -61,21 +65,25 @@ Max jump ropes
   viernes: [
     {
       titulo: "WARM-UP",
-      contenido: `3 rounds
-20 banded glute bridges 
-12 banded squats 
-10 reverse lunges 
-30 plank jacks 
-20 sit ups 
-10 leg raises `
+      contenido: `*AMRAP X 12 min* 
+60 jump ropes 
+10 plate G2OH
+10 banded Good morning 
+10 alt. V ups
+200m row`
     },
     {
       titulo: "WOD",
-      contenido: `AMRAP X 20 min 
-4 shuttle runs 
-10 Double DB thrusters 
-15 knee raises 
-20 russian kb swings`
+      contenido: `*For time* 
+1000m row
+60 squats 
+60 Double kb DL
+300 jump ropes 
+60 wall balls 
+60 knee raises
+500m run 
+60 sit ups 
+60 lunges`
     }
   ],
 
