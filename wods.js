@@ -4,29 +4,26 @@ const wods = {
   domingo: [
     {
       titulo: "WARM-UP",
-      contenido: `*8:00 AMRAP*
-1:00 Cardio
-25ft Lizard Crawl
-10 Glute Bridges
-10-second Dead Hang
-5 Light Kettlebell Deadlifts`
+      contenido: `*2 Rounds* (controlled, not for time)
+8 Tempo Goblet Squats (3 sec down)
+6 Single Arm Dumbbell High Pulls
+10 Alternating Reverse Lunges
+:30 Cardio @ moderate pace`
     },
     {
-      titulo: "Custom Metcon (Rondas y Reps)",
-      contenido: `Lincoln Continental
-*15:00 AMRAP*
-3-6-9-12...
-Kettlebell Swings *(53/35)*
-1-2-3-5...
-50ft Shuttle Run
-*30ft Bodyweight Lunge between rounds`
+      titulo: "Custom Metcon",
+      contenido: `Waluigi
+*5 Sets*
+1:00  Max Distance Run
+1:00 Dumbbell Snatch *(22.5/15)*
+1:00 Walking Lunge Steps
+1:00 Rest`
     },
     {
       titulo: "Accesorio",
-      contenido: `*3 sets*
-30 Weighted Russian Twists
-100ft Offset Overhead Farmer Carry (left overhead/right farmer hold)
-100ft Offset Overhead Farmer Carry (right overhead/left farmer hold)
+      contenido: `*4 sets*
+8 Double DB Z-Press *@ RPE 8*
+10 Banded Push Ups *@ RPE 8*
 *-rest 1:00 between sets*`
     }
   ],
@@ -35,26 +32,37 @@ Kettlebell Swings *(53/35)*
   lunes: [
     {
       titulo: "WARM-UP",
-      contenido: `*3 Rounds*
-100m Easy Run
-10 Leg Swings *(each)*
-10 Banded Pull Aparts
-5 Scap Pull Ups
-5 Dynamic Squat Stretches
-5 Hand Released Push Ups
-5 Ring Rows`
+      contenido: `*2 Rounds*
+200m Easy Run
+10-second Handstand Hold
+3 Inchworms`
     },
     {
-      titulo: "Custom Metcon (Tiempo)",
-      contenido: `Half Murph
-800m Run
--into
-*10 rounds*
-5 Strict Pull-Ups (or 1 Rope Climb)
-10 Push-Ups
-15 Air Squats
--into
-800m Run`
+      titulo: "Gymnastics (Handstand Walk)",
+      contenido: `*LEVEL 1 9 min EMOM*:
+Min 1: 8-10 Pike HSPU Lift Offs - feet on box for those who can
+Min 2: 15-30 Second Hollow Body Hold
+Min 3: Rest minute
+*LEVEL 2 9 min EMOM*:
+Min 1: 1 Complex of: Wall Walk x1 + 5 Sec Handstand Hold + Handstand Walk as far as possible away from the wall
+Min 2: 15-30 Second Hollow Body Rock
+Min 3: Rest minute
+*LEVEL 3 9 min EMOM*:
+Min 1: 30 Second Max Distance Handstand Walk
+Min 2: 30 Second Max GHD Sit-ups
+Min 3: Rest minute`
+    },
+    {
+      titulo: "Custom Metcon (Rondas y Reps)",
+      contenido: `Super Mario
+*4 sets*
+*4:00 AMRAP*
+400m Run
+*Max Rounds*
+10 Pull Ups
+20 Push Up
+30 Air Squats
+*-rest 2:00 between sets-*`
     }
   ],
 
@@ -63,27 +71,23 @@ Kettlebell Swings *(53/35)*
     {
       titulo: "WARM-UP",
       contenido: `*3 Rounds*
-1:00 Cardio
-10 Box Step Ups
-10 Cossack Squats
-5 PVC Clean Pulls
-5 PVC Hang Muscle Cleans
-5 PVC Front Squats`
+1:00 Easy Run
+5 Inchworms
+10 Glute Bridges
+5 Deadlifts (PVC-Empty Bar)
+5 Roll and Reach Good Mornings`
     },
     {
-      titulo: "Weightlifting (Clean)",
-      contenido: `*Every 2:00 × 6 sets*
-1 Clean Pull + 1 Hang Squat Clean + 1 Front Squat *@ 65*–70% OR* RPE 6-7*`
+      titulo: "Weightlifting (Deadlift)",
+      contenido: `*Every 2:00 x 5 sets*
+3 Deadstop Deadlifts *@ 70%* OR* RPE 7*`
     },
     {
-      titulo: "Custom Metcon (Rondas y Reps)",
-      contenido: `VW Beetle
-*4 sets*
-*3:00 AMRAP*
-20 Box Step Overs (20)
-10 Deadlifts *(70/47.5)*
-*-rest 1:00 between sets-*
-*start where you left off each time`
+      titulo: "Custom Metcon (Tiempo)",
+      contenido: `Yoshi
+For Time:
+800m Run
+45 Deadlifts *(102.5/70)*`
     }
   ],
 
@@ -91,35 +95,29 @@ Kettlebell Swings *(53/35)*
   miercoles: [
     {
       titulo: "WARM-UP",
-      contenido: `Banded 7s
--into
-*6:00 AMRAP*
-1:00 Cardio
-8 Half Kneeling Dumbbell Shoulder Press *(each)*
-8 Single Arm Dumbbell Upright Rows *(each)*
-8 Scap Pull Ups
-10 Alternating V-Ups`
+      contenido: `*3 Rounds*
+10 Banded Pass Throughs
+5 Dynamic Squat Stretches
+*-into*
+*3 Rounds*
+30 Single Unders
+3 Snatch Pull
+5 High Hang Muscle Snatch
+3 Overhead Squats
+3 Squat Snatch`
     },
     {
-      titulo: "Gymnastics (Rope Climb)",
-      contenido: `LEVEL 1 9 min EMOM:
-Min 1: 2 Zombie Rope Climbs
-Min 2: 10 Plank Shoulder Taps (slow and controlled, L+R=1)
-Min 3: Rest Minute
-LEVEL 2 9 min EMOM:
-Min 1: 35 Double Unders
-Min 2: 1-2 Rope Climbs
-Min 3: Rest Minute
-LEVEL 3 5 Sets:
-30 Second Max Rope Climbs
-90 Second Rest`
+      titulo: "Weightlifting (Snatch)",
+      contenido: `*Every 2:00 × 6 sets*
+1 Squat Snatch + 2 Overhead Squats 
+      *@ 70*–72% OR* RPE 7*`
     },
     {
-      titulo: "Custom Metcon (Tiempo)",
-      contenido: `Aston Martin DB5
-*7 Rounds*
-21 Shoulder Press *(35/25)*
-21 Sit Ups`
+      titulo: "Custom Metcon (Rondas y Reps)",
+      contenido: `Luigi
+*10:00 AMRAP*
+30 Double Unders
+15 Overhead Squats *(35/25)*`
     }
   ],
 
@@ -127,26 +125,21 @@ LEVEL 3 5 Sets:
   jueves: [
     {
       titulo: "WARM-UP",
-      contenido: `*3 Rounds*
-1:00 Easy Row
-10 Roll and Reach
-3 Inchworms
-10 Banded Pass Throughs
-5 PVC-Empty Bar Muscle Snatch
-20-second Knee Plank`
+      contenido: `*6:00 AMRAP*
+30-second Row
+5 Air Squats
+5 Box Step-Ups
+10 Plate Hops`
     },
     {
-      titulo: "Weightlifting (Power Snatch)",
-      contenido: `*Every 1:00 x 10 sets*
-2 Power Snatch (singles) *@ 65%* OR* RPE 6*`
-    },
-    {
-      titulo: "Custom Metcon (Tiempo)",
-      contenido: `Porsche 911
-*Teams of 3*
-180/150 Calorie Row
-50  Synchro Burpee
-60 Power Snatch *( 60/42.5)*`
+      titulo: "Custom Metcon",
+      contenido: `*Wario*
+*“EMON 34:00”*
+1: 12 Box Jumps *(30/24)*
+2: Max Calorie Row
+3: 12 Burpee over box
+4: Rest
+(Scored by total Calories )`
     }
   ],
 
@@ -154,30 +147,26 @@ LEVEL 3 5 Sets:
   viernes: [
     {
       titulo: "WARM-UP",
-      contenido: `*3 Rounds*
-1:00 Cardio
-5 Inchworms
-5 Dynamic Squat Stretches
-5 PVC-Empty Bar Muscle Cleans
-5 PVC-Empty Bar Front Squats
-5 Ring Row
-5 Hanging Knee Raises`
+      contenido: `2:00 Machine
+*3 sets*
+3 Inchworms
+5 Roll and Reach
+3 Clean Deadlifts
+3 Hang Muscle Cleans
+3 Shoulder Press`
     },
     {
-      titulo: "Weightlifting (Bench Press)",
-      contenido: `*Every 2:00 x 5 sets*
-5 Bench Press *@ 70%* OR* RPE 7*`
+      titulo: "Weightlifting (Clean and Jerk)",
+      contenido: `*Every 2:00 × 6 sets*
+1 Power Clean + 1 Hang Power Clean + 1 Push Jerk 
+      *@ 70*–72% OR* RPE 7*`
     },
     {
-      titulo: "Custom Metcon",
-      contenido: `Chevy Bel Air
-9-7-5
-Front Squats *(70/47.5)*
-Ring Muscle Up  (or 18-14-10 Chest to Bar)
--*@10*:00-
-5-7-9
-Front Squats *(70/47.5)*
-Ring Muscle Up  (or 10-14-18 Chest to Bar)`
+      titulo: "Custom Metcon (Tiempo)",
+      contenido: `"Classic GWEN"
+15-12-9
+Clean and Jerk *(70/47.5)*
+*sets must be completed unbroken (touch and go)`
     }
   ],
 
@@ -185,33 +174,33 @@ Ring Muscle Up  (or 10-14-18 Chest to Bar)`
   sabado: [
     {
       titulo: "WARM-UP",
-      contenido: `*10:00 AMRAP*
-100m Jog
-100m Easy Row
-10 Air Squats
-10 Reverse Lung`
+      contenido: `*7:00 AMRAP*
+30-second Cardio
+5 Kipping Knee Raises
+5 Scap Pull-Ups
+5 Up Downs + Box Get Over (low box)
+10 Alternating V-Ups`
     },
     {
-      titulo: "Custom Metcon (Tiempo)",
-      contenido: `Team Jerry
-*Teams of 3-4*
-1 Mile Run (together)
--into
-*4 rounds*
-500 m Row (One working)
-Remaining teammates
-25  Synchro sit Ups
--into
-1 Mile Run (together)`
+      titulo: "Custom Metcon",
+      contenido: `"Mayhem Classic Chipper"
+*Teams of 2*
+25 Burpee Box Get Over (48)
+400m Run (together)
+50 Synchro V-Ups
+25 Bar Muscle-Up
+50 Synchro V-Ups
+400m Run (together)
+25 Burpee Box Get Over (48)`
     },
     {
       titulo: "Accesorio",
-      contenido: `*Mayhem Mini-Pump – Glutes*
-*4 Rounds:*
-10 Weighted Hip Thrust @ moderate weight
+      contenido: `*Mini Pump - Lower Pull*
+*3 sets*
+25 Supermans
 *-rest 30 seconds*
-10 Back Rack Box Step Ups *(each side)* @ moderate weight
-*-Rest 2 minutes between rounds*`
+20 Dumbbell Glute Bridges
+*-rest 1 minute between sets-*`
     }
   ]
 };
