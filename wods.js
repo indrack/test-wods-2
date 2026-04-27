@@ -32,37 +32,35 @@ const wods = {
   lunes: [
     {
       titulo: "WARM-UP",
-      contenido: `*2 Rounds*
-200m Easy Run
-10-second Handstand Hold
-3 Inchworms`
+      contenido: `3:00 Continuous Flow
+200m Run →
+6 Alternating Step-Back Lunges →
+6 Scap Pull-Ups →
+8 Hollow Rocks
+-Then immediately:
+*2 Rounds* (build)
+4 Pull-Ups
+6 Push-Ups
+8 Air Squats
+(Second round slightly faster, no stopping)
+-Then into barbell:
+*2 sets*
+5 Back Squats (empty bar → light load)`
     },
     {
-      titulo: "Gymnastics (Handstand Walk)",
-      contenido: `*LEVEL 1 9 min EMOM*:
-Min 1: 8-10 Pike HSPU Lift Offs - feet on box for those who can
-Min 2: 15-30 Second Hollow Body Hold
-Min 3: Rest minute
-*LEVEL 2 9 min EMOM*:
-Min 1: 1 Complex of: Wall Walk x1 + 5 Sec Handstand Hold + Handstand Walk as far as possible away from the wall
-Min 2: 15-30 Second Hollow Body Rock
-Min 3: Rest minute
-*LEVEL 3 9 min EMOM*:
-Min 1: 30 Second Max Distance Handstand Walk
-Min 2: 30 Second Max GHD Sit-ups
-Min 3: Rest minute`
+      titulo: "Weightlifting (Back Squat)",
+      contenido: `*Every 2:00 × 5 Sets*
+3 Back Squats *@ 72*–75% or* RPE 7*–8`
     },
     {
       titulo: "Custom Metcon (Rondas y Reps)",
-      contenido: `*Super Mario*
-*4 sets*
-*4:00 AMRAP*
-400m Run
-*Max Rounds*
-10 Pull Ups
-20 Push Up
-30 Air Squats
-*-rest 2:00 between sets-*`
+      contenido: `LA Lakers
+*10 Rounds*
+200m run
+*2 rounds* of "Cindy."
+5 Pull Ups
+10 Push Ups
+15 Air Squats`
     }
   ],
 
