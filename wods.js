@@ -54,7 +54,7 @@ Min 3: Rest minute`
     },
     {
       titulo: "Custom Metcon (Rondas y Reps)",
-      contenido: `Super Mario
+      contenido: `*Super Mario*
 *4 sets*
 *4:00 AMRAP*
 400m Run
