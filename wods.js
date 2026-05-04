@@ -58,7 +58,7 @@ Min 3: Rest minute
 Max Distance Handstand Walk in the remaining time`
     },
     {
-      titulo: "Custom Metcon (Tiempo)",
+      titulo: "Custom Metcon",
       contenido: `*Alderaan*
 400m Run
 50 Pull Ups
@@ -121,7 +121,7 @@ Max Distance Handstand Walk in the remaining time`
 1 Clean and Jerk *@ 75*–80% OR* RPE 8*`
     },
     {
-      titulo: "Custom Metcon (Tiempo)",
+      titulo: "Custom Metcon",
       contenido: `*Coruscant*
 21-15-9
 Hang Power Clean *(42.5/30)*
@@ -150,7 +150,7 @@ Hang Power Clean *(42.5/30)*`
 3 Bench Press *@ 78%* OR* RPE 7-8*`
     },
     {
-      titulo: "Custom Metcon (Tiempo)",
+      titulo: "Custom Metcon",
       contenido: `*Kashyyyk*
 *4 sets*
 48 Double Unders
@@ -198,7 +198,7 @@ Dumbbell Bench Press (6-7 RPE)
 3 Inchworms`
     },
     {
-      titulo: "Custom Metcon (Tiempo)",
+      titulo: "Custom Metcon",
       contenido: `*Mustafar*
 *Teams of 2*
 60 Synchro Toes to Bar
