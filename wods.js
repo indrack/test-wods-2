@@ -35,38 +35,26 @@ Even Minute: 7 Power Cleans *(45/32.5)*`
   lunes: [
     {
       titulo: "WARM-UP",
-      contenido: `*3 Sets*
-8–12 Sec Single Arm Plank w/ Knees on Box
-2 Wall Walk Complexes
-Rest 30–45s
-6 On-Knee Tripod Push-Ups to Downward Dog
-2–3 Handstand Leg Lifts from Box
-Rest 30–45s`
-    },
-    {
-      titulo: "Gymnastics (Handstand Walk)",
-      contenido: `*LEVEL 1* 9 min EMOM:
-Min 1: 2-3 Pike on Box Wall Walks
-Min 2: 15-30 Second GHD Hollow Body Hold
-Min 3: Rest minute
-*LEVEL 2* 9 min EMOM:
-Min 1: 1 Complex of: 1 Wall Walk + 5 Sec Handstand Hold + Handstand Walk as far as possible away from the wall
-Min 2: 15-30 Second GHD Hollow Body Hold
-Min 3: Rest minute
-*LEVEL 3* 2 min on/1 min off for 3 Sets:
-15/12 Calorie Row
-Max Distance Handstand Walk in the remaining time`
+      contenido: `2 Rounds
+100m Run
+5 Ring Rows
+8 Elevated Push Ups
+10 Air Squats`
     },
     {
       titulo: "Custom Metcon",
-      contenido: `*Alderaan*
-400m Run
-50 Pull Ups
-400m Run
-100 Push Ups
-400m Run
-150 Air Squats
-400m Run`
+      contenido: `*In 25 mins do:*
+Run, 1 mi
+then in the remaining time, AMRAP of:
+5 Pull-ups
+10 Push-ups
+15 Air Squats`
+    },
+    {
+      titulo: "Accesorio",
+      contenido: `*3 rounds for quality of:*
+10 Hanging Leg Raises
+Side Plank, 2 mins`
     }
   ],
 
