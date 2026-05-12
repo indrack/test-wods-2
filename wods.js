@@ -62,24 +62,26 @@ Side Plank, 2 mins`
   martes: [
     {
       titulo: "WARM-UP",
-      contenido: `*3 Rounds*
-1:00 Cardio
-5 Roll and Reach
-3 Worlds Greatest Stretch *(each)*
-3 Muscle Snatch
-3 Snatch Push Press
-3 Snatch Balance
--Start with PVC and progress to a Empty bar in rounds 2/3`
+      contenido: `3 Rounds
+10 Deadbugs
+3 Broad Jumps
+10 Single Dumbbell Suitcase Deadlifts (each)
+3 PVC Clean Deadlifts`
     },
     {
       titulo: "Weightlifting (Snatch)",
-      contenido: `*Every 2:00 × 6 sets*
-2 Squat Snatch (singles) *@ 75*–78% OR* RPE 7-8*`
+      contenido: `Every 2 mins for 10 mins: Clean Deadlift
+
+3 Clean Deadlifts, pick load
+
+*90–95% (1RM Clean OR RPE 9)*`
     },
     {
-      titulo: "Custom Metcon (Distancia)",
-      contenido: `*Naboo*
-20:00 Max Distance Run`
+      titulo: "Custom Metcon",
+      contenido: `*Every 5:00 (5 sets)*
+20/15 Cal Row
+15 Burpees
+10 Broad Jumps`
     }
   ],
 
