@@ -1,36 +1,34 @@
 const wods = {
 
   // --------------------------------- DOMINGO ------------------------------------
-  domingo: [
+domingo: [
     {
       titulo: "WARM-UP",
-      contenido: `3:00 Machine
--into
+      contenido: `Movement Prep/Activation:
+8:00 Continuous Flow
 *3 Rounds*
-10 Cossack Squats
-8 Low Box Step Ups
-10 Deadbugs
-10 Double Dumbbell Sumo Deadlifts (light)`
+20 Single Unders
+10 Banded Pass Throughs
+10 Banded Pull Aparts
+10 Dumbbell Deadlifts (light)
+10-second Handstand Hold
+10-second Hollow Rock`
     },
     {
-      titulo: "Custom Metcon",
-      contenido: `*Exegol*
-*Every 1:00 (20:00)*
-ODD Minute: 12 Box Jumps *(24/20)*
-Even Minute: 7 Power Cleans *(45/32.5)*`
+      titulo: "Custom Metcon (Tiempo)",
+      contenido: `Palmier
+*5 rounds* for time of:
+Farmer Carry, 70/50 lbs, 100 ft
+Handstand Walk, 50 ft or 4 Wall Walks`
     },
     {
       titulo: "Accesorio",
-      contenido: `*Mini Pump Shoulders & Arms*
-3-4 sets
-4 Shoulder Press *@ RPE 9/10*
-8 Bottom-Up Single Arm Standing KB Press *(each side)* *@ RPE 8/10*
-10 Seated Dumbbell Balboas *@ RPE 9/10*
-12 Dumbbell Snow Angel Raise *@ RPE 9/10*
-*-rest 2:00-3:00 between sets*`
+      contenido: `*4 rounds for quality of:*
+12 Romanian Deadlifts heavy
+15 Russian Kettlebell Swings,* RPE 7/10*
+Rest 1 min`
     }
   ],
-
   // --------------------------------- LUNES ------------------------------------
   lunes: [
     {
@@ -89,37 +87,35 @@ Side Plank, 2 mins`
   miercoles: [
     {
       titulo: "WARM-UP",
-      contenido: `*7:00 Build Flow*
-0:00–2:00 Easy Cardio
-2:00–4:00: 3 rounds
-5 PVC Deadlifts
-5 PVC Hang Cleans
-5 Push Press
-*-into*
-4:00–7:00: 2 rounds
-3 Hang Power Cleans (empty bar)
-3 Push Jerks
-6 Air Squats
-(Athletes are at bars early and building toward strength weight)`
+      contenido: `*2 rondas*
+3 Inchworms
+5 Rodar y Alcanzar
+5 Estiramientos Dinámicos de Sentadilla
+*3 Rondas*
+5 Elevaciones de Rodillas Colgando
+3 Hang Muscle Snatch
+3 Power Snatch
+3 Sentadillas por Encima de la Cabeza
+2 Burpee sobre la Barra
+-Comienza con un PVC y progresa a una barra vacía en las rondas 2-3`
     },
     {
-      titulo: "Weightlifting (Clean and Jerk)",
-      contenido: `*Every 1:00 x 5 sets (5:00)*
-3 Clean and Jerks (singles) *@ 70%* OR* RPE 6-7*
--into
-*Every :30 x 10 sets (5:00)*
-1 Clean and Jerk *@ 75*–80% OR* RPE 8*`
+      titulo: "Weightlifting (Power Snatch)",
+      contenido: `*Every 1 min for 5 mins.*
+3 Power Snatches, 70% 1RM`
     },
     {
-      titulo: "Custom Metcon",
-      contenido: `*Coruscant*
-21-15-9
-Hang Power Clean *(42.5/30)*
-Shoulder to Overhead *(42.5/30)*
-*-rest 4:00-*
-9-15-21
-Shoulder to Overhead *(42.5/30)*
-Hang Power Clean *(42.5/30)*`
+      titulo: "Custom Metcon (Tiempo)",
+      contenido: `Tarte Tatin
+For time:
+30 Toes-to-bars
+30 Overhead Squats, 35/25
+30 Burpee Over Bars
+Rest 1 min
+30 Burpee Over Bars
+30 Overhead Squats, 35/25
+30 Toes-to-bars
+Time cap: 15 mins`
     }
   ],
 
@@ -127,26 +123,43 @@ Hang Power Clean *(42.5/30)*`
   jueves: [
     {
       titulo: "WARM-UP",
-      contenido: `*3 Rounds* (6:00)
-30 Single Unders
-5 Roll and Reach
-3 Inchworms
-10 Dumbbell Snatch
-3 Bench Press (Slow and controlled)`
+      contenido: `Movement Prep/Activation:
+5:00 Flow (Workout Prep)
+*3 rounds*
+100m Run
+10 Air Squats
+6 Box Step Ups
+25ft Walking Lunge
+-into-
+4:00 Flow (Gymnastics Prep)
+*2 rounds*
+10 second Dead Hang
+5 Ring Rows
+5 Hanging Knee Raises
+10 second Hollow Hold`
     },
     {
-      titulo: "Weightlifting (Bench Press)",
-      contenido: `*Every 2:00 x 5 sets*
-3 Bench Press *@ 78%* OR* RPE 7-8*`
+      titulo: "Gymnastics (Rope Climb)",
+      contenido: `*Level 1:*
+8 min EMOM:
+Min 1: 4 Staggered Grip Rope Pull Up with Foot Assistance (two per hand on top)
+Min 2: 10-14 Alternating V-Ups (5-7 each side)
+Min 3: 6-8 Ring Rows with 1 second pause at top of each rep (slow and controlled tempo)
+Min 4: 10 Bodyweight Hip Thrusts
+*Level 2:*
+8 min EMOM:
+Min 1: 60 Second Max Rope Climbs
+Min 2: 60 Second Rest
+Min 3: 60 Second Max Rope Climb
+Min 4: 60 Second Rest`
     },
     {
-      titulo: "Custom Metcon",
-      contenido: `*Kashyyyk*
-*4 sets*
-48 Double Unders
-24  DB Snatch (22.5/15
-12 Burpee Over DB)
-*-rest 1:00 between sets-*`
+      titulo: "Custom Metcon (Tiempo)",
+      contenido: `Saint-Honoré
+*4 rounds* for time of:
+Run, 400 m
+20 Box Jumps, 24/20 in
+Walking Lunge, 100 ft`
     }
   ],
 
@@ -154,26 +167,30 @@ Hang Power Clean *(42.5/30)*`
   viernes: [
     {
       titulo: "WARM-UP",
-      contenido: `*7:00 AMRAP*
-100m Run
-5 Ring Rows or Scap Pull-Ups
-5 Hanging Knee Raises
-10 Air Squats
-10 second Dead Hang`
+      contenido: `Movement Prep/Activation:
+7:00 Flow
+*2 Rounds:*
+30-second Cardio
+4 World's Greatest Stretch *(each side)*
+-into-
+*2 Rounds:*
+3 PVC Muscle Cleans
+3 PVC Front Squats
+3 PVC Tall Cleans
+-into-
+3 Squat Cleans (empty bar)`
     },
     {
-      titulo: "Custom Metcon (Rondas y Reps)",
-      contenido: `*Jakku*
-*20:00 AMRAP*
-200m Run
-8 Strict Pull Ups or 2 Rope Climbs`
+      titulo: "Weightlifting (Clean)",
+      contenido: `*Every 2 mins for 12 mins.*
+2 Squat Cleans, 78–80% 1RM OR* RPE 8*`
     },
     {
-      titulo: "Accesorio",
-      contenido: `*10-9-8-7-6-5-4-3-2-1*
-Double Dumbbell Bent Over Row (6-7 RPE)
-Dumbbell Bench Press (6-7 RPE)
-*Not a workout, don't sprint through this.`
+      titulo: "Custom Metcon",
+      contenido: `Clafoutis
+*10 rounds* for time of:
+15 Wall Balls, 20/14 lbs
+3 Wall Walks`
     }
   ],
 
@@ -181,27 +198,32 @@ Dumbbell Bench Press (6-7 RPE)
   sabado: [
     {
       titulo: "WARM-UP",
-      contenido: `*3 Rounds*
-100m Run
-5 Hanging Knee Raises
-5 Muscle Snatch (PVC into Empty bar)
-3 Inchworms`
+      contenido: `Movement Prep/Activation:
+2:00 Easy Cardio (build pace)
+*2 Rounds*
+3 Light Deadlifts
+5 Air Squats
+5 Box Step Overs`
     },
     {
-      titulo: "Custom Metcon",
-      contenido: `*Mustafar*
-*Teams of 2*
-60 Synchro Toes to Bar
-800m Run (together)
-60 Power Snatches *(60/42.5)*`
+      titulo: "Custom Metcon (Reps)",
+      contenido: `Pain au Chocolat
+Team of 2
+*8 Rounds*
+2 min work, 1 min rest
+Dentro de cada ronda
+15/12 Burpee Box Jump Overs
+Max reps Power Cleans 85/57.5 kg
+Score = total cleans.`
     },
     {
       titulo: "Accesorio",
-      contenido: `*3 sets*
-25 Supermans
-*-rest 30 seconds*
-20 Dumbbell Glute Bridges
-*-rest 1 minute between sets*`
+      contenido: `*Mini Pump - Core*
+*3 rounds* for quality of:
+20 Stick Sit Ups
+60 Heel Taps
+60 Russian Twists
+Rest 2 mins`
     }
   ]
 };
