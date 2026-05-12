@@ -106,8 +106,8 @@ Side Plank, 2 mins`
     },
     {
       titulo: "Custom Metcon (Tiempo)",
-      contenido: `Tarte Tatin
-For time:
+      contenido: `*Tarte Tatin*
+*For time:*
 30 Toes-to-bars
 30 Overhead Squats, 35/25
 30 Burpee Over Bars
@@ -130,7 +130,7 @@ Time cap: 15 mins`
 10 Air Squats
 6 Box Step Ups
 25ft Walking Lunge
--into-
+*-into-*
 4:00 Flow (Gymnastics Prep)
 *2 rounds*
 10 second Dead Hang
@@ -155,7 +155,7 @@ Min 4: 60 Second Rest`
     },
     {
       titulo: "Custom Metcon (Tiempo)",
-      contenido: `Saint-Honoré
+      contenido: `*Saint-Honoré*
 *4 rounds* for time of:
 Run, 400 m
 20 Box Jumps, 24/20 in
@@ -187,7 +187,7 @@ Walking Lunge, 100 ft`
     },
     {
       titulo: "Custom Metcon",
-      contenido: `Clafoutis
+      contenido: `*Clafoutis*
 *10 rounds* for time of:
 15 Wall Balls, 20/14 lbs
 3 Wall Walks`
@@ -207,8 +207,8 @@ Walking Lunge, 100 ft`
     },
     {
       titulo: "Custom Metcon (Reps)",
-      contenido: `Pain au Chocolat
-Team of 2
+      contenido: `*Pain au Chocolat*
+*Team of 2*
 *8 Rounds*
 2 min work, 1 min rest
 Dentro de cada ronda
