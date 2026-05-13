@@ -87,35 +87,36 @@ Side Plank, 2 mins`
   miercoles: [
     {
       titulo: "WARM-UP",
-      contenido: `*2 rondas*
+      contenido: `*2 rounds*
 3 Inchworms
-5 Rodar y Alcanzar
-5 Estiramientos Dinámicos de Sentadilla
-*3 Rondas*
-5 Elevaciones de Rodillas Colgando
+5 Roll and Reach
+5 Dynamic Squat Stretches
+5:00–10:00
+*3 Rounds*
+5 Hanging Knee Raises
 3 Hang Muscle Snatch
 3 Power Snatch
-3 Sentadillas por Encima de la Cabeza
-2 Burpee sobre la Barra
--Comienza con un PVC y progresa a una barra vacía en las rondas 2-3`
+3 Overhead Squats
+2 Burpee Over Bar
+*-Start with a PVC and progress into an empty barbell through rounds 2-3*`
     },
     {
       titulo: "Weightlifting (Power Snatch)",
       contenido: `*Every 1 min for 5 mins.*
-3 Power Snatches, 70% 1RM`
+3 Power Snatches, *70% 1RM*`
     },
     {
       titulo: "Custom Metcon (Tiempo)",
       contenido: `*Tarte Tatin*
-*For time:*
 30 Toes-to-bars
 30 Overhead Squats, 35/25
 30 Burpee Over Bars
-Rest 1 min
+*Rest 1 min*
 30 Burpee Over Bars
 30 Overhead Squats, 35/25
 30 Toes-to-bars
-Time cap: 15 mins`
+
+*Time cap: 15 mins*`
     }
   ],
 
