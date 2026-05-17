@@ -1,58 +1,61 @@
 const wods = {
 
   // --------------------------------- DOMINGO ------------------------------------
-domingo: [
+  domingo: [
     {
       titulo: "WARM-UP",
-      contenido: `Movement Prep/Activation:
-8:00 Continuous Flow
-*3 Rounds*
-20 Single Unders
-10 Banded Pass Throughs
-10 Banded Pull Aparts
-10 Dumbbell Deadlifts (light)
-10-second Handstand Hold
-10-second Hollow Rock`
-    },
-    {
-      titulo: "Custom Metcon (Tiempo)",
-      contenido: `Palmier
-*5 rounds* for time of:
-Farmer Carry, 70/50 lbs, 100 ft
-Handstand Walk, 50 ft or 4 Wall Walks`
-    },
-    {
-      titulo: "Accesorio",
-      contenido: `*4 rounds for quality of:*
-12 Romanian Deadlifts heavy
-15 Russian Kettlebell Swings,* RPE 7/10*
-Rest 1 min`
-    }
-  ],
-  // --------------------------------- LUNES ------------------------------------
-  lunes: [
-    {
-      titulo: "WARM-UP",
-      contenido: `2 Rounds
-100m Run
-5 Ring Rows
-8 Elevated Push Ups
-10 Air Squats`
+      contenido: `*3 Rounds*
+1:00 Easy Row
+25ft Bodyweight Lunge
+8 Glute Bridges
+6 Tempo Air Squats
+2x50ft Shuttle Run`
     },
     {
       titulo: "Custom Metcon",
-      contenido: `*In 25 mins do:*
-Run, 1 mi
-then in the remaining time, AMRAP of:
-5 Pull-ups
-10 Push-ups
-15 Air Squats`
+      contenido: `*Roy Rogers*
+*“EMON 24:00”*
+1. 125/110 m Row
+2. 25 ft Single Dumbbell Walking Lunges, 22.5/15 lbs  (brazo derecho)
+3. 25 ft Single Dumbbell Walking Lunges, 22.5/15 lbs  (brazo izquierdo)
+4. Rest`
     },
     {
       titulo: "Accesorio",
       contenido: `*3 rounds for quality of:*
-10 Hanging Leg Raises
-Side Plank, 2 mins`
+8 Seated Dumbbell Shoulder Press,*  RPE 8/10*
+10 Diamond Push-ups
+10 Plate Front Raises,*  RPE 8/10*
+20 Alternating Dumbbell Hammer Curls,*  RPE 8/10*
+*Rest 1 min*`
+    }
+  ],
+
+  // --------------------------------- LUNES ------------------------------------
+  lunes: [
+    {
+      titulo: "WARM-UP",
+      contenido: `*3 Rounds*
+100m Easy Run
+10 Leg Swings *(each)*
+10 Banded Pull Aparts
+5 Scap Pull Ups
+5 Dynamic Squat Stretches
+5 Hang Release Push Ups
+5 Ring Rows`
+    },
+    {
+      titulo: "Custom Metcon (Tiempo)",
+      contenido: `*Half Murph (retest)*
+For time:
+Run, 800 m
+-- then --
+*10 rounds* of:
+5 Strict Pull-ups
+10 Push-ups
+15 Air Squats
+-- then --
+Run, 800 m`
     }
   ],
 
@@ -60,26 +63,40 @@ Side Plank, 2 mins`
   martes: [
     {
       titulo: "WARM-UP",
-      contenido: `3 Rounds
-10 Deadbugs
-3 Broad Jumps
-10 Single Dumbbell Suitcase Deadlifts (each)
-3 PVC Clean Deadlifts`
+      contenido: `*3 sets:*
+8-12 Sec Single Arm Plank with Feet on Box
+10ft Handstand Walk or 1 Wall Walk
+50ft Waiters Carry
+3-4 Handstand Leg Lifts from Box
+4 Box Jump Overs`
     },
     {
-      titulo: "Weightlifting (Snatch)",
-      contenido: `Every 2 mins for 10 mins: Clean Deadlift
-
-3 Clean Deadlifts, pick load
-
-*90–95% (1RM Clean OR RPE 9)*`
+      titulo: "Gymnastics (Handstand Walk)",
+      contenido: `*Level 1:*
+8 min EMOM:
+Min 1: 1 Pike on Box Around the World per side
+Min 2: 20-25 Second Hollow on Ground
+Min 3: 3 Pike on Box Shoulder Taps
+Min 4: 20-25 Second Superman Hold
+*Level 2:*
+8 min EMOM:
+Min 1: 30 Second Max Distance Handstand Walk
+Min 2: 8-12 Alternating V-ups per leg
+Min 3: 30 Second Max Distance Handstand Walk
+Min 4: 45 Second Shuttle Run`
     },
     {
-      titulo: "Custom Metcon",
-      contenido: `*Every 5:00 (5 sets)*
-20/15 Cal Row
-15 Burpees
-10 Broad Jumps`
+      titulo: "Custom Metcon (Tiempo)",
+      contenido: `*Annie Oakley*
+For time:
+-40 Box Jumps, 20 in
+-Handstand Walk, 50 ft/ 4 WW
+-30 Box Jumps, 20 in
+-Handstand Walk, 50 ft/ 4 WW
+-20 Box Jumps, 20 in
+-Handstand Walk, 50 ft/ 4 WW
+-10 Box Jumps, 20 in
+-Handstand Walk, 50 ft/ 4 WW`
     }
   ],
 
@@ -87,36 +104,42 @@ Side Plank, 2 mins`
   miercoles: [
     {
       titulo: "WARM-UP",
-      contenido: `*2 rounds*
-3 Inchworms
-5 Roll and Reach
+      contenido: `*3 Rounds*
+30 sec Jump Rope
 5 Dynamic Squat Stretches
-5:00–10:00
-*3 Rounds*
-5 Hanging Knee Raises
-3 Hang Muscle Snatch
-3 Power Snatch
-3 Overhead Squats
-2 Burpee Over Bar
-*-Start with a PVC and progress into an empty barbell through rounds 2-3*`
+3 Inchworms
+5 PVC Muscle Snatch
+5 PVC Overhead Squats
+5 Snatch Balance (Start off catching high and drop lower and lower each rep; Move the feet)`
     },
     {
-      titulo: "Weightlifting (Power Snatch)",
-      contenido: `*Every 1 min for 5 mins.*
-3 Power Snatches, *70% 1RM*`
+      titulo: "Weightlifting (Snatch)",
+      contenido: `Snatch 1x1, 85% OR* RPE 8-9*
+Use the heaviest weight you can for the set.
+*If form looks good and are feeling it, then build to a 1RM`
     },
     {
-      titulo: "Custom Metcon (Tiempo)",
-      contenido: `*Tarte Tatin*
-30 Toes-to-bars
-30 Overhead Squats, 35/25
-30 Burpee Over Bars
-*Rest 1 min*
-30 Burpee Over Bars
-30 Overhead Squats, 35/25
-30 Toes-to-bars
-
-*Time cap: 15 mins*`
+      titulo: "Custom Metcon",
+      contenido: `*Will Rogers*
+*0:00-9:00*
+22.5/15
+For time:
+21 shuttle runs
+21 Dumbbell Snatches, 
+15 shuttle runs
+15 Dumbbell Snatches, 
+12 shuttle runs
+12 Dumbbell Snatches, 
+9 shuttle runs
+9 Dumbbell Snatches, 
+*9:00-12:00 Rest*
+*2:00-18:00*
+15 shuttle runs
+15 Dumbbell Snatches, 
+12 shuttle runs
+12 Dumbbell Snatches, 
+9 shuttle runs
+9 Dumbbell Snatches`
     }
   ],
 
@@ -124,43 +147,25 @@ Side Plank, 2 mins`
   jueves: [
     {
       titulo: "WARM-UP",
-      contenido: `Movement Prep/Activation:
-5:00 Flow (Workout Prep)
-*3 rounds*
-100m Run
-10 Air Squats
-6 Box Step Ups
-25ft Walking Lunge
-*-into-*
-4:00 Flow (Gymnastics Prep)
-*2 rounds*
-10 second Dead Hang
-5 Ring Rows
-5 Hanging Knee Raises
-10 second Hollow Hold`
+      contenido: `3 World's Greatest Stretch (each)
+10 Deadbugs
+10 Cat/Cows
+5 Broad Jumps
+5 Jumping Air Squats (Focus on tall chest, smooth descent, fast out of the hole)`
     },
     {
-      titulo: "Gymnastics (Rope Climb)",
-      contenido: `*Level 1:*
-8 min EMOM:
-Min 1: 4 Staggered Grip Rope Pull Up with Foot Assistance (two per hand on top)
-Min 2: 10-14 Alternating V-Ups (5-7 each side)
-Min 3: 6-8 Ring Rows with 1 second pause at top of each rep (slow and controlled tempo)
-Min 4: 10 Bodyweight Hip Thrusts
-*Level 2:*
-8 min EMOM:
-Min 1: 60 Second Max Rope Climbs
-Min 2: 60 Second Rest
-Min 3: 60 Second Max Rope Climb
-Min 4: 60 Second Rest`
+      titulo: "Weightlifting (Back Squat)",
+      contenido: `*Every 1:30 for 9 mins.*
+2 Back Squats, 65% 1RM  OR* RPE 6*`
     },
     {
-      titulo: "Custom Metcon (Tiempo)",
-      contenido: `*Saint-Honoré*
-*4 rounds* for time of:
-Run, 400 m
-20 Box Jumps, 24/20 in
-Walking Lunge, 100 ft`
+      titulo: "Custom Metcon",
+      contenido: `*Gene Autrey*
+EMON 16 min
+1. 12/10 Row Calories
+2. 20 Air Squats
+3. 10 Burpee
+4. Rest`
     }
   ],
 
@@ -168,30 +173,39 @@ Walking Lunge, 100 ft`
   viernes: [
     {
       titulo: "WARM-UP",
-      contenido: `Movement Prep/Activation:
-7:00 Flow
-*2 Rounds:*
-30-second Cardio
-4 World's Greatest Stretch *(each side)*
--into-
-*2 Rounds:*
-3 PVC Muscle Cleans
-3 PVC Front Squats
-3 PVC Tall Cleans
--into-
-3 Squat Cleans (empty bar)`
+      contenido: `*2 Rounds*
+10 Single Unders
+5 Deadbugs
+3 Roll and Reach
+3 Inchworms
+5 PVC Clean Deadlifts
+5 PVC Hang Power Cleans
+5 PVC Push Press
+3 Empty Bar Power Clean
+3 Empty Bar Push Jerks`
     },
     {
-      titulo: "Weightlifting (Clean)",
-      contenido: `*Every 2 mins for 12 mins.*
-2 Squat Cleans, 78–80% 1RM OR* RPE 8*`
+      titulo: "Weightlifting (Power Clean)",
+      contenido: `Power Clean & Jerk 1-1-1
+Use the heaviest weight you can for each set.
+Rest as needed between sets.
+Build to 80–85% OR* RPE 8-9* and complete 3 Singles at that weight`
     },
     {
       titulo: "Custom Metcon",
-      contenido: `*Clafoutis*
-*10 rounds* for time of:
-15 Wall Balls, 20/14 lbs
-3 Wall Walks`
+      contenido: `*Bass Reeves*
+For time:
+*3 rounds* of:
+50 Double Unders
+5 Clean & Jerks, 52.5/35
+-- then --
+*3 rounds* of:
+50 Double Unders
+5 Clean & Jerks, 60/42.5
+-- then --
+*3 rounds* of:
+50 Double Unders
+5 Clean & Jerks, 70/47.5`
     }
   ],
 
@@ -199,32 +213,29 @@ Walking Lunge, 100 ft`
   sabado: [
     {
       titulo: "WARM-UP",
-      contenido: `Movement Prep/Activation:
-2:00 Easy Cardio (build pace)
-*2 Rounds*
-3 Light Deadlifts
-5 Air Squats
-5 Box Step Overs`
+      contenido: `*2 Rounds*
+100m Run
+5 Kip Swings
+5 Hanging Knee Raises
+5 V-Ups
+10 Air Squats`
     },
     {
-      titulo: "Custom Metcon (Reps)",
-      contenido: `*Pain au Chocolat*
-*Team of 2*
-*8 Rounds*
-2 min work, 1 min rest
-Dentro de cada ronda
-15/12 Burpee Box Jump Overs
-Max reps Power Cleans 85/57.5 kg
-Score = total cleans.`
+      titulo: "Custom Metcon",
+      contenido: `*Wild Bill Hickok*
+*8 rounds* for time of:
+200 m Run
+15 Toes-to-bars`
     },
     {
       titulo: "Accesorio",
-      contenido: `*Mini Pump - Core*
-*3 rounds* for quality of:
-20 Stick Sit Ups
-60 Heel Taps
-60 Russian Twists
-Rest 2 mins`
+      contenido: `*Mini Pump - Upper Pull*
+*4 rounds* for time of:
+8 Weighted Chin-ups,* RPE 8/10*
+10 Dumbbell Bent Over Rows,* RPE 8/10*
+12 Reverse Grip Lat Pull Downs,* RPE 8/10* / 30 Banded Lat Pull Downs
+20 Alternating Dumbbell Curls,* RPE 8/10*
+Rest 3 mins`
     }
   ]
 };
