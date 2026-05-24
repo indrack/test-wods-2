@@ -4,30 +4,31 @@ const wods = {
   domingo: [
     {
       titulo: "WARM-UP",
-      contenido: `*3 Rounds*
-1:00 Easy Row
-25ft Bodyweight Lunge
-8 Glute Bridges
-6 Tempo Air Squats
-2x50ft Shuttle Run`
+      contenido: `*2 Rounds*
+:30 Cardio
+5 Air Squats
+5 Hand Release Push-Ups
+5 Scap Pull Ups
+4 Burpees`
     },
     {
       titulo: "Custom Metcon",
-      contenido: `*Roy Rogers*
-*“EMON 24:00”*
-1. 125/110 m Row
-2. 25 ft Single Dumbbell Walking Lunges, 22.5/15 lbs  (brazo derecho)
-3. 25 ft Single Dumbbell Walking Lunges, 22.5/15 lbs  (brazo izquierdo)
-4. Rest`
+      contenido: `*The Anthem Army*
+*Every 1:30 (10 sets)*
+Athlete Choice of Movement…
+Options:
+200m Run
+15-20 Burpees
+15 Push-Ups + 10 Burpees
+12-15 Toes to Bar`
     },
     {
       titulo: "Accesorio",
-      contenido: `*3 rounds for quality of:*
-8 Seated Dumbbell Shoulder Press,*  RPE 8/10*
-10 Diamond Push-ups
-10 Plate Front Raises,*  RPE 8/10*
-20 Alternating Dumbbell Hammer Curls,*  RPE 8/10*
-*Rest 1 min*`
+      contenido: `*5 rounds for quality of:*
+10 Banded Strict Chin-ups
+Rest 30 secs
+10 Incline Chest Supported Dumbbell Rows,* RPE 7/10*
+Rest 1 min`
     }
   ],
 
@@ -35,27 +36,24 @@ const wods = {
   lunes: [
     {
       titulo: "WARM-UP",
-      contenido: `*3 Rounds*
-100m Easy Run
-10 Leg Swings *(each)*
-10 Banded Pull Aparts
-5 Scap Pull Ups
-5 Dynamic Squat Stretches
-5 Hang Release Push Ups
-5 Ring Rows`
+      contenido: `*2 Rounds*
+150m Run
+5 Ring Rows
+8 Hand Release Push Ups
+10 Air Squats`
     },
     {
       titulo: "Custom Metcon (Tiempo)",
-      contenido: `*Half Murph (retest)*
-For time:
-Run, 800 m
--- then --
-*10 rounds* of:
-5 Strict Pull-ups
-10 Push-ups
-15 Air Squats
--- then --
-Run, 800 m`
+      contenido: `*Murph*
+For Time
+1 mile Run
+100 Pull-Ups
+200 Push-Ups
+300 Air Squats
+1 mile Run
+All with a Weight Vest *(20/14 lb)*.
+Partition the Pull-Ups, Push-Ups, and Squats as needed.
+Start and finish with a mile run.`
     }
   ],
 
@@ -63,40 +61,27 @@ Run, 800 m`
   martes: [
     {
       titulo: "WARM-UP",
-      contenido: `*3 sets:*
-8-12 Sec Single Arm Plank with Feet on Box
-10ft Handstand Walk or 1 Wall Walk
-50ft Waiters Carry
-3-4 Handstand Leg Lifts from Box
-4 Box Jump Overs`
+      contenido: `*2 Rounds*
+:30 Row
+8 Glute Bridges
+6 Banded Good Mornings
+5 Empty Bar Deadlifts
+10 Sit-Ups
+6 Air Squats`
     },
     {
-      titulo: "Gymnastics (Handstand Walk)",
-      contenido: `*Level 1:*
-8 min EMOM:
-Min 1: 1 Pike on Box Around the World per side
-Min 2: 20-25 Second Hollow on Ground
-Min 3: 3 Pike on Box Shoulder Taps
-Min 4: 20-25 Second Superman Hold
-*Level 2:*
-8 min EMOM:
-Min 1: 30 Second Max Distance Handstand Walk
-Min 2: 8-12 Alternating V-ups per leg
-Min 3: 30 Second Max Distance Handstand Walk
-Min 4: 45 Second Shuttle Run`
+      titulo: "Weightlifting (Deadlift)",
+      contenido: `2 Deadlifts, 80–85% OR* RPE 8*
+*Every 2 mins for 8 mins.*`
     },
     {
-      titulo: "Custom Metcon (Tiempo)",
-      contenido: `*Annie Oakley*
-For time:
--40 Box Jumps, 20 in
--Handstand Walk, 50 ft/ 4 WW
--30 Box Jumps, 20 in
--Handstand Walk, 50 ft/ 4 WW
--20 Box Jumps, 20 in
--Handstand Walk, 50 ft/ 4 WW
--10 Box Jumps, 20 in
--Handstand Walk, 50 ft/ 4 WW`
+      titulo: "Custom Metcon",
+      contenido: `*Swole Team Six*
+*“EMON 24:00”*
+1. 15/12 Row Calories
+2. 15 AbMat Sit-ups
+3.  10 Devil Press *(22.5/15)*
+4. Rest`
     }
   ],
 
@@ -104,42 +89,28 @@ For time:
   miercoles: [
     {
       titulo: "WARM-UP",
-      contenido: `*3 Rounds*
-30 sec Jump Rope
-5 Dynamic Squat Stretches
-3 Inchworms
-5 PVC Muscle Snatch
-5 PVC Overhead Squats
-5 Snatch Balance (Start off catching high and drop lower and lower each rep; Move the feet)`
+      contenido: `*2 Rounds*
+8 Deadbugs
+4 Dynamic Squat Stretches
+5 PVC Muscle Cleans
+5 PVC Front Squats
+5 PVC Push Press
+5 Empty Bar Clean and Jerks
+4 Burpees`
     },
     {
-      titulo: "Weightlifting (Snatch)",
-      contenido: `Snatch 1x1, 85% OR* RPE 8-9*
-Use the heaviest weight you can for the set.
-*If form looks good and are feeling it, then build to a 1RM`
+      titulo: "Weightlifting (Clean and Jerk)",
+      contenido: `Clean & Jerk 1x1
+Work to 85% OR* RPE 8-9.*
+Use the heaviest weight you can for the set.`
     },
     {
       titulo: "Custom Metcon",
-      contenido: `*Will Rogers*
-*0:00-9:00*
-22.5/15
-For time:
-21 shuttle runs
-21 Dumbbell Snatches, 
-15 shuttle runs
-15 Dumbbell Snatches, 
-12 shuttle runs
-12 Dumbbell Snatches, 
-9 shuttle runs
-9 Dumbbell Snatches, 
-*9:00-12:00 Rest*
-*2:00-18:00*
-15 shuttle runs
-15 Dumbbell Snatches, 
-12 shuttle runs
-12 Dumbbell Snatches, 
-9 shuttle runs
-9 Dumbbell Snatches`
+      contenido: `*The Liberty Lift*
+Complete as many rounds as possible in 10 mins of:
+5 Burpee Over Bars
+5 Shoulder-to-Overheads, 52.5/35
+10 Front Rack Reverse Lunges, 52.5/35`
     }
   ],
 
@@ -147,25 +118,33 @@ For time:
   jueves: [
     {
       titulo: "WARM-UP",
-      contenido: `3 World's Greatest Stretch (each)
-10 Deadbugs
-10 Cat/Cows
-5 Broad Jumps
-5 Jumping Air Squats (Focus on tall chest, smooth descent, fast out of the hole)`
+      contenido: `*6:00 AMRAP*
+100m Run
+20 Single Unders
+5 Kip Swings
+10 Sit Ups`
     },
     {
-      titulo: "Weightlifting (Back Squat)",
-      contenido: `*Every 1:30 for 9 mins.*
-2 Back Squats, 65% 1RM  OR* RPE 6*`
+      titulo: "Gymnastics (Rope Climb)",
+      contenido: `*Level 1:*
+8 min EMOM:
+Min 1: 6 Staggered Grip Rope Pull-up with Foot Assistance (two per hand on top)
+Min 2: 12-18 Alternating V-ups (6-8 each side)
+Min 3: 8-10 Ring Rows with 1 second pause at top of each rep (slow and controlled tempo)
+Min 4: 12 Bodyweight Hip Thrusts
+*Level 2:*
+*2 Sets:*
+2 Minute Max Reps Rope Climbs
+rest 2 min between sets`
     },
     {
       titulo: "Custom Metcon",
-      contenido: `*Gene Autrey*
-EMON 16 min
-1. 12/10 Row Calories
-2. 20 Air Squats
-3. 10 Burpee
-4. Rest`
+      contenido: `*Uncle Sam's Slam*
+*3 rounds*, each round for time, of:
+Run, 200 m
+50 Double Unders
+12 Toes-to-bars
+Go every 7 mins.`
     }
   ],
 
@@ -173,39 +152,26 @@ EMON 16 min
   viernes: [
     {
       titulo: "WARM-UP",
-      contenido: `*2 Rounds*
-10 Single Unders
-5 Deadbugs
-3 Roll and Reach
-3 Inchworms
-5 PVC Clean Deadlifts
-5 PVC Hang Power Cleans
-5 PVC Push Press
-3 Empty Bar Power Clean
-3 Empty Bar Push Jerks`
+      contenido: `*3 Rounds*
+1:00 Cardio
+5 Roll and Reach
+3 Worlds Greatest Stretch *(each)*
+3 Muscle Snatch
+3 Snatch Push Press
+3 Hang Power Snatch
+-Start with PVC and progress to a Empty bar in rounds 2/3`
     },
     {
-      titulo: "Weightlifting (Power Clean)",
-      contenido: `Power Clean & Jerk 1-1-1
+      titulo: "Weightlifting (Power Snatch)",
+      contenido: `Power Snatch 1-1-1
 Use the heaviest weight you can for each set.
-Rest as needed between sets.
-Build to 80–85% OR* RPE 8-9* and complete 3 Singles at that weight`
+Build to 80–85% OR* RPE 8-9* and complete 3 Singles at that weight.
+Rest 60-90 seconds between singles.`
     },
     {
-      titulo: "Custom Metcon",
-      contenido: `*Bass Reeves*
-For time:
-*3 rounds* of:
-50 Double Unders
-5 Clean & Jerks, 52.5/35
--- then --
-*3 rounds* of:
-50 Double Unders
-5 Clean & Jerks, 60/42.5
--- then --
-*3 rounds* of:
-50 Double Unders
-5 Clean & Jerks, 70/47.5`
+      titulo: "Custom Metcon (Distancia)",
+      contenido: `*Naboo (Mayhem FTP Test)*
+20:00 Max Distance Run`
     }
   ],
 
@@ -213,29 +179,30 @@ For time:
   sabado: [
     {
       titulo: "WARM-UP",
-      contenido: `*2 Rounds*
-100m Run
-5 Kip Swings
-5 Hanging Knee Raises
-5 V-Ups
-10 Air Squats`
+      contenido: `*3 Rounds*
+5 Dynamic Air Squats
+5 Wall Balls (light)
+5 Ring Rows or Pull-Ups
+5 Hang Dumbbell Snatches
+8 Box Step Overs`
     },
     {
-      titulo: "Custom Metcon",
-      contenido: `*Wild Bill Hickok*
-*8 rounds* for time of:
-200 m Run
-15 Toes-to-bars`
+      titulo: "Custom Metcon (Tiempo)",
+      contenido: `*Iron Infantry*
+For time:
+150 Wall Balls, 20/14 lbs
+150 Pull-ups
+150 Dumbbell Snatches, 22.5/15
+150 Box Jump Overs, 24/20 in`
     },
     {
       titulo: "Accesorio",
-      contenido: `*Mini Pump - Upper Pull*
+      contenido: `*Mini Pump - Core Work*
 *4 rounds* for time of:
-8 Weighted Chin-ups,* RPE 8/10*
-10 Dumbbell Bent Over Rows,* RPE 8/10*
-12 Reverse Grip Lat Pull Downs,* RPE 8/10* / 30 Banded Lat Pull Downs
-20 Alternating Dumbbell Curls,* RPE 8/10*
-Rest 3 mins`
+10 Weighted Sit-ups,* RPE 7/10*
+30 Alternating V-ups
+Hollow Hold, 30 secs
+Rest 1:30`
     }
   ]
 };
