@@ -37,25 +37,32 @@ Tabata score is the total reps performed in all of the intervals.`
     {
       titulo: "WARM-UP",
       contenido: `*2 Rounds*
-:30 Jump Rope
-6 Push-Ups
-6 Dumbbell Floor Press
+2 50ft Shuttle Run
 10 Air Squats
-10 Walking Lunges
-100m Run`
+10 Glute Bridges
+10 Deadbugs
+8 Goblet Squats (light)`
     },
     {
-      titulo: "Custom Metcon",
-      contenido: `*The Final Toll + The Run*
-For time:
-0:00-10:00
-30 Dumbbell Bench Press, 50/35 lbs
-200 Double Unders
-Dumbbell Walking Lunge, 50/35 lbs, 100 ft
-Rest 1:00
--Then-
-Run 2 mile
-This is an all out effort for time.`
+      titulo: "Weightlifting (Back Squat)",
+      contenido: `*Build to a heavy 3RM*
+then manage leg fatigue across two short, aggressive efforts.`
+    },
+    {
+      titulo: "Custom Metcon (Tiempo)",
+      contenido: `*Fat Guy in a Little Coat*
+*For time:*
+0:00-6:00
+12 50ft Shuttle Run
+21 Goblet Squats, 22.5/15
+10 50ft Shuttle Run
+15 Goblet Squats, 22.5/15
+8 50ft Shuttle Run
+9 Goblet Squats, 22.5/15
+*Rest 2:00*
+On the 8:00
+35 50ft Shuttle Run
+45 Goblet Squats, 50/35 lbs`
     }
   ],
 
@@ -64,34 +71,30 @@ This is an all out effort for time.`
     {
       titulo: "WARM-UP",
       contenido: `*2 Rounds*
-5 Inchworms + Double Push Up
-5 Roll and Reach
-5 Dynamic Squat Stretches
-5 Scap Pull Ups
+10-second Dead Hang
 5 Ring Rows
-5 PVC Muscle Cleans + Shoulder Press
-5 PVC Back Squats (Practice absorbing the bar to back rack after the last shoulder press)`
+5 Muscle Cleans + Strict Press (PVC)
+5 Up Downs over Bar`
     },
     {
-      titulo: "Gymnastics (Chest-To-Bar Pull-up)",
-      contenido: `PRIMARY FOCUS → Kip Rhythm → Hip Drive → Turnover Timing
-DEMO POINTS → Show controlled kip and aggressive hip drive into the pull.
-5 Kip Swings
-3–5 Chest-to-Bar Pull-Ups
-2–3 Bar Muscle-Up Progressions
-Keep reps controlled and consistent; avoid forcing high-skill reps if athletes are not ready and scale down to the next progression.`
+      titulo: "Gymnastics (Strict Pull-up)",
+      contenido: `6-8 minutes to work up to 1 set of Max Unbroken
+*Level 1*
+A single set of Assisted Pull-ups for max reps.
+*Level 2*
+A single set of Strict Pull-ups for max reps.
+*Level 3*
+Log your best Weighted Pull-up 1 rep max lift.
+Only log the heaviest 1 rep, do not include sets prior to it.`
     },
     {
-      titulo: "Custom Metcon (Tiempo)",
-      contenido: `*The Dirty 30s*
-For time:
-30 Back Squats, 60/42.5
-45 Chest-to-bar Pull-ups
-30 Back Squats, 60/42.5
-15 Bar Muscle-ups
-30 Back Squats, 60/42.5
-Time cap: 16 mins
-* Barbell is from the floor, not rack`
+      titulo: "Custom Metcon",
+      contenido: `*That's Gonna Leave a Mark*
+*EMON 20 mins:*
+*1.* 12/10 Row Calories
+*2.* 8 Lateral Burpee Over Bars
+*3.* 2 Clean & Jerks (heavy), 85/57.5
+*4.* Rest`
     }
   ],
 
@@ -100,26 +103,23 @@ Time cap: 16 mins
     {
       titulo: "WARM-UP",
       contenido: `*2 Rounds*
-10 Banded Pass Throughs
-10 Banded Good Mornings
-10 Alternating V-Ups
-5 Up Downs + Lateral Jump over PVC (be careful)
-5 PVC Muscle Snatch
-5 PVC or Empty Bar Power Snatches`
+4 Lunge Matrix *(each side)*
+8 Banded Good Mornings
+10 Sit-Ups
+1 Zombie Rope Climb (or 5 Ring Rows)
+2 Empty Bar Slow Motion Deadlifts (8-10 seconds to the top, 8-10 seconds back to the bottom)`
     },
     {
-      titulo: "Custom Metcon (Reps)",
-      contenido: `*June Burpee Challenge*
-Tabata Burpee Over Bar
-The Tabata interval is 45 secs of work followed
-by 15 secs of rest for 12 intervals.
-Tabata score is the total reps performed in all of the intervals.
--Then-
-Rest 8 mins before "Randy"...
-Randy
-For Time
-75 Power Snatches *(75/55 lbs)*
-In honor of Randy Simmons, 51, a 27 year LAPD veteran and SWAT team member who was killed in the line of duty February 6, 2008.`
+      titulo: "Weightlifting (Deadlift)",
+      contenido: `*Build to a heavy 3RM*
+Build to a heavy deadlift, then manage grip and pulling fatigue through repeated rounds.`
+    },
+    {
+      titulo: "Custom Metcon (Tiempo)",
+      contenido: `*Brothers Gotta Hug*
+*10 rounds* for time of:
+12  V-ups
+1 Rope Climb / 3 Strict Pull-ups`
     }
   ],
 
@@ -127,30 +127,39 @@ In honor of Randy Simmons, 51, a 27 year LAPD veteran and SWAT team member who w
   jueves: [
     {
       titulo: "WARM-UP",
-      contenido: `:30 Cardio
+      contenido: `0:00–2:00 Easy Run or Jump Rope
+2:00–7:00
+10 Banded Pull Aparts
+10 Banded Pass Throughs
+10 Scap Push-Ups
 10 Walking Lunge Steps
-10 Dead Bugs
-10 Sit Ups
-5 Kip Swings
-5 V-Ups
-5 Hanging Knee Raises`
+5 Empty Bar Bench Press
+3 Inchworms`
     },
     {
-      titulo: "Custom Metcon (Reps)",
-      contenido: `*Midline Century*
-3-3-3-*4:00 AMRAP*
-300m Run
-25 V-Ups
-Max Toes to Bar (until 100 repetitions are completed)
-*-Rest 1:00 between AMRAPs-*
-Time cap: 16 mins`
+      titulo: "Custom Metcon (Tiempo)",
+      contenido: `*It's Called Reading*
+*For time:*
+*Teams of 2*
+400 m Run (together)
+50 Bench Press, 52.5/35
+10 Wall Walks
+400 m Run (together)
+40 Bench Press, 52.5/35
+10 Wall Walks
+400 m Run (together)
+30 Bench Press, 52.5/35
+10 Wall Walks
+400 m Run (together)
+20 Bench Press, 52.5/35
+10 Wall Walks
+*Time cap: 22 mins*`
     },
     {
       titulo: "Accesorio",
-      contenido: `*3 rounds for quality of:*
-20 Dumbbell Front Foot Elevated Split Squats,* RPE 6/10*, 4 in
-20 Weighted Calf Raises,* RPE 6/10*; farmer hold
-Rest 1 min`
+      contenido: `*4 rounds for quality of:*
+20 (10 reps/side) Single Leg Weighted Hip Thrusts,*  RPE 8/10*
+20 (10 reps/side) Dumbbell Death Marches,*  RPE 8/10*`
     }
   ],
 
@@ -159,30 +168,26 @@ Rest 1 min`
     {
       titulo: "WARM-UP",
       contenido: `*2 Rounds*
+10 Sit Ups
 5 Dynamic Squat Stretches
-10 Deadbugs
-5 Ring Rows
-10-second Handstand Hold
-5 PVC Muscle Cleans + 5 Front Squats
-2 Zombie Rope Climbs (or 5 Pull Ups)`
+2 Inchworms + Double Push Up
+5 PVC Muscle Snatch
+5 PVC Snatch Push Press
+5 Wall Balls
+5 Hanging Knee Raises`
     },
     {
-      titulo: "Gymnastics (Rope Climb)",
-      contenido: `Teaching Focus
-Rope Climb or Rope Pull-Down (5:00)
-10–15ft Handstand Walk Practice (5:00)
-1 Squat Clean + 2 Front Squats x 3 sets with light weight (5:00)
-Athletes should understand how to move between stations efficiently without wasting time.`
+      titulo: "Weightlifting (Power Snatch)",
+      contenido: `2 Power Snatches, *60% 1RM*
+*Every 1 min for 10 mins.*`
     },
     {
       titulo: "Custom Metcon (Tiempo)",
-      contenido: `*Froning’s Revenge*
-*6 rounds* for time of:
-2 Rope Climbs or 6 Strict Pull-ups
-Handstand Walk, 25 ft or 2 Wall Walks
-4 Front Squats, 85/57.5
-Handstand Walk, 25 ft or 2 Wall Walks
-*Barbell is from the floor, not rack`
+      contenido: `*Bees Everywhere!*
+*3 rounds* for time of:
+50 Wall Balls, 20/14 lbs
+25 Toes-to-bars
+*Time cap: 18 mins*`
     }
   ],
 
@@ -190,31 +195,29 @@ Handstand Walk, 25 ft or 2 Wall Walks
   sabado: [
     {
       titulo: "WARM-UP",
-      contenido: `*7:00 AMRAP*
-30-second Easy Run
-4 Up Downs + Box Step Over
-10 Air Squats`
+      contenido: `*2 Rounds*
+10 Air Squats
+8 Banded Pass Throughs
+30 Jump Rope
+150m Moderate Row
+5 Up Downs`
     },
     {
       titulo: "Custom Metcon",
-      contenido: `*All in the Family*
-*Teams of 3*
-*25:00 AMRAP*
-Partner 1: 400m Run
-Partner 2: AMRAP
-20 Air Squats
-10 Burpees
-Partner 3: Rest`
+      contenido: `*Holy Schnikes!*
+*Teams of 2*
+*5 rounds* *(Each/1:1)*
+*3:00 AMRAP*
+500/450 m Row
+max reps in remaining time Double Unders`
     },
     {
       titulo: "Accesorio",
-      contenido: `*Mini Pump - Lower Pull*
-*4 rounds* for time of:
-8 Dumbbell Deadlifts,* RPE 9/10*
-8 Seated Hamstring Curls
-15 Dumbbell Glute Bridges,* RPE 8.5/10*
-16 Alternating Dumbbell Front Rack Reverse Lunges,* RPE 8.5/10*
-Rest 3 mins`
+      contenido: `*Mini Pump - Lower Pull and Core**
+25 Dumbbell Glute Bridges,*  RPE 9/10*
+24 Alternating Dumbbell Front Rack Reverse Lunges,*  RPE 9/10*
+20 Dumbbell Hamstring Curls,*  RPE 8/10*
+*Rest 1-1:30 min between rounds.*`
     }
   ]
 };
