@@ -4,31 +4,29 @@ const wods = {
   domingo: [
     {
       titulo: "WARM-UP",
-      contenido: `*3 Rounds*
-30 Single Unders
-10 Russian Kettlebell Swings
-3 Inchworms + Double Push Ups
-10 Cat Cow`
+      contenido: `*2 Rounds*
+100m Jog
+10 Air Squats
+8 Reverse Lunges
+8 Single Arm Dumbbell Strict Press (each)
+6 Dumbbell Push Press (light)
+50ft Farmer Carry (light)`
     },
     {
       titulo: "Custom Metcon",
-      contenido: `*The End*
-*5 rounds* for time of:
-50 Double Unders
-25 Kettlebell Swings, 24/16
-15 Hand Release Push-ups`
+      contenido: `*The Guarantee Fairy*
+In 20 mins do:
+800 m Run
+then in the remaining time, AMRAP of:
+20 Walking Lunges
+10 Dumbbell Push Press, 22.5/15
+100 ft Dumbbell Farmer Carry, 22.5/15`
     },
     {
       titulo: "Accesorio",
-      contenido: `*3 rounds for quality of:*
-10 Glute Ham Raises
-20 Tibia Raises
-Rest 1 min
--OR-
-*Tabata Hip Extension*
-The Tabata interval is 20 secs of work followed
-by 10 secs of rest for 8 intervals.
-Tabata score is the total reps performed in all of the intervals.`
+      contenido: `*4 rounds for quality of:*
+10 Ring Push-ups
+10 Dumbbell Roll Overs, RPE 8/10`
     }
   ],
 
