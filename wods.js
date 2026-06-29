@@ -4,27 +4,27 @@ const wods = {
   domingo: [
     {
       titulo: "WARM-UP",
-      contenido: `3-4 Rounds
-20 Single Unders
-10 Alternating Lunges
+      contenido: `*2 rounds*
+100m run
 10 Hollow Rocks
-5 Single Arm Dumbbell Clean and Jerks *(each)*`
+3 Inchworms
+10-second Handstand Hold
+2 Zombie Rope Climbs (or 10 Ring Rows)`
     },
     {
       titulo: "Custom Metcon",
-      contenido: `*Late Nights*
-*8 rounds*, each round for time, of:
-200m Run
-75 Double Unders
-100 ft Single Arm Dumbbell Overhead Carry, 32.5/22.5
-Rest 1:30 between each round.`
+      contenido: `*Let Freedom Ring*
+*20:00 AMRAP*
+800m Run
+100ft Handstand Walk / 8 Wall Walks
+5 Rope Climbs (or 15 Strict Pull Ups)`
     },
     {
       titulo: "Accesorio",
-      contenido: `*4 rounds for quality of:*
-60 Single Leg Banded Hamstring Curls
-30 Banded Leg Curls
-Rest 1 min`
+      contenido: `*3 rounds for quality of:*
+10 Strict Toes-to-bars/ Hanging Knee Raises
+L-Sit Hold, 20 secs  bent knees if needed
+Rest 1-1:30 min between rounds.`
     }
   ],
 
@@ -33,25 +33,33 @@ Rest 1 min`
     {
       titulo: "WARM-UP",
       contenido: `*2 Rounds*
-10 Banded Pass Throughs
-10 PVC Muscle Snatch
-10 Air Squats
-4 Hang Power Snatches (light)
-4 Hanging Knee Raises`
+5 Dynamic Squat Stretches
+10 PVC Pass Throughs
+5 PVC Muscle Snatch
+5 PVC Overhead Squats
+4 Up Downs
+4 Box Step Ups
+4 Front Squats (empty bar)
+4 Back Squats (empty bar)`
     },
     {
-      titulo: "Weightlifting (Snatch)",
-      contenido: `1x [ 1 Snatch Deadlift + 1 Power Snatch + 1 Overhead Squat ]
-Start light and build each minute.
-*Every 1 min for 10 mins.*`
+      titulo: "Weightlifting (Overhead Squat)",
+      contenido: `Overhead Squat 1x3
+Use the heaviest weight you can for the set.
+Build to a Heavy/Mod-Heavy 3-Rep Overhead Squat*
+*Bar comes from the ground`
     },
     {
       titulo: "Custom Metcon (Tiempo)",
-      contenido: `*Catching Fireflies*
-*10 rounds* for time of:
-16 Air Squats
-8 Toes-to-bars
-4 Power Snatches, 60/42.5`
+      contenido: `*We Stand for Freedom*
+For time:
+25 Burpee Box Jump Overs, 24/20 in
+50 Overhead Squats, 42.5/30
+25 Burpee Box Jump Overs, 24/20 in
+50 Front Squats, 42.5/30
+25 Burpee Box Jump Overs, 24/20 in
+50 Back Squats, 42.5/30
+Time cap: 20 mins`
     }
   ],
 
@@ -59,28 +67,32 @@ Start light and build each minute.
   martes: [
     {
       titulo: "WARM-UP",
-      contenido: `0:00–2:00 Easy Jump Rope
--then-
-*3 Rounds*
-10 Banded Pass Throughs
-10 Banded Good Mornings
-10 Alternating V-Ups
-5 Up Downs + Lateral Jump over PVC (be careful)
-5 PVC Strict Press`
+      contenido: `*2 Rounds*
+10 Roll and Reach
+10 Deadbugs
+10 Pass Throughs
+5 Up Downs
+5 PVC Muscle Cleans
+5 PVC Strict Press
+5 PVC Power Cleans + Push Press`
     },
     {
-      titulo: "Custom Metcon (Reps)",
-      contenido: `*JUNE BURPEE CHALLENGE*
-Tabata Burpee Over Bar
-The Tabata interval is 45 secs of work followed
-by 15 secs of rest for 12 intervals.
-Tabata score is the total reps performed in all of the intervals.`
+      titulo: "Custom Metcon",
+      contenido: `*Big Grace*
+Part 1
+For time:
+30 Clean & Jerks, 60/42.5
+Rest until the 10 min mark before Part 2...
+Part 2
+1 Power Clean & Jerk, 85/57.5
+*Every 30 secs for 10 mins.*`
     },
     {
-      titulo: "Weightlifting (Press)",
-      contenido: `*5 Sets* Every 2:00 (Post Workout)
-3 Strict Press + 3 Push Press
-Start light and build each minute.`
+      titulo: "Accesorio",
+      contenido: `*4 rounds for quality of:*
+16 Dumbbell Lunges,* RPE 8/10*
+45x 3 Way Calf Raises,* RPE 8.5/10*
+Rest 1-1:30 min between rounds.`
     }
   ],
 
@@ -88,33 +100,27 @@ Start light and build each minute.`
   miercoles: [
     {
       titulo: "WARM-UP",
-      contenido: `*2 Rounds*
-100m Moderate Run
-10 Roll and Reach
-10 Glute Bridges
-10 Deadbugs
-10 Banded Good Mornings
-4 Deadlifts (light)
-4 Push-Ups`
+      contenido: `*2 rounds*
+10 Leg Swings *(each)*
+10 Ankle Rolls L/R *(each)*
+10 Walking Lunge Steps
+10 Reverse Lunges
+10 Alternating V-Ups
+20 High Knees
+20 Butt Kicks
+20 High Skips
+20 Line Hops`
     },
     {
-      titulo: "Custom Metcon (Tiempo)",
-      contenido: `*Summer Sunsets*
-*5 rounds*, each round for time, of:
-400 m Run
-8 Deadlifts, 142.5/92.5`
-    },
-    {
-      titulo: "Accesorio",
-      contenido: `*Accessory A*
-Strict Pull-ups 4x10
-Rest 1-1:30 min between sets.
-Directly into B...
-Accessory B
-Tabata Bent Over Plate Row, pick load
-The Tabata interval is 20 secs of work followed
-by 10 secs of rest for 8 intervals.
-Tabata score is the total reps performed in all of the intervals.`
+      titulo: "Custom Metcon",
+      contenido: `*Broad Stripes and Bright Stars*
+*“FOR TIME”*
+1 Mile Run
+*-Rest Until 15:00 mark then complete-*
+*15:00 AMRAP*
+5 Strict Pull-ups
+10 Push-ups
+15 Sit Ups`
     }
   ],
 
@@ -122,26 +128,33 @@ Tabata score is the total reps performed in all of the intervals.`
   jueves: [
     {
       titulo: "WARM-UP",
-      contenido: `2-3 Rounds
-10 Band Pull Aparts
-5 Hand Release Push Ups
-10 Box Step Ups
-10 Alternating V-Ups
-10 SIngle Arm Upright Rows *(each)*`
+      contenido: `*2 rounds*
+10 Air Squats
+3 Lunge Matrix *(each)*
+10 Hollow Rocks
+6:00–10:00
+*3 rounds*
+10 Russian Swings (light)
+25ft Walking Lunge
+10-second Handstand Hold`
     },
     {
-      titulo: "Weightlifting (Bench Press)",
-      contenido: `Bench Press 10-8-6-4-2
-Use the heaviest weight you can for each set.
-Rest as needed between sets.`
+      titulo: "Gymnastics (Handstand Walk)",
+      contenido: `*SKILL DEVELOPMENT*
+Handstand Walk, Handstand Hold, & Overhead Stability Work
+FREEDOM (ADVANCED)
+Handstand Walk / Freestanding Handstand Hold
+INDEPENDENCE (INTERMEDIATE)
+Kick Ups / Box Pike Walk
+LIBERTY (BEGINNER)
+Bear Crawl / Wall Walk`
     },
     {
       titulo: "Custom Metcon (Tiempo)",
-      contenido: `*Ice Cold Lemonade*
-*2 rounds* for time of:
-50 V-ups
-50 Box Step-ups, 24/20 in
-50 Push-ups`
+      contenido: `*Purple Mountains' Majesty*
+*10 rounds* for time of:
+10 Kettlebell Swings, 24/16
+50 ft Kettlebell Lunge, 24/16`
     }
   ],
 
@@ -149,30 +162,27 @@ Rest as needed between sets.`
   viernes: [
     {
       titulo: "WARM-UP",
-      contenido: `*2 Rounds*
-10 Banded Pass Throughs
-10 Banded Pull Aparts
-10 Banded Strict Press
-5 Dynamic Squat Stretches
-5 Kip Swings`
+      contenido: `*3 rounds*
+20 Single Unders
+10 Hollow Rocks
+5 Strict Knee Raises`
     },
     {
-      titulo: "Gymnastics (Pull-up)",
-      contenido: `Pull-Up Efficiency
-Teaching the pull-up, focusing on rhythm, efficiency, and sustainable gymnastics pacing under fatigue.
-5 Kip Swings + Knee Raise
-3 Kipping Pull-Ups
-3 Butterfly Pull-Ups (if appropriate)`
+      titulo: "Custom Metcon (Reps)",
+      contenido: `*Rockets' Red Glare*
+*5 rounds*, 3 mins each, for max reps of:
+40 Air Squats
+50 Double Unders
+max reps in remaining time Toes-to-bars
+Rest 1:30`
     },
     {
-      titulo: "Custom Metcon (Tiempo)",
-      contenido: `*Cookout Season*
-*“TEAMS OF 3”*
-*“FOR TIME”*
-2100/1700m Row
-200 Thrusters *(20/15)*
-150 Pull-Ups
-Time cap: 20 mins`
+      titulo: "Weightlifting (Shoulder Press)",
+      contenido: `Shoulder Press 1x3
+Use the heaviest weight you can for the set.
+ON A 10:00 RUNNING CLOCK (POST-WORKOUT)
+Build to a Heavy/Mod-Heavy 3-Rep Shoulder Press*
+*Bar comes from the rack`
     }
   ],
 
@@ -180,36 +190,22 @@ Time cap: 20 mins`
   sabado: [
     {
       titulo: "WARM-UP",
-      contenido: `*2 Rounds*
-50m Run
-10 Alternating Lunges
+      contenido: `*2 rounds*
+10 Dynamic Air Squats
+5 Wall Ball Thrusters
 4 Up Downs
-4 Inchworms
-4 Roll and Reach
-4 Burpees
-4 Double Dumbbell Deadlifts
-4 Double Dumbbell Hang Snatch`
+5 Wall Balls
+2 Burpee to Bar
+100m Run Together`
     },
     {
-      titulo: "Custom Metcon",
-      contenido: `*Cannonball!*
-*Part 1*
-*Teams of 2*
-Complete as many rounds as possible in 25 mins of:
-200 m Partner Run
-20 Devil Press, 22.5/15 - split
-Rest 5 mins before part 2...
-*Part 2*
-Power Clean 1x1`
-    },
-    {
-      titulo: "Accesorio",
-      contenido: `*4 rounds for quality of:*
-6 Deadlifts,* RPE 7/10*
-15 Weighted Hip Thrusts,* RPE 8/10*
-10 Jefferson Curls,* RPE 7/10*
-10 Strict Toes-to-bars
-Rest 2 mins`
+      titulo: "Custom Metcon (Tiempo)",
+      contenido: `*"FREEDOM 250"*
+*“TEAMS OF 2”*
+For time:
+2.5 Mile Run (together)
+250 Wall Balls, 20/14 lbs
+250 Burpee-to-Targets, 6 in`
     }
   ]
 };
