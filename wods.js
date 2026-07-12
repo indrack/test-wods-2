@@ -5,26 +5,26 @@ const wods = {
     {
       titulo: "WARM-UP",
       contenido: `*2 Rounds*
-10 Leg Swings *(each)*
 10 Air Squats
-20 second Knee Plank
-100m Run
-10 second Dead Hang
-10 Walking Lunges
-3 Inchworms`
+10 Sit Ups
+3 reps 3-way Lunge Matrix *(each)*
+5:00–7:00
+*2 Rounds*
+5 Wall Balls`
     },
     {
       titulo: "Custom Metcon",
-      contenido: `*The Three Day Match*
-*EVERY 5:00 (4 sets)*
-400m Run
-100m Object Carry 45/32.5`
+      contenido: `*I Have People Skills!*
+Complete as many rounds as possible in 30 mins of:
+30 Wall Balls, 20/14 lbs
+30  V-ups
+30/24 Air Bike Calories`
     },
     {
       titulo: "Accesorio",
       contenido: `*4 rounds for quality of:*
-10 Dumbbell Bulgarian Split Squats,  8/10
-20 Seated Dumbbell Calf Raises,  8/10
+16 Dumbbell Bulgarian Split Squats,*  RPE 8/10*
+15 Seated Dumbbell Calf Raises,*  RPE 8/10*
 Rest 1 min`
     }
   ],
@@ -33,35 +33,27 @@ Rest 1 min`
   lunes: [
     {
       titulo: "WARM-UP",
-      contenido: `*3 rounds*
-10 Leg Swings *(each)*
-10 Step Back Lunges
-10 Hanging Knee Raises
-10 Ring Rows
-5 Inchworms`
+      contenido: `*2 Rounds*
+5 Dynamic Squat Stretches
+10 Glute Bridges
+10 Alternating V-Ups
+5 PVC Box Squats (Strength height)
+5 scapular Pull Ups`
     },
     {
-      titulo: "Gymnastics (Bar Muscle-up)",
-      contenido: `*TEACHING FOCUS  BMU/C2B*
-5 Beat Swings
-3 Chest to Bar Pull Ups (kipping)
-2 Low Bar Muscle Up Transitions
-2–3 Bar Muscle Ups or Chest to Bar`
+      titulo: "Weightlifting (Box Squat)",
+      contenido: `10 Box Squats
+Building; start light and build to a moderate weight
+*Every 3 mins for 9 mins.*`
     },
     {
-      titulo: "Custom Metcon (Tiempo)",
-      contenido: `*Federer vs Nadal*
-For time:
-400 m Run
-15 Bar Muscle-ups/ Burpee Pull-ups
-400 m Run
-12 Bar Muscle-ups/ Burpee Pull-ups
-400 m Run
-9 Bar Muscle-ups/ Burpee Pull-ups
-*Every time you break complete:*
-200m Run
-No more than 2 penalties per set.
-Time cap: 20 mins`
+      titulo: "Custom Metcon",
+      contenido: `*Sounds Like Somebody's Got a Case of the Mondays!*
+3-3-3-*4:00 AMRAP*
+30 Air Squats
+15 Pull Ups
+Max Sit Ups
+*-Rest 1:00 between Sets-*`
     }
   ],
 
@@ -69,33 +61,30 @@ Time cap: 20 mins`
   martes: [
     {
       titulo: "WARM-UP",
-      contenido: `*2 rounds*
-20 Single Unders
-10 Alternating V-Ups
-10 Banded Strict Press
-5 Light Dumbbell Strict Press *(each)*
-10 Double Unders
-10 Sit Ups`
+      contenido: `*2 Rounds*
+0:30 Jump Rope
+10 Hollow Rocks
+10 Shoulder Taps
+10 Box Step Overs
+5 Kip Swings
+5 Pike Push Ups
+5 Box Jump Overs (low)`
     },
     {
-      titulo: "Custom Metcon (Rondas y Reps)",
-      contenido: `*Grass Court*
+      titulo: "Gymnastics (Handstand Push-up)",
+      contenido: `STRICT HANDSTAND PUSH UP PREP
+5 Pike Push Ups
+5 Box Pike Hold Shoulder Taps
+3 Kick Up to the wall + Slow Negative
+3-5 Strict Handstand Push Ups or Appropriate Progression`
+    },
+    {
+      titulo: "Custom Metcon",
+      contenido: `*Hi, My Name is Steve*
 Complete as many rounds as possible in 20 mins of:
-50 Double Unders
-50 Single Arm Dumbbell Push Press, 22.5/15
-50 Double Unders
-50 AbMat Sit-ups
-50 Double Unders`
-    },
-    {
-      titulo: "Accesorio",
-      contenido: `*3 rounds for max reps of:*
-1 min max rep Strict Pull-ups
-Rest 30 secs
-1 min Banded Lat Pull Down
-Rest 30 secs
-1 min Elbow Plank Hold
-Rest 30 secs`
+21 Box Jump Overs, 24/20 in
+15 Pull-ups
+9 Strict Handstand Push-ups`
     }
   ],
 
@@ -103,36 +92,29 @@ Rest 30 secs`
   miercoles: [
     {
       titulo: "WARM-UP",
-      contenido: `*2 rounds*
-10 PVC Pass Throughs
-10 PVC Around the Worlds (both)
+      contenido: `*2 Rounds*
 10 Deadbugs
-10 Glute Bridges
-5 Roll and Reach
 5 Inchworms
-5 PVC Snatch Deadlifts
-5 PVC Snatch High Pulls
-5 PVC Overhead Squats`
+5 Dynamic Squat Stretches
+5 PVC Front Rack Lunges
+3 Empty Bar Muscle Cleans
+3 Empty Bar Front Squats
+100m Moderate Row`
     },
     {
-      titulo: "Weightlifting (Snatch)",
-      contenido: `2 Squat Snatches Singles
-Start Mod and Build to Mod-Heavy
-*Every 1:30 for 12 mins.*`
+      titulo: "Weightlifting (Clean)",
+      contenido: `*Every 1 min for 10 mins, alternating between:*
+1x [ 1 Squat Clean + 1 Front Squat ], building`
     },
     {
       titulo: "Custom Metcon",
-      contenido: `*Serena & Venus*
+      contenido: `*I Believe You Have My Stapler!*
 *“FOR TIME”*
-21-15-9
-Overhead Squat *(52.5/35)*
-Toes to Bar
-(Score is Time, 6:00 Time Cap)
-*-Rest until 8:00-*
-21-15-9
-Lateral Burpee Over Bar
-Toes to Bar
-(Score is Time, 6:00 Time Cap)`
+10-8-6-4-2
+Front Squats 85/57.5
+20 Burpees Over Bar after every set
+Barbell comes from the floor
+Time cap: 20 mins`
     }
   ],
 
@@ -140,25 +122,45 @@ Toes to Bar
   jueves: [
     {
       titulo: "WARM-UP",
-      contenido: `*3 Rounds*
-10 Banded Pull Aparts
-5 Hand Release Push Ups
-5 Empty Bar Hang Muscle Cleans
-3 Empty Bar Hang Power Cleans`
-    },
-    {
-      titulo: "Weightlifting (Bench Press)",
-      contenido: `5 Bench Press
-Start Mod and Build Every Set
-*Every 2 mins for 10 mins.*`
+      contenido: `*2 Rounds*
+10 Leg Swings *(each)*
+10 Walking Lunges
+25ft Butt Kicks
+25ft High Knees
+30 Single Unders
+100m Run (easy-moderate pace)
+Skill
+Double Under Skill Session
+*Level 1:* First Double Under Progression
+10 Penguin Taps
+5 Single Unders + 1 Double Under Attempt
+5 Successful Double Unders
+*Level 2:* Building Larger Sets
+*3 Sets*
+10-20 unbroken Double Unders
+*1 Set*
+Max unbroken Double Unders (cap at 100)
+*Level 3:* Advanced Skill Work
+Choose one and practice multiple sets:
+• Crossover Singles
+• Crossover Doubles
+• Triple Under Practice
+• Max unbroken Double Under Sets
+Don't burn yourself out`
     },
     {
       titulo: "Custom Metcon (Tiempo)",
-      contenido: `*Championship Point*
+      contenido: `*Did You See My Memo?*
 For time:
-10-9-8-7-6-5-4-3-2-1
-Hang Power Clean *(70/47.5)*
-10 Push Ups after every set`
+*“FOR TIME”*
+800m Run
+150 Double Unders
+600m Run
+100 Double Unders
+400m Run
+50 Double Unders
+200m Run
+Time cap: 18 mins`
     }
   ],
 
@@ -167,34 +169,28 @@ Hang Power Clean *(70/47.5)*
     {
       titulo: "WARM-UP",
       contenido: `*2 Rounds*
-10 Deadbugs
-10 PVC Good Mornings
-10 Dynamic Squat Stretches
-5 Wall Balls
-100m Row
-3 Empty Bar Back Squats (slow and controlled)`
+10 PVC Pass Throughs
+10 Air Squats
+5 Inchworms + Push Up
+3 PVC High Hang Power Snatches
+3 PVC Hang Power Snatches
+3 PVC Power Snatches
+2 Burpee Facing PVC
+3 Kip Swings`
     },
     {
-      titulo: "Custom Metcon",
-      contenido: `*Pimm's Cup*
-Part 1
-*Teams of 3-4*
-10' Rotate EMON
-At start of each minute, One athlete Rows 200/100 m
-The remaining team complete 15-20 Wall balls, sharing de reps as needed
-Rotate the rower every minute
-Rest Until 12:00 Mark
-Part 2
-*“ON A 15:00 CLOCK”*
-1RM Back Squat`
+      titulo: "Weightlifting (Power Snatch)",
+      contenido: `1x [ 1 High Hang Power Snatch + 1 Hang Power Snatch + 1 Power Snatch ]
+*Every 2 mins for 10 mins.*
+Complete each set unbroken. Start light-mod and build.`
     },
     {
-      titulo: "Accesorio",
-      contenido: `*Optional Accessory*
-*4 rounds* for quality of:
-30 Banded Bicep Curls
-30 Banded Tricep Extensions
-Rest 1 min`
+      titulo: "Custom Metcon (Tiempo)",
+      contenido: `*We Find It's Always Better to Fire People On a Friday*
+*5 rounds*, each round for time, of:
+3 Power Snatches, 70/47.5
+9 Bar Facing Burpees
+15 Toes-to-bars`
     }
   ],
 
@@ -202,31 +198,22 @@ Rest 1 min`
   sabado: [
     {
       titulo: "WARM-UP",
-      contenido: `*2 Rounds*
-10 Banded Good Mornings
-10 Box Step Ups
-5 Empty Bar Deadlifts
-5 Pull Ups or Ring Rows`
+      contenido: `*3 Rounds*
+5 Hand Release Push Ups
+10 Russian Kettlebell Swings (light)
+10 Walking Lunge Steps
+100m Run Each`
     },
     {
-      titulo: "Custom Metcon",
-      contenido: `*Team "Roy"8*
-*Teams of 2*
-You go-I go fashion.
-*5 rounds* for time of:
-15 Deadlifts, 102.5/70
-20 Box Jumps, 24/20 in
-25 Pull-ups
-Both partners complete 5 rounds.`
-    },
-    {
-      titulo: "Accesorio",
-      contenido: `*Mini Pump - Shoulders and Arms*
-*4 rounds* for quality of:
-3 Strict Press,* RPE 8.5/10*
-10 Dumbbell Reverse Flies,* RPE 8/10*
-20 Plate Front Raises,* RPE 8/10*
-Rest 2 mins`
+      titulo: "Custom Metcon (Tiempo)",
+      contenido: `*I Love Kung Fu!*
+*“FOR TIME”*
+1 Mile Run (switch every 200m)
+150 Kettlebell Swings *(32/24)*
+100 Synchro Push Ups
+150 Kettlebell Goblet Lunges *(32/24)*
+1 Mile Run (switch every 200m)
+Time cap: 38 mins`
     }
   ]
 };
