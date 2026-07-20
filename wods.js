@@ -52,10 +52,6 @@ Independence (Intermediate) - Top of the Ring Hold (Slow negative)
 Liberty (Beginner) - Box Dip (1-2 feet on the box)`
     },
     {
-      titulo: "Custom Metcon",
-      contenido: ``
-    },
-    {
       titulo: "Custom Metcon (Tiempo)",
       contenido: `*Elizabeth*
 Part 1
