@@ -54,13 +54,13 @@ Liberty (Beginner) - Box Dip (1-2 feet on the box)`
     {
       titulo: "Custom Metcon (Tiempo)",
       contenido: `*Elizabeth*
-Part 1
+*Part 1*
 For time
 21-15-9
 Clean, 60/42.5
 Ring Dip
 Rest until the 10 min mark until
-Part 2
+*Part 2*
 1 Power Clean, Moderate-Heavy
 *Every 30 secs for 12 mins.*`
     }
