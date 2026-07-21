@@ -259,4 +259,3 @@ function publishToFirebase() {
             msg.style.color = "orange";
         });
 }
-
